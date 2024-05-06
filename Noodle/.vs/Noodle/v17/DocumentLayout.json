@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\KaS-Noodle\\Noodle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\editingview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\view\\editingview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,13 +23,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\Form1.cs",
-              "RelativeDocumentMoniker": "Noodle\\Form1.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\Form1.cs [Design]",
-              "RelativeToolTip": "Noodle\\Form1.cs [Design]",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\Program.cs",
+              "RelativeDocumentMoniker": "Noodle\\Program.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\Program.cs*",
+              "RelativeToolTip": "Noodle\\Program.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T20:34:09.158Z",
+              "WhenOpened": "2024-05-06T19:09:13.587Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditingView.cs [Design]",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditingView.cs",
+              "RelativeDocumentMoniker": "Noodle\\view\\EditingView.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditingView.cs [Design]",
+              "RelativeToolTip": "Noodle\\view\\EditingView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T19:08:58.323Z",
               "EditorCaption": " [Design]"
             }
           ]

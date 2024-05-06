@@ -6,6 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
+      "Noodle/1.0.0": {
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.2478.35",
+          "PdfPig": "0.1.8"
+        },
+        "runtime": {
+          "Noodle.dll": {}
+        }
+      },
       "Microsoft.Web.WebView2/1.0.2478.35": {
         "runtime": {
           "lib/netcoreapp3.0/Microsoft.Web.WebView2.Core.dll": {
@@ -74,6 +83,11 @@
     }
   },
   "libraries": {
+    "Noodle/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Microsoft.Web.WebView2/1.0.2478.35": {
       "type": "package",
       "serviceable": true,
