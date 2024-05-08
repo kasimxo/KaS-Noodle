@@ -16,8 +16,6 @@
   <ItemGroup>
     <Folder Include="controller\" />
     <Folder Include="config\" />
-    <Folder Include="model\action\" />
-    <Folder Include="model\dto\" />
     <Folder Include="model\dal\" />
   </ItemGroup>
 
