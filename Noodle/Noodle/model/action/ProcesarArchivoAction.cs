@@ -92,12 +92,11 @@ namespace Noodle.model.action
                             {
                                 //Aquí vamos a procesar la línea porque estamos dentro de los resultados de aprendizaje
 
-                                if (linea.Equals("^[1-9]\\.\\s.*"))
+                                Regex reg1 = new Regex("^[1-9]\\.\\s.*");
+                                if (reg1.IsMatch(linea))
                                 {
                                     //Aquí hacemos match de RA
-                                    CompetenciaDTO com;
-                                    competencias.TryGetValue(modu, out com);
-                                    com.ras.Add(new ResultadoAprendizajeDTO(linea));
+                                    competencias[modu].ras.Add(linea, new ResultadoAprendizajeDTO(linea));
                                     ultimora = linea;
                                     frase = "";
                                 }
@@ -105,16 +104,21 @@ namespace Noodle.model.action
                                 {
                                     criteriosEvaluacion = true;
                                 }
-                                Regex reg = new Regex("^[a-z]\\).*");
-                                
-                                if (reg.IsMatch(linea.Trim().ToLower()))
-                                {
-                                    try
+
+                                if (criteriosEvaluacion) {
+                                    Regex reg = new Regex("^[a-z]\\).*");
+
+                                    if (reg.IsMatch(linea.Trim().ToLower()))
                                     {
-                                        competencias[modu].ras.Add(new ResultadoAprendizajeDTO(linea));
+                                        try
+                                        {
+                                            CriterioEvaluacionDTO ce = new CriterioEvaluacionDTO(linea);
+                                            competencias[modu].ras[ultimora].criterios.Add(linea, ce);
+                                        }
+                                        catch (Exception e) { }
                                     }
-                                    catch (Exception e) { }
                                 }
+                                
                             }
                         }
 
@@ -134,8 +138,24 @@ namespace Noodle.model.action
 
             }
 
-            return null;
-        }
+            
 
+            
+
+            return diccionarioToList(competencias);
+        }
+        private static List<CompetenciaDTO> diccionarioToList(Dictionary<string, CompetenciaDTO> competencias)
+        {
+            List<CompetenciaDTO> resultado = new List<CompetenciaDTO>();
+
+            foreach (CompetenciaDTO c in competencias.Values)
+            {
+                resultado.Add(c);
+            }
+
+            return resultado;
+        }
     }
+
+    
 }

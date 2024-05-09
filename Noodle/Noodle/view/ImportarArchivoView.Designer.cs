@@ -1,6 +1,6 @@
 ﻿namespace Noodle.view
 {
-    partial class EditingView
+    partial class ImportarArchivoView
     {
         /// <summary>
         /// Required designer variable.

@@ -1,25 +1,17 @@
-﻿using System;
+﻿using Noodle.model.action;
+using Noodle.model.dto;
+using Noodle.view;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using Noodle.model.action;
-using Noodle.model.dto;
 
-namespace Noodle.view
+namespace Noodle.controller
 {
-    public partial class EditingView : Form
+    public class ImportarArchivoController
     {
-        public EditingView()
-        {
-            InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        public static void procesarArchivoBtn()
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
@@ -36,6 +28,11 @@ namespace Noodle.view
             string selectedFileName = openFileDialog1.FileName;
 
             List<CompetenciaDTO> competencias = ProcesarArchivoAction.extraerCompetencias(selectedFileName);
+
+            Program.mW.Hide();
+            EditarCompetenciasView ecV = new EditarCompetenciasView(competencias);
+            ecV.Show();
         }
+
     }
 }
