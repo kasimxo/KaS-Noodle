@@ -15,6 +15,11 @@ namespace Noodle.model.dto
             this.criterios = new List<CriterioEvaluacionDTO>();
         }
 
+        public ResultadoAprendizajeDTO(string nombre) {
+            this.nombre = nombre;
+            this.criterios = new List<CriterioEvaluacionDTO>();
+        }
+
         public ResultadoAprendizajeDTO(List<CriterioEvaluacionDTO> criterios)
         {
             this.criterios = criterios;

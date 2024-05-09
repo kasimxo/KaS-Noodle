@@ -8,6 +8,7 @@ using UglyToad.PdfPig.DocumentLayoutAnalysis.TextExtractor;
 using UglyToad.PdfPig;
 using System.Diagnostics;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace Noodle.model.action
 {
@@ -34,7 +35,8 @@ namespace Noodle.model.action
 
                     var lineas = text.Split("\n");
                     string frase = "";
-                    foreach(var linea in lineas ) {
+                    foreach(var line in lineas ) {
+                        string linea = line;
                         System.Diagnostics.Debug.WriteLine(linea+"\n---");
                         //System.Diagnostics.Debug.WriteLine("----");
 
@@ -45,7 +47,7 @@ namespace Noodle.model.action
                         {
                             
                             linea.Substring(0, linea.Length - 1);
-                            linea = linea.replaceAll("\\s+$", "");
+                            linea = linea.Replace("\\s+$", "");
 
                             if (linea.Length > 1 && (linea[linea.Length - 1] == '.' || linea[linea.Length - 1] == ':'))
                             {
@@ -54,24 +56,24 @@ namespace Noodle.model.action
 
                             }
                         }
-                        else if (linea.compareTo("") == 0)
+                        else if (linea.Equals(""))
                         {
                             frase = "";
                         }
                         frase += linea;
 
                         //Identifica módulos profesionales
-                        if ((linea.Trim().toLowerCase().startsWith("módulo profesional") || linea.Trim().toLowerCase().startsWith("modulo profesional")) && linea.toLowerCase().contains(":"))
+                        if ((linea.Trim().ToLower().StartsWith("módulo profesional") || linea.Trim().ToLower().StartsWith("modulo profesional")) && linea.ToLower().Contains(":"))
                         {
 
                             //System.out.println(linea);
-                            String mod = linea.Substring(linea.indexOf(":") + 1);
+                            String mod = linea.Substring(linea.IndexOf(":") + 1);
                             //System.out.println(mod);
 
                             //Comprueba si están en el mapa y si no es así los mete
-                            if (!modulos.containsKey(mod))
+                            if (!competencias.ContainsKey(mod))
                             {
-                                modulos.put(mod, new Modulo(mod));
+                                competencias.Add(mod, new CompetenciaDTO(mod));
                                 modu = mod;
                             }
                             //modulos.add(new Modulo(mod));
@@ -81,10 +83,8 @@ namespace Noodle.model.action
 
                         if (modulo)
                         {
-                            //System.out.print(linea);
-                            //System.out.println("PENE");
-                            //System.exit(0);
-                            if (linea.Trim().toLowerCase().startsWith("resultados de aprendizaje y criterios de evaluaci"))
+                            
+                            if (linea.Trim().ToLower().StartsWith("resultados de aprendizaje y criterios de evaluaci"))
                             {
                                 resultadoAprendizaje = true;
                             }
@@ -92,35 +92,40 @@ namespace Noodle.model.action
                             {
                                 //Aquí vamos a procesar la línea porque estamos dentro de los resultados de aprendizaje
 
-                                if (linea.matches("^[1-9]\\.\\s.*"))
+                                if (linea.Equals("^[1-9]\\.\\s.*"))
                                 {
                                     //Aquí hacemos match de RA
-
-                                    modulos.get(modu).addResultadoAprendizaje(linea);
+                                    CompetenciaDTO com;
+                                    competencias.TryGetValue(modu, out com);
+                                    com.ras.Add(new ResultadoAprendizajeDTO(linea));
                                     ultimora = linea;
                                     frase = "";
                                 }
-                                if (linea.Trim().toLowerCase().startsWith("criterios de evaluaci"))
+                                if (linea.Trim().ToLower().StartsWith("criterios de evaluaci"))
                                 {
                                     criteriosEvaluacion = true;
                                 }
-                                if (linea.Trim().toLowerCase().matches("^[a-z]\\).*"))
+                                Regex reg = new Regex("^[a-z]\\).*");
+                                
+                                if (reg.IsMatch(linea.Trim().ToLower()))
                                 {
-
-                                    modulos.get(modu).addCriterioEvaluacion(ultimora, linea);
-                                   
+                                    try
+                                    {
+                                        competencias[modu].ras.Add(new ResultadoAprendizajeDTO(linea));
+                                    }
+                                    catch (Exception e) { }
                                 }
                             }
                         }
 
-                        if (linea.Trim().toLowerCase().startsWith("contenidos"))
+                        if (linea.Trim().ToLower().StartsWith("contenidos"))
                         {
                             modulo = false;
                             resultadoAprendizaje = false;
                             criteriosEvaluacion = false;
                             ultimora = "";
                             modu = "";
-                        }
+                        
                     }
                 }
 
