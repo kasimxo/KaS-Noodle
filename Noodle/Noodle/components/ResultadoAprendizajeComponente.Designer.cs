@@ -1,6 +1,6 @@
 ﻿namespace Noodle.components
 {
-    partial class CompetenciaComponente
+    partial class ResultadoAprendizajeComponente
     {
         /// <summary> 
         /// Required designer variable.
@@ -37,56 +37,41 @@
             // nombre
             // 
             nombre.AutoSize = true;
-            nombre.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            nombre.Location = new Point(3, 3);
-            nombre.Margin = new Padding(3);
-            nombre.MaximumSize = new Size(350, 0);
+            nombre.Location = new Point(3, 0);
+            nombre.MaximumSize = new Size(400, 1000);
             nombre.Name = "nombre";
-            nombre.Size = new Size(61, 22);
+            nombre.Size = new Size(38, 15);
             nombre.TabIndex = 0;
             nombre.Text = "label1";
-            nombre.MouseClick += CompetenciaComponente_MouseClick;
             // 
             // flp
             // 
-            flp.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            flp.AutoScroll = true;
             flp.AutoSize = true;
             flp.FlowDirection = FlowDirection.TopDown;
-            flp.Location = new Point(3, 31);
+            flp.Location = new Point(3, 18);
             flp.Name = "flp";
-            flp.Size = new Size(61, 0);
+            flp.Size = new Size(0, 0);
             flp.TabIndex = 1;
-            flp.Visible = false;
-            flp.WrapContents = false;
             // 
             // container
             // 
             container.AutoSize = true;
-            container.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             container.Controls.Add(nombre);
             container.Controls.Add(flp);
             container.FlowDirection = FlowDirection.TopDown;
             container.Location = new Point(3, 3);
             container.Name = "container";
-            container.Size = new Size(67, 34);
+            container.Size = new Size(200, 100);
             container.TabIndex = 2;
-            container.WrapContents = false;
             // 
-            // CompetenciaComponente
+            // ResultadoAprendizajeComponente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
             AutoSize = true;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BackColor = Color.FromArgb(170, 255, 220);
             Controls.Add(container);
-            MinimumSize = new Size(375, 0);
-            Name = "CompetenciaComponente";
-            Size = new Size(375, 40);
-            Load += CompetenciaComponente_Load;
-            MouseClick += CompetenciaComponente_MouseClick;
+            Name = "ResultadoAprendizajeComponente";
+            Size = new Size(346, 137);
             container.ResumeLayout(false);
             container.PerformLayout();
             ResumeLayout(false);

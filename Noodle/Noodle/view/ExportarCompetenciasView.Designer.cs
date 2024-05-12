@@ -1,6 +1,6 @@
 ﻿namespace Noodle.view
 {
-    partial class ImportarArchivoView
+    partial class ExportarCompetenciasView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
+            flp = new FlowLayoutPanel();
             button1 = new Button();
             SuspendLayout();
             // 
+            // flp
+            // 
+            flp.AutoSize = true;
+            flp.FlowDirection = FlowDirection.TopDown;
+            flp.Location = new Point(11, 14);
+            flp.Name = "flp";
+            flp.Size = new Size(200, 100);
+            flp.TabIndex = 0;
+            // 
             // button1
             // 
-            button1.Location = new Point(102, 121);
+            button1.Location = new Point(602, 187);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Seleccionar";
+            button1.TabIndex = 1;
+            button1.Text = "Exportar";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // ImportarArchivoView
+            // ExportarCompetenciasView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
-            Name = "ImportarArchivoView";
+            Controls.Add(flp);
+            Name = "ExportarCompetenciasView";
             Text = "Noodle";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
+        private FlowLayoutPanel flp;
         private Button button1;
     }
 }

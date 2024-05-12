@@ -4,7 +4,16 @@
     <Compile Update="components\CompetenciaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="components\ResultadoAprendizajeComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\SeleccionCompetenciaComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="view\EditarCompetenciasView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\ExportarCompetenciasView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="view\ImportarArchivoView.cs">

@@ -32,16 +32,12 @@ namespace Noodle.model.action
                 for (var i = 1; i <= document.NumberOfPages; i++) {
                     var page = document.GetPage(i);
                     var text = ContentOrderTextExtractor.GetText(page, true);
-
+                    text = text.Replace("\r", "");
                     var lineas = text.Split("\n");
                     string frase = "";
                     foreach(var line in lineas ) {
                         string linea = line;
-                        System.Diagnostics.Debug.WriteLine(linea+"\n---");
-                        //System.Diagnostics.Debug.WriteLine("----");
-
-
-
+                        //System.Diagnostics.Debug.WriteLine(linea+"\n---");
                         //Procesa una lína para asegurarse de que termina correctamente
                         if (linea.Length > 2 && linea[linea.Length - 1] == '\r')
                         {
@@ -68,6 +64,18 @@ namespace Noodle.model.action
 
                             //System.out.println(linea);
                             String mod = linea.Substring(linea.IndexOf(":") + 1);
+
+                            //Depuramos caracteres al principio y final
+                            if (mod[mod.Length-1] == '.')
+                            {
+                                mod = mod.Substring(0, mod.Length - 1);
+                            }
+
+                            if (mod.StartsWith("\u0003"))
+                            {
+                                mod = mod.Replace("\u0003", "");
+                            }
+
                             //System.out.println(mod);
 
                             //Comprueba si están en el mapa y si no es así los mete

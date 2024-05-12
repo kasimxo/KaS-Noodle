@@ -13,6 +13,8 @@ namespace Noodle.components
 {
     public partial class CompetenciaComponente : UserControl
     {
+        public CompetenciaDTO competencia { get; set; }
+        public string nombreCom { get; set; }
         public CompetenciaComponente()
         {
             InitializeComponent();
@@ -21,13 +23,33 @@ namespace Noodle.components
         {
             InitializeComponent();
 
-            nombre.Text = com.nombre;
+            this.nombreCom = com.nombre;
+            this.competencia = com;
+            nombre.Text = competencia.nombre;
 
-            foreach (ResultadoAprendizajeDTO ra in com.ras.Values) {
-                Label label = new Label();
-                label.Text = ra.nombre;
-                label.AutoSize = true;
-                flp.Controls.Add(label);
+        }
+
+        private void CompetenciaComponente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void listarDetalles()
+        {
+            flp.Controls.Clear();
+            foreach (ResultadoAprendizajeDTO ra in competencia.ras.Values)
+            {
+                ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra);
+                flp.Controls.Add(rac);
+                flp.Visible = true;
+            }
+        }
+        public void CompetenciaComponente_MouseClick(object sender, MouseEventArgs e)
+        { 
+            foreach (ResultadoAprendizajeDTO ra in competencia.ras.Values)
+            {
+                ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra);
+                flp.Controls.Add(rac);
             }
         }
     }
