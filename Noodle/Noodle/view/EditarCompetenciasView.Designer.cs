@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarCompetenciasView));
             flp = new FlowLayoutPanel();
             detalleCompetencia = new components.CompetenciaComponente();
             container = new FlowLayoutPanel();
@@ -89,6 +90,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(container);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EditarCompetenciasView";
             Text = "Editar";
             container.ResumeLayout(false);

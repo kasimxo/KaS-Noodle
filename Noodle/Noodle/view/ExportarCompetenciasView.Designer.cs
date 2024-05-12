@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportarCompetenciasView));
             flp = new FlowLayoutPanel();
             button1 = new Button();
             SuspendLayout();
@@ -58,6 +59,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(flp);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ExportarCompetenciasView";
             Text = "Noodle";
             ResumeLayout(false);
