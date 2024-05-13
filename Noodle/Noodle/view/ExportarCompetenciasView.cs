@@ -14,18 +14,19 @@ namespace Noodle.view
 {
     public partial class ExportarCompetenciasView : Form
     {
+        public CicloDTO ciclo {  get; set; }
         public List<CompetenciaDTO> competencias;
-        public ExportarCompetenciasView(List<CompetenciaDTO> competencias)
+        public ExportarCompetenciasView(CicloDTO ciclo)
         {
             InitializeComponent();
             initView();
-            this.competencias = competencias;
+            this.ciclo = ciclo;
             listarCompetencias();
         }
 
         public void listarCompetencias()
         {
-            foreach (CompetenciaDTO com in competencias)
+            foreach (CompetenciaDTO com in ciclo.competencias.Values)
             {
                 SeleccionCompetenciaComponente scc = new SeleccionCompetenciaComponente(com);
                 flp.Controls.Add(scc);
@@ -50,8 +51,10 @@ namespace Noodle.view
             {
                 using (StreamWriter sw = new StreamWriter(sfd.FileName, true))
                 {
+                    //Hardcode de las cabeceras
                     sw.WriteLine("Identificador padre;Identificador;Nombre corto;Descripción;Descripción del formato;Valores de escala;Configuración de escala;Tipo de regla (opcional);Resultado de la regla (opcional);Configuración de regla (opcional);Identificadores de referencias cruzadas de competencias;Identificador de la exportación (opcional);Es marco de competencias;Taxonomía");
-                    //Hardcode de la primera línea como prueba
+                    sw.WriteLine(ciclo.ToCSV());
+                    /*
                     string idPadre = ";";
                     string id = "mc_gs_dam;";
                     string nombreCorto = "CFPGS DAM;";
@@ -85,6 +88,7 @@ namespace Noodle.view
                     {
                         sw.WriteLine(com.ToCSV());
                     }
+                    */
                 }
             }
 

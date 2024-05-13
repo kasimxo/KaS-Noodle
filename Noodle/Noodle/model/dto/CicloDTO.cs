@@ -10,7 +10,7 @@ namespace Noodle.model.dto
     {
         public string denominacion {  get; set; } //Desarrollo de Aplicaciones Multiplataforma
         public string siglas { get; set; } //DAM
-        public string nivel {  get; set; } // Básico Medio Superior
+        public string nivel {  get; set; } // B M S (Básico, Medio, Superior) 
         
         public Dictionary<string, CompetenciaDTO> competencias {  get; set; }
 
@@ -37,22 +37,55 @@ namespace Noodle.model.dto
             return siglas;
         }
 
+        public string NombreCorto()
+        {
+            return "CFP" + categoria() + " " + siglas + ";"; 
+        }
+
+        /// <summary>
+        /// Transforma el nivel en la categoría correspondiente:
+        /// GB -> Grado Básico
+        /// GM -> Grado Medio
+        /// GS -> Grado Superior
+        /// </summary>
+        /// <returns></returns>
+        public string categoria()
+        {
+            if (nivel == null) { return ""; }
+            switch (nivel)
+            {
+                case "B":
+                    return "GB";
+                case "M":
+                    return "GM";
+                case "S":
+                    return "GS";
+                default:
+                    return "";
+            }
+        }
+
+        public string ID()
+        {
+            return "mc_" + categoria().ToLower() + "_" + siglas.ToLower() + ";";
+        }
+
         public string ToCSV()
         {
             string idPadre = ";";
-            string id = "mc_gs_dam;";
-            string nombreCorto = "CFPGS DAM;";
-            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: CFPGM SMR.</p>\";";
+            string id = ID();
+            string nombreCorto = NombreCorto();
+            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: "+NombreCorto()+".</p>\";";
             string descripcionFormato = "1;"; //Fixed: 1
-            string valoresEscala = ";"; //Solo ciclo
-            string configuracionEscala = ";"; //Solo ciclo
+            string valoresEscala = "No competente aún,Competente;"; //Solo ciclo
+            string configuracionEscala = "\"[{\"\"scaleid\"\":\"\"2\"\"},{\"\"id\"\":1,\"\"scaledefault\"\":1,\"\"proficient\"\":0},{\"\"id\"\":2,\"\"scaledefault\"\":0,\"\"proficient\"\":1}]\";"; //Solo ciclo
             string tipoRegla = ";"; //Opcional
             string resultadoRegla = ";"; //Opcional
             string configuracionRegla = ";"; //Opcional
             string idReferenciasCruzadasCompetencias = ";"; //Opcional
             string idExportacion = ";"; //Opcional
-            string esMarcoCompetencias = ";"; //Solo ciclo
-            string taxonomia = ""; //Solo ciclo
+            string esMarcoCompetencias = "1;"; //Solo ciclo
+            string taxonomia = "competency,outcome,indicator,level"; //Solo ciclo
 
             string texto = idPadre +
                 id +
@@ -69,12 +102,16 @@ namespace Noodle.model.dto
                 esMarcoCompetencias +
                 taxonomia;
 
+            int cant = 0;
+
             foreach(CompetenciaDTO com in competencias.Values)
             {
-                texto += "\n" + com.ToCSV();
+                texto += "\n" + com.ToCSV(";", id,cant, nombreCorto);
+                cant++;
             }
 
-            return null;
+            return texto;
         }
+
     }
 }

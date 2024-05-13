@@ -35,12 +35,12 @@ namespace Noodle.model.dto
             this.criterios = criterios;
         }
 
-        public string ToCSV()
+        public string ToCSV(string identificadorPadre, int cardinalidad)
         {
-            string idPadre = ";";
-            string id = "mc_gs_dam;";
-            string nombreCorto = "CFPGS DAM;";
-            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: CFPGM SMR.</p>\";";
+            string idPadre = identificadorPadre+";";
+            string id = generarID(identificadorPadre, cardinalidad);
+            string nombreCorto = generarNombreCorto(cardinalidad);
+            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: "+ generarNombreCorto(cardinalidad) + ".</p>\";";
             string descripcionFormato = "1;"; //Fixed: 1
             string valoresEscala = ";"; //Solo ciclo
             string configuracionEscala = ";"; //Solo ciclo
@@ -67,11 +67,22 @@ namespace Noodle.model.dto
                 esMarcoCompetencias +
             taxonomia;
 
+            int cantidad = 0;
             foreach (CriterioEvaluacionDTO ce in criterios.Values)
             {
-                texto += "\n" + ce.ToCSV();
+                texto += "\n" + ce.ToCSV(id,cardinalidad,cantidad);
+                cantidad++;
             }
             return texto;
+        }
+
+        public string generarID(string idPadre, int cardinalidad)
+        {
+            return idPadre+"_"+cardinalidad.ToString()+";";
+        }
+
+        public string generarNombreCorto(int cardinalidad) {
+            return "RA " + cardinalidad.ToString() + ";";
         }
     }
 }

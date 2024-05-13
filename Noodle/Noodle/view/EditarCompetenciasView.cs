@@ -79,7 +79,7 @@ namespace Noodle.view
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ExportarCompetenciasView ecv = new ExportarCompetenciasView(competencias);
+            ExportarCompetenciasView ecv = new ExportarCompetenciasView(ciclo);
             ecv.Show();
             this.Close();
         }

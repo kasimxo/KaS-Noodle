@@ -72,14 +72,14 @@ namespace Noodle.model.action
                         {
                             if (linea.ToLower().Contains("superior"))
                             {
-                                ciclo.nivel = "Superior";
+                                ciclo.nivel = "S";
                             } else if (linea.ToLower().Contains("medio"))
                             {
-                                ciclo.nivel = "Medio";
+                                ciclo.nivel = "M";
                             }
                             else if (linea.ToLower().Contains("basico") || linea.ToLower().Contains("básico"))
                             {
-                                ciclo.nivel = "Básico";
+                                ciclo.nivel = "B";
                             }
                         }
 
