@@ -16,8 +16,9 @@ namespace Noodle.model.action
     {
         public ProcesarArchivoAction(string filename) { }
 
-        public static List<CompetenciaDTO> extraerCompetencias(string filePath)
+        public static CicloDTO extraerCompetencias(string filePath)
         {
+            CicloDTO ciclo = new CicloDTO();
             Dictionary<string, CompetenciaDTO> competencias = new Dictionary<string, CompetenciaDTO>();
             string modu = "";
             string ultimora = "";
@@ -29,19 +30,21 @@ namespace Noodle.model.action
             {
                 //Recorremos todas las páginas una a una
                 //Empieza en la página 1
-                for (var i = 1; i <= document.NumberOfPages; i++) {
+                for (var i = 1; i <= document.NumberOfPages; i++)
+                {
                     var page = document.GetPage(i);
                     var text = ContentOrderTextExtractor.GetText(page, true);
                     text = text.Replace("\r", "");
                     var lineas = text.Split("\n");
                     string frase = "";
-                    foreach(var line in lineas ) {
+                    foreach (var line in lineas)
+                    {
                         string linea = line;
                         //System.Diagnostics.Debug.WriteLine(linea+"\n---");
                         //Procesa una lína para asegurarse de que termina correctamente
                         if (linea.Length > 2 && linea[linea.Length - 1] == '\r')
                         {
-                            
+
                             linea.Substring(0, linea.Length - 1);
                             linea = linea.Replace("\\s+$", "");
 
@@ -58,30 +61,39 @@ namespace Noodle.model.action
                         }
                         frase += linea;
 
+                        //Identifica la denominación del ciclo
+                        if ((linea.Trim().ToLower().StartsWith("denominación") || linea.Trim().ToLower().StartsWith("denominacion")) && linea.ToLower().Contains(":"))
+                        {
+                            ciclo.denominacion = limpiar(linea.Substring(linea.IndexOf(":") + 1));
+                            ciclo.siglas = ciclo.denominacionToSiglas(ciclo.denominacion);
+                        }
+
+                        if (linea.Trim().ToLower().StartsWith("nivel") && linea.ToLower().Contains(":"))
+                        {
+                            if (linea.ToLower().Contains("superior"))
+                            {
+                                ciclo.nivel = "Superior";
+                            } else if (linea.ToLower().Contains("medio"))
+                            {
+                                ciclo.nivel = "Medio";
+                            }
+                            else if (linea.ToLower().Contains("basico") || linea.ToLower().Contains("básico"))
+                            {
+                                ciclo.nivel = "Básico";
+                            }
+                        }
+
                         //Identifica módulos profesionales
                         if ((linea.Trim().ToLower().StartsWith("módulo profesional") || linea.Trim().ToLower().StartsWith("modulo profesional")) && linea.ToLower().Contains(":"))
                         {
-
-                            //System.out.println(linea);
                             String mod = linea.Substring(linea.IndexOf(":") + 1);
 
-                            //Depuramos caracteres al principio y final
-                            if (mod[mod.Length-1] == '.')
-                            {
-                                mod = mod.Substring(0, mod.Length - 1);
-                            }
-
-                            if (mod.StartsWith("\u0003"))
-                            {
-                                mod = mod.Replace("\u0003", "");
-                            }
-
-                            //System.out.println(mod);
+                            mod = limpiar(mod);
 
                             //Comprueba si están en el mapa y si no es así los mete
-                            if (!competencias.ContainsKey(mod))
+                            if (!ciclo.competencias.ContainsKey(mod))
                             {
-                                competencias.Add(mod, new CompetenciaDTO(mod));
+                                ciclo.competencias.Add(mod, new CompetenciaDTO(mod));
                                 modu = mod;
                             }
                             //modulos.add(new Modulo(mod));
@@ -91,7 +103,7 @@ namespace Noodle.model.action
 
                         if (modulo)
                         {
-                            
+
                             if (linea.Trim().ToLower().StartsWith("resultados de aprendizaje y criterios de evaluaci"))
                             {
                                 resultadoAprendizaje = true;
@@ -104,7 +116,7 @@ namespace Noodle.model.action
                                 if (reg1.IsMatch(linea))
                                 {
                                     //Aquí hacemos match de RA
-                                    competencias[modu].ras.Add(linea, new ResultadoAprendizajeDTO(linea));
+                                    ciclo.competencias[modu].ras.Add(linea, new ResultadoAprendizajeDTO(linea));
                                     ultimora = linea;
                                     frase = "";
                                 }
@@ -113,7 +125,8 @@ namespace Noodle.model.action
                                     criteriosEvaluacion = true;
                                 }
 
-                                if (criteriosEvaluacion) {
+                                if (criteriosEvaluacion)
+                                {
                                     Regex reg = new Regex("^[a-z]\\).*");
 
                                     if (reg.IsMatch(linea.Trim().ToLower()))
@@ -121,12 +134,12 @@ namespace Noodle.model.action
                                         try
                                         {
                                             CriterioEvaluacionDTO ce = new CriterioEvaluacionDTO(linea);
-                                            competencias[modu].ras[ultimora].criterios.Add(linea, ce);
+                                            ciclo.competencias[modu].ras[ultimora].criterios.Add(linea, ce);
                                         }
                                         catch (Exception e) { }
                                     }
                                 }
-                                
+
                             }
                         }
 
@@ -137,20 +150,12 @@ namespace Noodle.model.action
                             criteriosEvaluacion = false;
                             ultimora = "";
                             modu = "";
-                        
+
+                        }
                     }
                 }
-
-                    
-                }
-
             }
-
-            
-
-            
-
-            return diccionarioToList(competencias);
+            return ciclo;
         }
         private static List<CompetenciaDTO> diccionarioToList(Dictionary<string, CompetenciaDTO> competencias)
         {
@@ -162,6 +167,25 @@ namespace Noodle.model.action
             }
 
             return resultado;
+        }
+
+        /// <summary>
+        /// Limpia una línea o palabra de artefactos al inicio y final
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private static string limpiar(string input)
+        {
+            if (input[input.Length - 1] == '.')
+            {
+                input = input.Substring(0, input.Length - 1);
+            }
+
+            if (input.StartsWith("\u0003"))
+            {
+                input = input.Replace("\u0003", "");
+            }
+            return input;
         }
     }
 

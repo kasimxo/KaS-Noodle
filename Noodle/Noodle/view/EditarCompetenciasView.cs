@@ -14,6 +14,7 @@ namespace Noodle.view
 {
     public partial class EditarCompetenciasView : Form
     {
+        public CicloDTO ciclo;
         public List<CompetenciaDTO> competencias;
         public EditarCompetenciasView()
         {
@@ -40,6 +41,25 @@ namespace Noodle.view
             }
         }
 
+        public EditarCompetenciasView(CicloDTO ciclo)
+        {
+            this.ciclo = ciclo;
+
+            InitializeComponent();
+
+            initView();
+            titulo.Text = ciclo.denominacion;
+
+            foreach (CompetenciaDTO com in ciclo.competencias.Values)
+            {
+                CompetenciaComponente comp = new CompetenciaComponente(com);
+                comp.MouseClick -= comp.CompetenciaComponente_MouseClick;
+                comp.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com);
+                comp.nombre.MouseClick -= comp.CompetenciaComponente_MouseClick;
+                comp.nombre.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com);
+                flp.Controls.Add(comp);
+            }
+        }
 
 
         private void VerDetalleCompetencia(Object sender, EventArgs e, CompetenciaDTO com)

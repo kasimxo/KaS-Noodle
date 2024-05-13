@@ -33,6 +33,7 @@
             detalleCompetencia = new components.CompetenciaComponente();
             container = new FlowLayoutPanel();
             button1 = new Button();
+            titulo = new Label();
             container.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             container.AutoSize = true;
             container.Controls.Add(flp);
             container.Controls.Add(detalleCompetencia);
-            container.Location = new Point(12, 12);
+            container.Location = new Point(12, 27);
             container.Name = "container";
             container.Size = new Size(372, 100);
             container.TabIndex = 2;
@@ -83,11 +84,20 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // titulo
+            // 
+            titulo.AutoSize = true;
+            titulo.Location = new Point(12, 9);
+            titulo.Name = "titulo";
+            titulo.Size = new Size(0, 15);
+            titulo.TabIndex = 4;
+            // 
             // EditarCompetenciasView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(titulo);
             Controls.Add(button1);
             Controls.Add(container);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -105,5 +115,6 @@
         private components.CompetenciaComponente detalleCompetencia;
         private FlowLayoutPanel container;
         private Button button1;
+        private Label titulo;
     }
 }

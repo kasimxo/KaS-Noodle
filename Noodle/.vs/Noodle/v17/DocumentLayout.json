@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\KaS-Noodle\\Noodle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\importararchivoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\view\\importararchivoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\editarcompetenciasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\view\\editarcompetenciasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\action\\procesararchivoaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\action\\procesararchivoaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dto\\ciclodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\ciclodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\editarcompetenciasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\view\\editarcompetenciasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\controller\\importararchivocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\controller\\importararchivocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dto\\competenciadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\competenciadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\importararchivoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\view\\importararchivoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\exportarcompetenciasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -21,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dto\\criterioevaluaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\criterioevaluaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dto\\competenciadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\competenciadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\exportarcompetenciasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,6 +63,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "EditarCompetenciasView.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditarCompetenciasView.cs",
+              "RelativeDocumentMoniker": "Noodle\\view\\EditarCompetenciasView.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditarCompetenciasView.cs",
+              "RelativeToolTip": "Noodle\\view\\EditarCompetenciasView.cs",
+              "ViewState": "AQIAAEkAAAAAAAAAAAAQwFEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T15:11:11.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ImportarArchivoController.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\ImportarArchivoController.cs",
+              "RelativeDocumentMoniker": "Noodle\\controller\\ImportarArchivoController.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\ImportarArchivoController.cs",
+              "RelativeToolTip": "Noodle\\controller\\ImportarArchivoController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAA1wCAAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T15:10:28.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProcesarArchivoAction.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoAction.cs",
+              "RelativeDocumentMoniker": "Noodle\\model\\action\\ProcesarArchivoAction.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoAction.cs",
+              "RelativeToolTip": "Noodle\\model\\action\\ProcesarArchivoAction.cs",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAqwFEAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T14:46:46.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CicloDTO.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CicloDTO.cs",
+              "RelativeDocumentMoniker": "Noodle\\model\\dto\\CicloDTO.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CicloDTO.cs",
+              "RelativeToolTip": "Noodle\\model\\dto\\CicloDTO.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T14:36:13.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ImportarArchivoView.cs [Design]",
               "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\ImportarArchivoView.cs",
               "RelativeDocumentMoniker": "Noodle\\view\\ImportarArchivoView.cs",
@@ -58,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "EditarCompetenciasView.cs [Design]",
               "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditarCompetenciasView.cs",
               "RelativeDocumentMoniker": "Noodle\\view\\EditarCompetenciasView.cs",
@@ -70,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "CriterioEvaluacionDTO.cs",
               "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
               "RelativeDocumentMoniker": "Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
@@ -83,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "ResultadoAprendizajeDTO.cs",
               "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\ResultadoAprendizajeDTO.cs",
               "RelativeDocumentMoniker": "Noodle\\model\\dto\\ResultadoAprendizajeDTO.cs",
@@ -96,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "ExportarCompetenciasView.cs",
               "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\ExportarCompetenciasView.cs",
               "RelativeDocumentMoniker": "Noodle\\view\\ExportarCompetenciasView.cs",
@@ -109,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ExportarCompetenciasView.cs [Design]",
               "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\ExportarCompetenciasView.cs",
               "RelativeDocumentMoniker": "Noodle\\view\\ExportarCompetenciasView.cs",
@@ -127,7 +195,7 @@
               "RelativeDocumentMoniker": "Noodle\\model\\dto\\CompetenciaDTO.cs",
               "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CompetenciaDTO.cs",
               "RelativeToolTip": "Noodle\\model\\dto\\CompetenciaDTO.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAAACAAAAAIAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAUwCoAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-12T20:39:37.344Z",
               "EditorCaption": ""

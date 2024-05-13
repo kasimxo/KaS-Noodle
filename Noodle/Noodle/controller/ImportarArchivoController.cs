@@ -27,10 +27,10 @@ namespace Noodle.controller
 
             string selectedFileName = openFileDialog1.FileName;
 
-            List<CompetenciaDTO> competencias = ProcesarArchivoAction.extraerCompetencias(selectedFileName);
+            CicloDTO ciclo = ProcesarArchivoAction.extraerCompetencias(selectedFileName);
 
             Program.mW.Hide();
-            EditarCompetenciasView ecV = new EditarCompetenciasView(competencias);
+            EditarCompetenciasView ecV = new EditarCompetenciasView(ciclo);
             ecV.Show();
         }
 
