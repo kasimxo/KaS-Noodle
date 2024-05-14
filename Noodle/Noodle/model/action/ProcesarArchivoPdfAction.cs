@@ -12,9 +12,9 @@ using System.Text.RegularExpressions;
 
 namespace Noodle.model.action
 {
-    public class ProcesarArchivoAction
+    public class ProcesarArchivoPdfAction
     {
-        public ProcesarArchivoAction(string filename) { }
+        public ProcesarArchivoPdfAction(string filename) { }
 
         public static CicloDTO extraerCompetencias(string filePath)
         {

@@ -6,12 +6,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UglyToad.PdfPig.Actions;
 
 namespace Noodle.controller
 {
     public class ImportarArchivoController
     {
-        public static void procesarArchivoBtn()
+        private const Boolean PDF = true;
+        private const Boolean CSV = false;
+        /// <summary>
+        /// Llama al action correspondiente según sea pdf o csv
+        /// </summary>
+        /// <param name="tipoArchivo">true -> pdf, false -> csv</param>
+        public static void procesarArchivoBtn(Boolean tipoArchivo)
+        {
+            if (tipoArchivo==PDF) { 
+                procesarArchivoPDF(); 
+            } else if (tipoArchivo == CSV)
+            {
+                procesarArchivoCSV();
+            }
+
+        }
+
+        private static void procesarArchivoCSV()
+        {
+            throw new NotImplementedException();
+        }
+        private static void procesarArchivoPDF()
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
@@ -27,7 +49,7 @@ namespace Noodle.controller
 
             string selectedFileName = openFileDialog1.FileName;
 
-            CicloDTO ciclo = ProcesarArchivoAction.extraerCompetencias(selectedFileName);
+            CicloDTO ciclo = ProcesarArchivoPdfAction.extraerCompetencias(selectedFileName);
 
             Program.mW.Hide();
             EditarCompetenciasView ecV = new EditarCompetenciasView(ciclo);

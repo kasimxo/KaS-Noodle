@@ -9,6 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="files\Icono Noodle.ico" />
+    <None Remove="files\img_aqui.png" />
+    <None Remove="files\img_csv.png" />
+    <None Remove="files\img_pdf.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="files\Icono Noodle.ico" />
+    <EmbeddedResource Include="files\img_aqui.png" />
+    <EmbeddedResource Include="files\img_csv.png" />
+    <EmbeddedResource Include="files\img_pdf.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2478.35" />
     <PackageReference Include="PdfPig" Version="0.1.8" />
   </ItemGroup>
@@ -16,7 +30,23 @@
   <ItemGroup>
     <Folder Include="config\" />
     <Folder Include="model\dal\" />
-    <Folder Include="files\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="components\ImportarArchivoCsvComponente.cs" />
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
