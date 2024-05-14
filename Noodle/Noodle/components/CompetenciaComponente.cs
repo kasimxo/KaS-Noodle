@@ -52,5 +52,16 @@ namespace Noodle.components
                 flp.Controls.Add(rac);
             }
         }
+
+        /// <summary>
+        /// Elimina todo el contenido del componente y lo oculta
+        /// </summary>
+        public void limpiar() {
+            nombre.Text = "";
+            flp.Controls.Clear();
+            this.Visible = false;
+        }
+
+        
     }
 }

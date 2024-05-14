@@ -18,10 +18,10 @@ namespace Noodle.model.dto
 
         public string ToCSV(string identificadorPadre, int numeroPadre, int cardinalidad)
         {
-            string idPadre = identificadorPadre+";";
+            string idPadre = identificadorPadre;
             string id = generarID(identificadorPadre, cardinalidad);
-            string nombreCorto = generarNombreCorto(numeroPadre, cardinalidad);
-            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: "+nombreCorto+".</p>\";";
+            string nombreCorto = generarNombreCorto(numeroPadre, cardinalidad) + ";";
+            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">"+nombre+"</p>\";";
             string descripcionFormato = "1;"; //Fixed: 1
             string valoresEscala = ";"; //Solo ciclo
             string configuracionEscala = ";"; //Solo ciclo
@@ -54,11 +54,12 @@ namespace Noodle.model.dto
         public string generarID(string idPadre, int cardinalidad)
         {
             string abc = "abcdefghijklmnopqrstuvwxyz";
-            return idPadre + "_" + abc[cardinalidad] + ";";
+            return idPadre.Substring(0, idPadre.Length - 1) + "_" + abc[cardinalidad] + ";";
         }
 
         public string generarNombreCorto(int numeroPadre, int cardinalidad) {
-            return "CE "+ numeroPadre.ToString()+"."+cardinalidad.ToString()+";";
+            string abc = "abcdefghijklmnopqrstuvwxyz";
+            return "CE "+ numeroPadre.ToString()+"."+ abc[cardinalidad];
         }
     }
 }

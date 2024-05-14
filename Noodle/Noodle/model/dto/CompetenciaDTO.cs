@@ -30,14 +30,17 @@ namespace Noodle.model.dto
             this.nombre = nombre;
         }
 
-
+        public string generarIdentificador(string idPadre, int cardinalidad) {
+            string abc = "abcdefghijklmnopqrstuvwxyz";
+            return idPadre.Substring(0, idPadre.Length - 1) + "_" + abc[cardinalidad];
+        }
 
         public string ToCSV(string identificadorPadre, string identificador, int cardinalidad, string nombreCiclo)
         {
             //Las competencias no necesitan del id padre, pero lo utilizan para generar su id propio
             string idPadre = identificadorPadre;
-            string id = identificador;
-            string nombreCorto = NombreCorto(cardinalidad);
+            string id = generarIdentificador(identificador, cardinalidad) +";";
+            string nombreCorto = NombreCorto(cardinalidad) + ";";
             string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: "+nombreCiclo+".</p>\";";
             string descripcionFormato = "1;"; //Fixed: 1
             string valoresEscala = ";"; //Solo ciclo
@@ -76,7 +79,7 @@ namespace Noodle.model.dto
         public string NombreCorto(int cardinalidad)
         {
             string abc = "abcdefghijklmnopqrstuvwxyz";
-            return  "CPPS " + abc[cardinalidad] + ");";
+            return  "CPPS " + abc[cardinalidad] + ") " + nombre;
         }
     }
 }

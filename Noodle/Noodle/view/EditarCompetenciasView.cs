@@ -34,9 +34,9 @@ namespace Noodle.view
             {
                 CompetenciaComponente comp = new CompetenciaComponente(com);
                 comp.MouseClick -= comp.CompetenciaComponente_MouseClick;
-                comp.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com);
+                comp.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com, comp);
                 comp.nombre.MouseClick -= comp.CompetenciaComponente_MouseClick;
-                comp.nombre.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com);
+                comp.nombre.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com, comp);
                 flp.Controls.Add(comp);
             }
         }
@@ -54,17 +54,27 @@ namespace Noodle.view
             {
                 CompetenciaComponente comp = new CompetenciaComponente(com);
                 comp.MouseClick -= comp.CompetenciaComponente_MouseClick;
-                comp.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com);
+                comp.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com, comp);
                 comp.nombre.MouseClick -= comp.CompetenciaComponente_MouseClick;
-                comp.nombre.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com);
+                comp.nombre.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com, comp);
                 flp.Controls.Add(comp);
             }
         }
 
-
-        private void VerDetalleCompetencia(Object sender, EventArgs e, CompetenciaDTO com)
+        private void limpiarCompetencias()
         {
-            
+            foreach(CompetenciaComponente comp in flp.Controls.OfType<CompetenciaComponente>())
+            {
+                Color white = Color.FromArgb(255, 255, 255, 255);
+                comp.BackColor = white;
+            }
+            detalleCompetencia.limpiar();
+        }
+
+        private void VerDetalleCompetencia(Object sender, EventArgs e, CompetenciaDTO com, CompetenciaComponente comp)
+        {
+            limpiarCompetencias();
+            Color green = Color.FromArgb(255, 195, 250, 185);
             detalleCompetencia.nombreCom = com.nombre;
             detalleCompetencia.competencia = com;
             detalleCompetencia.nombre.Text = com.nombre;
@@ -73,7 +83,12 @@ namespace Noodle.view
             detalleCompetencia.AutoScroll = true;
             detalleCompetencia.MaximumSize = new Size(0, this.Height-50);
             
+            detalleCompetencia.BackColor = green;
+
+
             detalleCompetencia.Visible = true;
+
+            comp.BackColor = green;
 
         }
 

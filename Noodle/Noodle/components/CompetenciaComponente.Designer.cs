@@ -67,7 +67,7 @@
             container.Controls.Add(nombre);
             container.Controls.Add(flp);
             container.FlowDirection = FlowDirection.TopDown;
-            container.Location = new Point(3, 3);
+            container.Location = new Point(8, 8);
             container.Name = "container";
             container.Size = new Size(67, 34);
             container.TabIndex = 2;
@@ -80,11 +80,12 @@
             AutoScroll = true;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BackColor = Color.FromArgb(170, 255, 220);
+            BackColor = Color.White;
             Controls.Add(container);
             MinimumSize = new Size(375, 0);
             Name = "CompetenciaComponente";
-            Size = new Size(375, 40);
+            Padding = new Padding(5);
+            Size = new Size(375, 50);
             Load += CompetenciaComponente_Load;
             MouseClick += CompetenciaComponente_MouseClick;
             container.ResumeLayout(false);

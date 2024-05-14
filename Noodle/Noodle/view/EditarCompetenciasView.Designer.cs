@@ -60,7 +60,8 @@
             detalleCompetencia.MinimumSize = new Size(360, 0);
             detalleCompetencia.Name = "detalleCompetencia";
             detalleCompetencia.nombreCom = null;
-            detalleCompetencia.Size = new Size(360, 34);
+            detalleCompetencia.Padding = new Padding(5);
+            detalleCompetencia.Size = new Size(360, 44);
             detalleCompetencia.TabIndex = 1;
             detalleCompetencia.Visible = false;
             // 
@@ -87,15 +88,18 @@
             // titulo
             // 
             titulo.AutoSize = true;
+            titulo.Font = new Font("Arial", 14F, FontStyle.Bold, GraphicsUnit.Point);
             titulo.Location = new Point(12, 9);
+            titulo.Margin = new Padding(10);
             titulo.Name = "titulo";
-            titulo.Size = new Size(0, 15);
+            titulo.Size = new Size(0, 22);
             titulo.TabIndex = 4;
             // 
             // EditarCompetenciasView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(240, 240, 220);
             ClientSize = new Size(800, 450);
             Controls.Add(titulo);
             Controls.Add(button1);

@@ -37,9 +37,9 @@ namespace Noodle.model.dto
             return siglas;
         }
 
-        public string NombreCorto()
+        public string generarNombreCorto()
         {
-            return "CFP" + categoria() + " " + siglas + ";"; 
+            return "CFP" + categoria() + " " + siglas; 
         }
 
         /// <summary>
@@ -74,8 +74,8 @@ namespace Noodle.model.dto
         {
             string idPadre = ";";
             string id = ID();
-            string nombreCorto = NombreCorto();
-            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: "+NombreCorto()+".</p>\";";
+            string nombreCorto = generarNombreCorto() + ";";
+            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: "+generarNombreCorto()+".</p>\";";
             string descripcionFormato = "1;"; //Fixed: 1
             string valoresEscala = "No competente aún,Competente;"; //Solo ciclo
             string configuracionEscala = "\"[{\"\"scaleid\"\":\"\"2\"\"},{\"\"id\"\":1,\"\"scaledefault\"\":1,\"\"proficient\"\":0},{\"\"id\"\":2,\"\"scaledefault\"\":0,\"\"proficient\"\":1}]\";"; //Solo ciclo
@@ -106,7 +106,7 @@ namespace Noodle.model.dto
 
             foreach(CompetenciaDTO com in competencias.Values)
             {
-                texto += "\n" + com.ToCSV(";", id,cant, nombreCorto);
+                texto += "\n" + com.ToCSV(";", id,cant, generarNombreCorto());
                 cant++;
             }
 
