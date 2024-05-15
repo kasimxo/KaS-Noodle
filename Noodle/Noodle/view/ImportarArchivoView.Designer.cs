@@ -75,6 +75,7 @@
             // 
             // container
             // 
+            container.AllowDrop = true;
             container.AutoSize = true;
             container.ColumnCount = 1;
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -130,6 +131,7 @@
             arrastrarArchivoComponente1.TabIndex = 6;
             arrastrarArchivoComponente1.DragDrop += arrastrarArchivoComponente1_DragDrop;
             arrastrarArchivoComponente1.DragEnter += arrastrarArchivoComponente1_DragEnter;
+            arrastrarArchivoComponente1.DragOver += arrastrarArchivoComponente1_DragOver;
             // 
             // ImportarArchivoView
             // 

@@ -56,5 +56,13 @@ namespace Noodle.controller
             ecV.Show();
         }
 
+        public static void procesarArchivoGenerico(string filePath)
+        {
+            CicloDTO ciclo = ProcesarArchivoAction.procesarArchivoSegunFormato(filePath);
+            Program.mW.Hide();
+            EditarCompetenciasView ecV = new EditarCompetenciasView(ciclo);
+            ecV.Show();
+        }
+
     }
 }

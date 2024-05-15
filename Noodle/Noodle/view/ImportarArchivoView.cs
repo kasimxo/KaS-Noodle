@@ -31,18 +31,33 @@ namespace Noodle.view
             ImportarArchivoController.procesarArchivoBtn(true);
         }
 
+        /// <summary>
+        /// Método que gestiona la acción de arrastrar archivos al componente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void arrastrarArchivoComponente1_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data != null)
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length > 1) {
+                MessageBox.Show("Error: Se ha detectado más de un archivo");
+            } else if (files.Length < 1)
             {
-                string[] formats = e.Data.GetFormats();
-                return;
+                MessageBox.Show("Error: No se ha detectado ningún archivo");
+            } else
+            {
+                ImportarArchivoController.procesarArchivoGenerico(files[0]);
             }
         }
 
         private void arrastrarArchivoComponente1_DragEnter(object sender, DragEventArgs e)
         {
-            return;
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
+        }
+
+        private void arrastrarArchivoComponente1_DragOver(object sender, DragEventArgs e)
+        {
+
         }
     }
 }

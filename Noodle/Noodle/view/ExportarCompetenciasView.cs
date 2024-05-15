@@ -14,7 +14,7 @@ namespace Noodle.view
 {
     public partial class ExportarCompetenciasView : Form
     {
-        public CicloDTO ciclo {  get; set; }
+        public CicloDTO ciclo { get; set; }
         public List<CompetenciaDTO> competencias;
         public ExportarCompetenciasView(CicloDTO ciclo)
         {
@@ -36,7 +36,8 @@ namespace Noodle.view
         private void button1_Click(object sender, EventArgs e)
         {
             List<CompetenciaDTO> competenciasExportar = new List<CompetenciaDTO>();
-            foreach(SeleccionCompetenciaComponente scc in flp.Controls.OfType<SeleccionCompetenciaComponente>()) {
+            foreach (SeleccionCompetenciaComponente scc in flp.Controls.OfType<SeleccionCompetenciaComponente>())
+            {
                 if (scc.cb.Checked)
                 {
                     competenciasExportar.Add(scc.competencia);
@@ -47,7 +48,7 @@ namespace Noodle.view
             sfd.Filter = "CSV .csv|*.csv";
             sfd.Title = "Exportar Competencias";
             sfd.ShowDialog();
-            if(sfd.FileName != "")
+            if (sfd.FileName != "")
             {
                 using (StreamWriter sw = new StreamWriter(sfd.FileName, true))
                 {
@@ -100,6 +101,22 @@ namespace Noodle.view
         {
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void btn_deseleccionar_Click(object sender, EventArgs e)
+        {
+            foreach (SeleccionCompetenciaComponente cc in flp.Controls.OfType<SeleccionCompetenciaComponente>())
+            {
+                cc.cb.Checked = false;
+            }
+        }
+
+        private void btn_seleccionar_Click(object sender, EventArgs e)
+        {
+            foreach (SeleccionCompetenciaComponente cc in flp.Controls.OfType<SeleccionCompetenciaComponente>())
+            {
+                cc.cb.Checked = true;
+            }
         }
     }
 }
