@@ -37,10 +37,11 @@
             // nombre
             // 
             nombre.AutoSize = true;
+            nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             nombre.Location = new Point(3, 0);
             nombre.MaximumSize = new Size(400, 1000);
             nombre.Name = "nombre";
-            nombre.Size = new Size(38, 15);
+            nombre.Size = new Size(50, 18);
             nombre.TabIndex = 0;
             nombre.Text = "label1";
             // 
@@ -48,7 +49,7 @@
             // 
             flp.AutoSize = true;
             flp.FlowDirection = FlowDirection.TopDown;
-            flp.Location = new Point(3, 18);
+            flp.Location = new Point(3, 21);
             flp.Name = "flp";
             flp.Size = new Size(0, 0);
             flp.TabIndex = 1;

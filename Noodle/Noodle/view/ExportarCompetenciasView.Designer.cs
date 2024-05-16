@@ -36,6 +36,7 @@
             container = new TableLayoutPanel();
             flp_top = new FlowLayoutPanel();
             titulo = new Label();
+            btn_volver = new Button();
             container.SuspendLayout();
             flp_top.SuspendLayout();
             SuspendLayout();
@@ -52,8 +53,8 @@
             // button1
             // 
             button1.AutoSize = true;
-            button1.Location = new Point(469, 3);
-            button1.Margin = new Padding(25, 3, 3, 3);
+            button1.Location = new Point(516, 3);
+            button1.Margin = new Padding(50, 3, 3, 3);
             button1.Name = "button1";
             button1.Size = new Size(75, 25);
             button1.TabIndex = 1;
@@ -64,7 +65,8 @@
             // btn_deseleccionar
             // 
             btn_deseleccionar.AutoSize = true;
-            btn_deseleccionar.Location = new Point(218, 3);
+            btn_deseleccionar.Location = new Point(240, 3);
+            btn_deseleccionar.Margin = new Padding(25, 3, 3, 3);
             btn_deseleccionar.Name = "btn_deseleccionar";
             btn_deseleccionar.Size = new Size(112, 25);
             btn_deseleccionar.TabIndex = 2;
@@ -75,7 +77,7 @@
             // btn_seleccionar
             // 
             btn_seleccionar.AutoSize = true;
-            btn_seleccionar.Location = new Point(336, 3);
+            btn_seleccionar.Location = new Point(358, 3);
             btn_seleccionar.Name = "btn_seleccionar";
             btn_seleccionar.Size = new Size(105, 25);
             btn_seleccionar.TabIndex = 3;
@@ -95,7 +97,7 @@
             container.RowCount = 2;
             container.RowStyles.Add(new RowStyle());
             container.RowStyles.Add(new RowStyle());
-            container.Size = new Size(553, 100);
+            container.Size = new Size(776, 100);
             container.TabIndex = 4;
             // 
             // flp_top
@@ -109,7 +111,7 @@
             flp_top.Dock = DockStyle.Fill;
             flp_top.Location = new Point(3, 3);
             flp_top.Name = "flp_top";
-            flp_top.Size = new Size(547, 32);
+            flp_top.Size = new Size(770, 32);
             flp_top.TabIndex = 5;
             // 
             // titulo
@@ -123,12 +125,23 @@
             titulo.TabIndex = 5;
             titulo.Text = "Exportar competencias";
             // 
+            // btn_volver
+            // 
+            btn_volver.Location = new Point(657, 415);
+            btn_volver.Name = "btn_volver";
+            btn_volver.Size = new Size(75, 23);
+            btn_volver.TabIndex = 5;
+            btn_volver.Text = "Volver";
+            btn_volver.UseVisualStyleBackColor = true;
+            btn_volver.Click += btn_volver_Click;
+            // 
             // ExportarCompetenciasView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 240, 220);
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_volver);
             Controls.Add(container);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ExportarCompetenciasView";
@@ -150,5 +163,6 @@
         private TableLayoutPanel container;
         private FlowLayoutPanel flp_top;
         private Label titulo;
+        private Button btn_volver;
     }
 }

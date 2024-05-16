@@ -38,7 +38,8 @@
             // btn
             // 
             btn.Anchor = AnchorStyles.None;
-            btn.Location = new Point(35, 129);
+            btn.Location = new Point(35, 131);
+            btn.Margin = new Padding(5);
             btn.Name = "btn";
             btn.Size = new Size(75, 23);
             btn.TabIndex = 0;
@@ -72,10 +73,10 @@
             container.RowCount = 2;
             container.RowStyles.Add(new RowStyle());
             container.RowStyles.Add(new RowStyle());
-            container.Size = new Size(146, 155);
+            container.Size = new Size(146, 159);
             container.TabIndex = 2;
             // 
-            // ImportarArchivoComponente
+            // ImportarArchivoPdfComponente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -83,8 +84,8 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.White;
             Controls.Add(container);
-            Name = "ImportarArchivoComponente";
-            Size = new Size(146, 155);
+            Name = "ImportarArchivoPdfComponente";
+            Size = new Size(146, 159);
             ((System.ComponentModel.ISupportInitialize)pb).EndInit();
             container.ResumeLayout(false);
             ResumeLayout(false);

@@ -5,7 +5,6 @@ C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.ImportarA
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.ResultadoAprendizajeComponente.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.SeleccionCompetenciaComponente.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.Properties.Resources.resources
-C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.EditarCompetenciasView.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.ExportarCompetenciasView.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.ImportarArchivoView.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.IniciarSesionView.resources
@@ -41,3 +40,4 @@ C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.pdb
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.genruntimeconfig.cache
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\ref\Noodle.dll
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.ArrastrarArchivoComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.VerCompetenciasView.resources

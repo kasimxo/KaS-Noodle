@@ -45,7 +45,7 @@ namespace Noodle.components
             }
         }
         public void CompetenciaComponente_MouseClick(object sender, MouseEventArgs e)
-        { 
+        {
             foreach (ResultadoAprendizajeDTO ra in competencia.ras.Values)
             {
                 ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra);
@@ -56,12 +56,16 @@ namespace Noodle.components
         /// <summary>
         /// Elimina todo el contenido del componente y lo oculta
         /// </summary>
-        public void limpiar() {
+        public void limpiar()
+        {
             nombre.Text = "";
             flp.Controls.Clear();
             this.Visible = false;
         }
 
-        
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -30,7 +30,6 @@
   <ItemGroup>
     <Folder Include="config\" />
     <Folder Include="model\dal\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
 
   <ItemGroup>

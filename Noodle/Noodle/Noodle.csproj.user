@@ -19,7 +19,7 @@
     <Compile Update="components\SeleccionCompetenciaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="view\EditarCompetenciasView.cs">
+    <Compile Update="view\VerCompetenciasView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="view\ExportarCompetenciasView.cs">

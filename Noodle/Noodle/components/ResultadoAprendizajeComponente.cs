@@ -24,6 +24,7 @@ namespace Noodle.components
             foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
             {
                 Label label = new Label();
+                label.Margin = new Padding(2);
                 label.Text = ce.nombre;
                 label.AutoSize = true;
                 flp.Controls.Add(label);

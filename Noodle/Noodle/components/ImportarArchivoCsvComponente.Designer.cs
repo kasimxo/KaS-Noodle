@@ -38,7 +38,8 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.None;
-            button1.Location = new Point(35, 129);
+            button1.Location = new Point(35, 131);
+            button1.Margin = new Padding(5);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
@@ -72,7 +73,7 @@
             container.RowCount = 2;
             container.RowStyles.Add(new RowStyle());
             container.RowStyles.Add(new RowStyle());
-            container.Size = new Size(146, 155);
+            container.Size = new Size(146, 159);
             container.TabIndex = 2;
             // 
             // ImportarArchivoCsvComponente
@@ -84,7 +85,7 @@
             BackColor = Color.White;
             Controls.Add(container);
             Name = "ImportarArchivoCsvComponente";
-            Size = new Size(146, 155);
+            Size = new Size(146, 159);
             ((System.ComponentModel.ISupportInitialize)pb).EndInit();
             container.ResumeLayout(false);
             ResumeLayout(false);

@@ -52,7 +52,7 @@ namespace Noodle.controller
             CicloDTO ciclo = ProcesarArchivoPdfAction.extraerCompetencias(selectedFileName);
 
             Program.mW.Hide();
-            EditarCompetenciasView ecV = new EditarCompetenciasView(ciclo);
+            VerCompetenciasView ecV = new VerCompetenciasView(ciclo);
             ecV.Show();
         }
 
@@ -60,7 +60,7 @@ namespace Noodle.controller
         {
             CicloDTO ciclo = ProcesarArchivoAction.procesarArchivoSegunFormato(filePath);
             Program.mW.Hide();
-            EditarCompetenciasView ecV = new EditarCompetenciasView(ciclo);
+            VerCompetenciasView ecV = new VerCompetenciasView(ciclo);
             ecV.Show();
         }
 
