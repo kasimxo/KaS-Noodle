@@ -9,10 +9,17 @@ namespace Noodle.model.dto
     public class CriterioEvaluacionDTO
     {
         public string nombre { get; set; }
+        public int pag { get; set; }
 
         public CriterioEvaluacionDTO(string nombre)
         {
             this.nombre = nombre;
+        }
+
+        public CriterioEvaluacionDTO(string nombre, int pag)
+        {
+            this.nombre = nombre;
+            this.pag = pag;
         }
 
 

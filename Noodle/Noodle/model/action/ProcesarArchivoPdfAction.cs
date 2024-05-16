@@ -19,6 +19,7 @@ namespace Noodle.model.action
         public static CicloDTO extraerCompetencias(string filePath)
         {
             CicloDTO ciclo = new CicloDTO();
+            ciclo.filePath = filePath;
             Dictionary<string, CompetenciaDTO> competencias = new Dictionary<string, CompetenciaDTO>();
             string modu = "";
             string ultimora = "";
@@ -93,7 +94,7 @@ namespace Noodle.model.action
                             //Comprueba si están en el mapa y si no es así los mete
                             if (!ciclo.competencias.ContainsKey(mod))
                             {
-                                ciclo.competencias.Add(mod, new CompetenciaDTO(mod));
+                                ciclo.competencias.Add(mod, new CompetenciaDTO(mod, i));
                                 modu = mod;
                             }
                             //modulos.add(new Modulo(mod));
@@ -116,7 +117,7 @@ namespace Noodle.model.action
                                 if (reg1.IsMatch(linea))
                                 {
                                     //Aquí hacemos match de RA
-                                    ciclo.competencias[modu].ras.Add(linea, new ResultadoAprendizajeDTO(linea));
+                                    ciclo.competencias[modu].ras.Add(linea, new ResultadoAprendizajeDTO(linea, i));
                                     ultimora = linea;
                                     frase = "";
                                 }
@@ -133,7 +134,7 @@ namespace Noodle.model.action
                                     {
                                         try
                                         {
-                                            CriterioEvaluacionDTO ce = new CriterioEvaluacionDTO(linea);
+                                            CriterioEvaluacionDTO ce = new CriterioEvaluacionDTO(linea, i);
                                             ciclo.competencias[modu].ras[ultimora].criterios.Add(linea, ce);
                                         }
                                         catch (Exception e) { }

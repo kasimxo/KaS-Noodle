@@ -92,7 +92,12 @@ namespace Noodle.view
             //detalleCompetencia.MaximumSize = new Size(0, this.Height-25);
             detalleCompetencia.btn_editar.Visible = true;
             detalleCompetencia.BackColor = green;
-
+            detalleCompetencia.btn_editar.Click += (sender, e) => {
+                EditarCompetenciaView ecv = new EditarCompetenciaView(this, ciclo, com);
+                ecv.Visible = true;
+                this.Visible = false;
+            };
+            
 
             detalleCompetencia.Visible = true;
 

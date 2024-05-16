@@ -89,7 +89,6 @@
             btn_editar.Text = "Editar";
             btn_editar.UseVisualStyleBackColor = true;
             btn_editar.Visible = false;
-            btn_editar.Click += btn_editar_Click;
             // 
             // tableLayoutPanel1
             // 

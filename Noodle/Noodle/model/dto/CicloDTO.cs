@@ -11,7 +11,7 @@ namespace Noodle.model.dto
         public string denominacion {  get; set; } //Desarrollo de Aplicaciones Multiplataforma
         public string siglas { get; set; } //DAM
         public string nivel {  get; set; } // B M S (Básico, Medio, Superior) 
-        
+        public string filePath {  get; set; }
         public Dictionary<string, CompetenciaDTO> competencias {  get; set; }
 
         public CicloDTO()

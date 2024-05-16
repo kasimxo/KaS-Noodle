@@ -11,23 +11,21 @@ namespace Noodle.model.dto
         //public List<ResultadoAprendizajeDTO> ras { get; set; }
         public Dictionary<string, ResultadoAprendizajeDTO> ras { get; set; }
         public string nombre {  get; set; }
-
-        public string siglas;
-        public string nivel; //basico medio superior
+        public int pag { get; set; }
+        public string siglas { get; set; }
+        public string nivel { get; set; } //basico medio superior
 
         public CompetenciaDTO() { }
         public CompetenciaDTO(string nombre)
         {
             this.nombre = nombre;
-            this.siglas = "DAM";
-            this.nivel = "GS";
-            //this.ras = new List<ResultadoAprendizajeDTO>();
             this.ras = new Dictionary<string, ResultadoAprendizajeDTO>();
         }
-        public CompetenciaDTO(List<ResultadoAprendizajeDTO> ras, string nombre)
+        public CompetenciaDTO(string nombre, int pag)
         {
-            this.ras = new Dictionary<string, ResultadoAprendizajeDTO>();
             this.nombre = nombre;
+            this.pag = pag;
+            this.ras = new Dictionary<string, ResultadoAprendizajeDTO>();
         }
 
         public string generarIdentificador(string idPadre, int cardinalidad) {

@@ -1,4 +1,5 @@
 ﻿using Noodle.model.dto;
+using Noodle.view;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,9 +64,6 @@ namespace Noodle.components
             this.Visible = false;
         }
 
-        private void btn_editar_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
