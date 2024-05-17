@@ -95,7 +95,7 @@ namespace Noodle.view
             detalleCompetencia.btn_editar.Click += (sender, e) => {
                 EditarCompetenciaView ecv = new EditarCompetenciaView(this, ciclo, com);
                 ecv.Visible = true;
-                this.Visible = false;
+                this.Hide();
             };
             
 
