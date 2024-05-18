@@ -23,6 +23,7 @@ namespace Noodle.model.action
             Dictionary<string, CompetenciaDTO> competencias = new Dictionary<string, CompetenciaDTO>();
             string modu = "";
             string ultimora = "";
+            CriterioEvaluacionDTO ce = null;
             Boolean modulo = false;
             Boolean resultadoAprendizaje = false;
             Boolean criteriosEvaluacion = false;
@@ -38,22 +39,23 @@ namespace Noodle.model.action
                     text = text.Replace("\r", "");
                     var lineas = text.Split("\n");
                     string frase = "";
+
+                    //Recorremos las líneas que componen el texto
                     foreach (var line in lineas)
                     {
                         string linea = line;
-                        //System.Diagnostics.Debug.WriteLine(linea+"\n---");
                         //Procesa una lína para asegurarse de que termina correctamente
-                        if (linea.Length > 2 && linea[linea.Length - 1] == '\r')
+                        if (linea.Length > 2)
                         {
 
                             linea.Substring(0, linea.Length - 1);
+                            //Eliminamos los espacios en blanco al final de la línea
                             linea = linea.Replace("\\s+$", "");
 
                             if (linea.Length > 1 && (linea[linea.Length - 1] == '.' || linea[linea.Length - 1] == ':'))
                             {
                                 frase = "";
                                 //Esto no tiene mucho sentido porque una línea puede terminar en un punto por casualidad
-
                             }
                         }
                         else if (linea.Equals(""))
@@ -116,28 +118,51 @@ namespace Noodle.model.action
                                 Regex reg1 = new Regex("^[1-9]\\.\\s.*");
                                 if (reg1.IsMatch(linea))
                                 {
+                                    //Si detectamos un nuevo RA tras procesar los CEs del anterior
+                                    if (ce != null)
+                                    {
+                                        try
+                                        {
+                                            ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.nombre, ce);
+                                            ce = null;
+                                        }
+                                        catch (Exception e) { }
+                                    }
+
                                     //Aquí hacemos match de RA
                                     ciclo.competencias[modu].ras.Add(linea, new ResultadoAprendizajeDTO(linea, i));
                                     ultimora = linea;
                                     frase = "";
                                 }
-                                if (linea.Trim().ToLower().StartsWith("criterios de evaluaci"))
+                                else if (linea.Trim().ToLower().StartsWith("criterios de evaluaci"))
                                 {
                                     criteriosEvaluacion = true;
-                                }
-
-                                if (criteriosEvaluacion)
+                                } 
+                                else if (criteriosEvaluacion)
                                 {
                                     Regex reg = new Regex("^[a-z]\\).*");
 
                                     if (reg.IsMatch(linea.Trim().ToLower()))
                                     {
-                                        try
+                                        if (ce != null)
                                         {
-                                            CriterioEvaluacionDTO ce = new CriterioEvaluacionDTO(linea, i);
-                                            ciclo.competencias[modu].ras[ultimora].criterios.Add(linea, ce);
+                                            try
+                                            {
+                                                ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.nombre, ce);
+                                            }
+                                            catch (Exception e) { }
                                         }
-                                        catch (Exception e) { }
+                                         ce = new CriterioEvaluacionDTO(linea, i);
+                                    }
+                                    else if (!linea.Trim().ToLower().StartsWith("contenidos") 
+                                        && ce != null) {
+
+                                        Regex regCabecera = new Regex(".*\\/.*\\/.*");
+                                        Regex regPie = new Regex(".*[a-zA-z]+.*");
+                                        if (!regCabecera.IsMatch(linea) && regPie.IsMatch(linea))
+                                        {
+                                            ce.nombre += " " + linea;
+                                        } 
                                     }
                                 }
 
@@ -177,6 +202,7 @@ namespace Noodle.model.action
         /// <returns></returns>
         private static string limpiar(string input)
         {
+
             if (input[input.Length - 1] == '.')
             {
                 input = input.Substring(0, input.Length - 1);
