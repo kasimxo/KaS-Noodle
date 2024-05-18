@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             nombre = new Label();
-            flp = new FlowLayoutPanel();
             container = new FlowLayoutPanel();
             container.SuspendLayout();
             SuspendLayout();
             // 
             // nombre
             // 
+            nombre.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             nombre.AutoSize = true;
             nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             nombre.Location = new Point(3, 0);
@@ -45,20 +45,10 @@
             nombre.TabIndex = 0;
             nombre.Text = "label1";
             // 
-            // flp
-            // 
-            flp.AutoSize = true;
-            flp.FlowDirection = FlowDirection.TopDown;
-            flp.Location = new Point(3, 21);
-            flp.Name = "flp";
-            flp.Size = new Size(0, 0);
-            flp.TabIndex = 1;
-            // 
             // container
             // 
             container.AutoSize = true;
             container.Controls.Add(nombre);
-            container.Controls.Add(flp);
             container.FlowDirection = FlowDirection.TopDown;
             container.Location = new Point(3, 3);
             container.Name = "container";
@@ -82,7 +72,6 @@
         #endregion
 
         public Label nombre;
-        public FlowLayoutPanel flp;
         public FlowLayoutPanel container;
     }
 }

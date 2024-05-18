@@ -16,18 +16,20 @@ namespace Noodle.components
     {
         public CompetenciaDTO competencia { get; set; }
         public string nombreCom { get; set; }
+        public Boolean editable { get; set; }
         public CompetenciaComponente()
         {
             InitializeComponent();
         }
-        public CompetenciaComponente(CompetenciaDTO com)
+        public CompetenciaComponente(CompetenciaDTO com, Boolean autoWidth=false, Boolean editable=false)
         {
             InitializeComponent();
 
             this.nombreCom = com.nombre;
             this.competencia = com;
+            this.editable = editable;
+            if (autoWidth) { nombre.MaximumSize = new Size(0, 0); }
             nombre.Text = competencia.nombre;
-
         }
 
         private void CompetenciaComponente_Load(object sender, EventArgs e)
@@ -40,11 +42,22 @@ namespace Noodle.components
             flp.Controls.Clear();
             foreach (ResultadoAprendizajeDTO ra in competencia.ras.Values)
             {
-                ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra);
+                ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra, editable);
                 flp.Controls.Add(rac);
                 flp.Visible = true;
             }
         }
+
+        /// <summary>
+        /// Método que hace que todas las labels que componen este componente
+        /// adopten un método on clic que las sustituya por textArea para que el usuario 
+        /// pueda editarlas
+        /// </summary>
+        public void hacerEditable()
+        {
+
+        }
+
         public void CompetenciaComponente_MouseClick(object sender, MouseEventArgs e)
         {
             foreach (ResultadoAprendizajeDTO ra in competencia.ras.Values)

@@ -7,9 +7,6 @@
     <Compile Update="components\CompetenciaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\EdtiarCompetenciaComponente.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="components\ImportarArchivoCsvComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>

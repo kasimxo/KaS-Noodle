@@ -21,7 +21,6 @@ namespace Noodle.view
         public VerCompetenciasView parent;
         public CicloDTO ciclo;
         public CompetenciaDTO com;
-        public string focusPage; //Esta es la página que queremos abrir con el navegador
 
         public EditarCompetenciaView()
         {
@@ -34,84 +33,40 @@ namespace Noodle.view
             this.parent = parent;
             this.ciclo = ciclo;
             this.com = competencia;
-            CompetenciaComponente comp = new CompetenciaComponente(com);
+            CompetenciaComponente comp = new CompetenciaComponente(com, false, true);
+            comp.HorizontalScroll.Visible = false;
+            comp.HorizontalScroll.Minimum = 100000;
+            comp.VerticalScroll.Enabled = true;
+            comp.VerticalScroll.Visible = true;
+            comp.AutoScroll = true;
             container.Controls.Add(comp, 1, 0);
+            comp.listarDetalles();
+
             initViewer();
         }
 
         private async void initViewer()
         {
-            focusPage = com.pag.ToString();
+            await viewer.EnsureCoreWebView2Async(null);
+            navigateToPage(com.pag.ToString());
+        }
+
+        /// <summary>
+        /// Método que carga una página especifica en el visualizador 
+        /// </summary>
+        /// <param name="pagina"></param>
+        public void navigateToPage(string pagina) {
             var ub = new UriBuilder(ciclo.filePath);
             var query = new Dictionary<string, string>();
-            
-            query.Add("page", focusPage);
+
+            query.Add("page", pagina);
             ub.Fragment = String.Join("&", query.Select(kv => kv.Key + "=" + WebUtility.UrlEncode(kv.Value)));
-            
 
             var url = ub.Uri;
-            viewer.Source = url;
-            await viewer.EnsureCoreWebView2Async(null);
 
-            
-            //viewer.NavigationCompleted += reloadWithParams;
-            /*
-            var ub = new UriBuilder(ciclo.filePath);
-            var query = new Dictionary<string, string>();
-            query.Add("page", focusPage);
-            ub.Query = String.Join("&", query.Select(kv => kv.Key+"="+WebUtility.UrlEncode(kv.Value)));
-
-
-            var url = ub.Uri.AbsoluteUri;
-
-            */
-
-            //viewer.CoreWebView2.Navigate(ciclo.filePath);
-            /*
-            var request = viewer.CoreWebView2.Environment.CreateWebResourceRequest(
-                uri: ciclo.filePath,
-                Method: "GET",
-                postData: null,
-                Headers: ""
-                );
-
-
-            Dictionary<string, string> headers = new Dictionary<string, string>();
-            headers.Add("page", "2");
-            
-
-            viewer.CoreWebView2.NavigateWithWebResourceRequest(request);
-            */
-            /*
-            var request = viewer.CoreWebView2.Environment.CreateWebResourceRequest(
-                uri: ciclo.filePath,
-                Method: "GET",
-                postData: null,
-                Headers: ""
-                );
-
-            request.Headers.SetHeader("page", focusPage);
-            */
-            //viewer.CoreWebView2.NavigateWithWebResourceRequest(cic);
-            System.Console.WriteLine();
+            viewer.CoreWebView2.Navigate(ub.Uri.AbsoluteUri);
         }
 
-        private void reloadWithParams(Object sender, CoreWebView2NavigationCompletedEventArgs e)
-        {
-            var request = viewer.CoreWebView2.Environment.CreateWebResourceRequest(
-                uri: ciclo.filePath,
-                Method: "GET",
-                postData: null,
-                Headers: "page: 2"
-                );
-
-            //request.Headers.SetHeader("page", "2");
-            var url = request.Uri;
-            var h = request.Headers;
-            //viewer.CoreWebView2.NavigateWithWebResourceRequest(request);
-            
-            viewer.NavigationCompleted -= reloadWithParams;
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
