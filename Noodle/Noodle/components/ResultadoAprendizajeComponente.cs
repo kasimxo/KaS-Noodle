@@ -19,13 +19,18 @@ namespace Noodle.components
         public System.Windows.Forms.Label editando;
         public ResultadoAprendizajeDTO ra;
         public Boolean editable;
+        public Boolean editado; //Controla si se ha editado almenos una cosa para mostrar mensaje de confirmación
         public RichTextBox texto;
-        public ResultadoAprendizajeComponente(ResultadoAprendizajeDTO ra, Boolean editable=false)
+        public CompetenciaComponente parent;
+        public ResultadoAprendizajeComponente(ResultadoAprendizajeDTO ra, Boolean editable=false, CompetenciaComponente parent=null)
         {
             InitializeComponent();
             this.ra = ra;
             this.nombreRa = ra.nombre;
             this.editable = editable;
+            if (parent != null) {
+                this.parent = parent;
+            }
             if (editable)
             {
                 popularEditable();
@@ -33,29 +38,6 @@ namespace Noodle.components
             else {
                 popularNormal();
             }
-
-                /*
-                RichTextBox texto = new RichTextBox();
-
-                //TextBox texto = new TextBox();
-                texto.Text = ce.nombre;
-                //texto.Size = new Size(200,200);
-                texto.ReadOnly = true;
-                texto.Dock = DockStyle.Fill;
-                //texto.BackColor = Color.Transparent;
-                texto.BorderStyle = BorderStyle.None;
-                texto.Size = new Size(this.Width, texto.Height);
-                TableLayoutPanel tlp = new TableLayoutPanel();
-                tlp.RowCount = 1;
-                tlp.ColumnCount = 1;
-                tlp.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-                tlp.AutoSize = true;
-                tlp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                tlp.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-                container.Controls.Add(tlp);
-                tlp.Controls.Add( texto ,0, tlp.RowCount-1);
-                */
-            
         }
 
         private void popularEditable() {
@@ -92,11 +74,34 @@ namespace Noodle.components
         private void hacerEditable(Object sender, EventArgs e, System.Windows.Forms.Label label, int row=-1)
         {
             if (texto != null) {
-                editando.Text = texto.Text;
+                try {
+                    if (ra.criterios[editando.Text].nombre != texto.Text) {
+                        ra.criterios[editando.Text].nombre = texto.Text;
+                        parent.editarView.hayCambios = true;
+                    }
+                } catch (KeyNotFoundException ex) {
+                    //Comprobamos si hemos editado el label del título de ra
+                    if (nombreRa == editando.Text) {
+                        ra.nombre = texto.Text;
+                        nombreRa = texto.Text;
+                        parent.editarView.hayCambios = true;
+                    }
+                }
+                
+                if(editando.Text != texto.Text)
+                {
+                    editando.Text = texto.Text;
+                    editando.BackColor = Color.LightYellow;
+                    parent.editarView.hayCambios = true;
+                }
                 texto.Dispose(); 
             }
             if (editando != null) { editando.Visible = true; }
-            
+            if(parent.enModificacion != null && parent.enModificacion != this)
+            {
+                parent.enModificacion.saveChanges();
+            }
+            parent.enModificacion = this;
             editando = label;
             editando.Visible = false;
 
@@ -106,27 +111,59 @@ namespace Noodle.components
             texto.Dock = DockStyle.Fill;
             texto.BorderStyle = BorderStyle.None;
             texto.Size = new Size(this.Width, this.Height);
-            if (row >= 0) {
+            if (row >= 0)
+            {
                 TableLayoutPanel tlp = container.Controls.OfType<TableLayoutPanel>().FirstOrDefault();
                 if (tlp != null)
                 {
                     tlp.Controls.Add(texto, 0, row);
                 }
-            } else
+            }
+            else
             {
                 container.SuspendLayout();
                 container.Controls.Add(texto);
                 container.Controls.SetChildIndex(texto, 0);
                 container.ResumeLayout();
             }
-            
+        }
+
+        private void saveChanges() {
+            if (texto != null)
+            {
+                try
+                {
+                    if (ra.criterios[editando.Text].nombre != texto.Text)
+                    {
+                        ra.criterios[editando.Text].nombre = texto.Text;
+                        parent.editarView.hayCambios = true;
+                    }
+                }
+                catch (KeyNotFoundException ex)
+                {
+                    //Comprobamos si hemos editado el label del título de ra
+                    if (nombreRa == editando.Text)
+                    {
+                        ra.nombre = texto.Text;
+                        nombreRa = texto.Text;
+                        parent.editarView.hayCambios = true;
+                    }
+                }
+                if (editando.Text != texto.Text)
+                {
+                    editando.Text = texto.Text;
+                    editando.BackColor = Color.LightYellow;
+                    parent.editarView.hayCambios = true;
+                }
+                texto.Dispose();
+            }
+            if (editando != null) { editando.Visible = true; }
         }
 
         private void popularNormal() {
             nombre.Text = nombreRa;
             foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
             {
-
 
                 System.Windows.Forms.Label label = new System.Windows.Forms.Label();
                 label.Margin = new Padding(2);

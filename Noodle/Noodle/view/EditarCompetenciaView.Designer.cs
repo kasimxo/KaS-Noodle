@@ -32,6 +32,7 @@
             button1 = new Button();
             container = new TableLayoutPanel();
             viewer = new Microsoft.Web.WebView2.WinForms.WebView2();
+            btn_guardar = new Button();
             container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)viewer).BeginInit();
             SuspendLayout();
@@ -39,7 +40,7 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(713, 415);
+            button1.Location = new Point(615, 415);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
@@ -73,11 +74,23 @@
             viewer.TabIndex = 0;
             viewer.ZoomFactor = 1D;
             // 
+            // btn_guardar
+            // 
+            btn_guardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_guardar.Location = new Point(713, 415);
+            btn_guardar.Name = "btn_guardar";
+            btn_guardar.Size = new Size(75, 23);
+            btn_guardar.TabIndex = 3;
+            btn_guardar.Text = "Guardar";
+            btn_guardar.UseVisualStyleBackColor = true;
+            btn_guardar.Click += btn_guardar_Click;
+            // 
             // EditarCompetenciaView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_guardar);
             Controls.Add(container);
             Controls.Add(button1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -95,5 +108,6 @@
         private TableLayoutPanel container;
         private components.CompetenciaComponente competencia;
         private Microsoft.Web.WebView2.WinForms.WebView2 viewer;
+        private Button btn_guardar;
     }
 }

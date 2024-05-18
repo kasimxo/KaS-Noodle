@@ -17,17 +17,23 @@ namespace Noodle.components
         public CompetenciaDTO competencia { get; set; }
         public string nombreCom { get; set; }
         public Boolean editable { get; set; }
+        public EditarCompetenciaView editarView;
+        public ResultadoAprendizajeComponente enModificacion;
         public CompetenciaComponente()
         {
             InitializeComponent();
         }
-        public CompetenciaComponente(CompetenciaDTO com, Boolean autoWidth=false, Boolean editable=false)
+        public CompetenciaComponente(CompetenciaDTO com, Boolean autoWidth=false, Boolean editable=false, EditarCompetenciaView editarView=null)
         {
             InitializeComponent();
 
             this.nombreCom = com.nombre;
             this.competencia = com;
             this.editable = editable;
+            if(editarView != null)
+            {
+                this.editarView = editarView;
+            }
             if (autoWidth) { nombre.MaximumSize = new Size(0, 0); }
             nombre.Text = competencia.nombre;
         }
@@ -42,9 +48,17 @@ namespace Noodle.components
             flp.Controls.Clear();
             foreach (ResultadoAprendizajeDTO ra in competencia.ras.Values)
             {
-                ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra, editable);
-                flp.Controls.Add(rac);
-                flp.Visible = true;
+                if (editarView != null) {
+                    ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra, editable, this);
+                    flp.Controls.Add(rac);
+                    flp.Visible = true;
+                } else
+                {
+                    ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra, editable);
+                    flp.Controls.Add(rac);
+                    flp.Visible = true;
+                }
+                
             }
         }
 

@@ -112,7 +112,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BackColor = Color.White;
+            BackColor = Color.PaleTurquoise;
             Controls.Add(tableLayoutPanel1);
             MinimumSize = new Size(375, 0);
             Name = "CompetenciaComponente";

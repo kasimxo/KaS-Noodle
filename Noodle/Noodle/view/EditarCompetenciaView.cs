@@ -21,6 +21,7 @@ namespace Noodle.view
         public VerCompetenciasView parent;
         public CicloDTO ciclo;
         public CompetenciaDTO com;
+        public Boolean hayCambios; //Cuando se hace cualquier cambio se pone true
 
         public EditarCompetenciaView()
         {
@@ -33,7 +34,7 @@ namespace Noodle.view
             this.parent = parent;
             this.ciclo = ciclo;
             this.com = competencia;
-            CompetenciaComponente comp = new CompetenciaComponente(com, false, true);
+            CompetenciaComponente comp = new CompetenciaComponente(com, false, true, this);
             comp.HorizontalScroll.Visible = false;
             comp.HorizontalScroll.Minimum = 100000;
             comp.VerticalScroll.Enabled = true;
@@ -55,7 +56,8 @@ namespace Noodle.view
         /// Método que carga una página especifica en el visualizador 
         /// </summary>
         /// <param name="pagina"></param>
-        public void navigateToPage(string pagina) {
+        public void navigateToPage(string pagina)
+        {
             var ub = new UriBuilder(ciclo.filePath);
             var query = new Dictionary<string, string>();
 
@@ -70,6 +72,25 @@ namespace Noodle.view
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Aquí hay que meter una comprobación que pregunte al usuario si quiere guardar cambios o no
+            if (hayCambios)
+            {
+                DialogResult resultado = MessageBox.Show("Perderás los cambios no guardados, ¿seguro que quieres salir?","aaa", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes) {
+                    parent.Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                parent.Show();
+                this.Close();
+            }
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            parent.updateCompetencia(com);
             parent.Show();
             this.Close();
         }

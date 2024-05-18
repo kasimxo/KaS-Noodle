@@ -15,31 +15,13 @@ namespace Noodle.view
     public partial class VerCompetenciasView : Form
     {
         public CicloDTO ciclo;
-        public List<CompetenciaDTO> competencias;
         public VerCompetenciasView()
         {
             InitializeComponent();
             initView();
         }
 
-        public VerCompetenciasView(List<CompetenciaDTO> competencias)
-        {
-            this.competencias = competencias;
-
-            InitializeComponent();
-
-            initView();
-
-            foreach (CompetenciaDTO com in competencias)
-            {
-                CompetenciaComponente comp = new CompetenciaComponente(com);
-                comp.MouseClick -= comp.CompetenciaComponente_MouseClick;
-                comp.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com, comp);
-                comp.nombre.MouseClick -= comp.CompetenciaComponente_MouseClick;
-                comp.nombre.MouseClick += (sender, e) => VerDetalleCompetencia(sender, e, com, comp);
-                flp.Controls.Add(comp);
-            }
-        }
+        
 
         public VerCompetenciasView(CicloDTO ciclo)
         {
@@ -58,6 +40,7 @@ namespace Noodle.view
 
         private void listarCompetencias()
         {
+            flp.Controls.Clear();
             foreach (CompetenciaDTO com in ciclo.competencias.Values)
             {
                 CompetenciaComponente comp = new CompetenciaComponente(com);
@@ -87,9 +70,6 @@ namespace Noodle.view
             detalleCompetencia.competencia = com;
             detalleCompetencia.nombre.Text = com.nombre;
             detalleCompetencia.listarDetalles();
-            //detalleCompetencia.nombre.MaximumSize = new Size(0, 0);
-            //detalleCompetencia.AutoScroll = true;
-            //detalleCompetencia.MaximumSize = new Size(0, this.Height-25);
             detalleCompetencia.btn_editar.Visible = true;
             detalleCompetencia.BackColor = green;
             detalleCompetencia.btn_editar.Click += (sender, e) => {
@@ -97,12 +77,26 @@ namespace Noodle.view
                 ecv.Visible = true;
                 this.Hide();
             };
-            
-
             detalleCompetencia.Visible = true;
-
             comp.BackColor = green;
-
+        }
+        private void VerDetalleCompetencia( CompetenciaDTO com, CompetenciaComponente comp)
+        {
+            limpiarCompetencias();
+            Color green = Color.FromArgb(255, 195, 250, 185);
+            detalleCompetencia.nombreCom = com.nombre;
+            detalleCompetencia.competencia = com;
+            detalleCompetencia.nombre.Text = com.nombre;
+            detalleCompetencia.listarDetalles();
+            detalleCompetencia.btn_editar.Visible = true;
+            detalleCompetencia.BackColor = green;
+            detalleCompetencia.btn_editar.Click += (sender, e) => {
+                EditarCompetenciaView ecv = new EditarCompetenciaView(this, ciclo, com);
+                ecv.Visible = true;
+                this.Hide();
+            };
+            detalleCompetencia.Visible = true;
+            comp.BackColor = green;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -117,6 +111,17 @@ namespace Noodle.view
             
             Program.mW.Show();
             this.Close();
+        }
+
+        public void updateCompetencia(CompetenciaDTO com)
+        {
+            try
+            {
+                ciclo.competencias[com.nombre] = com;
+                listarCompetencias();
+                VerDetalleCompetencia(com, new CompetenciaComponente(com));
+            }
+            catch (Exception e) { }
         }
 
         public void initView()
