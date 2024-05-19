@@ -48,7 +48,7 @@
             importarPdfComponente.Location = new Point(25, 25);
             importarPdfComponente.Margin = new Padding(25);
             importarPdfComponente.Name = "importarPdfComponente";
-            importarPdfComponente.Size = new Size(146, 155);
+            importarPdfComponente.Size = new Size(146, 159);
             importarPdfComponente.TabIndex = 1;
             // 
             // importarCsvComponente
@@ -59,31 +59,32 @@
             importarCsvComponente.Location = new Point(221, 25);
             importarCsvComponente.Margin = new Padding(25);
             importarCsvComponente.Name = "importarCsvComponente";
-            importarCsvComponente.Size = new Size(146, 155);
+            importarCsvComponente.Size = new Size(146, 159);
             importarCsvComponente.TabIndex = 2;
             // 
             // cargar_archivo_label
             // 
             cargar_archivo_label.AutoSize = true;
+            cargar_archivo_label.Dock = DockStyle.Fill;
             cargar_archivo_label.Font = new Font("Arial", 14F, FontStyle.Bold, GraphicsUnit.Point);
             cargar_archivo_label.Location = new Point(5, 5);
             cargar_archivo_label.Margin = new Padding(5);
             cargar_archivo_label.Name = "cargar_archivo_label";
-            cargar_archivo_label.Size = new Size(149, 22);
+            cargar_archivo_label.Size = new Size(442, 22);
             cargar_archivo_label.TabIndex = 3;
             cargar_archivo_label.Text = "Cargar archivo";
             // 
             // container
             // 
             container.AllowDrop = true;
-            container.AutoSize = true;
+            container.Anchor = AnchorStyles.Top;
             container.ColumnCount = 1;
-            container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            container.ColumnStyles.Add(new ColumnStyle());
             container.Controls.Add(flp, 0, 1);
             container.Controls.Add(cargar_archivo_label, 0, 0);
             container.Controls.Add(agregar_archivo_label, 0, 2);
             container.Controls.Add(arrastrarArchivoComponente1, 0, 3);
-            container.Location = new Point(40, 12);
+            container.Location = new Point(169, 12);
             container.Name = "container";
             container.RowCount = 4;
             container.RowStyles.Add(new RowStyle());
@@ -102,17 +103,18 @@
             flp.Controls.Add(importarCsvComponente);
             flp.Location = new Point(30, 35);
             flp.Name = "flp";
-            flp.Size = new Size(392, 205);
+            flp.Size = new Size(392, 209);
             flp.TabIndex = 4;
             // 
             // agregar_archivo_label
             // 
             agregar_archivo_label.AutoSize = true;
+            agregar_archivo_label.Dock = DockStyle.Fill;
             agregar_archivo_label.Font = new Font("Arial", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            agregar_archivo_label.Location = new Point(5, 248);
+            agregar_archivo_label.Location = new Point(5, 252);
             agregar_archivo_label.Margin = new Padding(5);
             agregar_archivo_label.Name = "agregar_archivo_label";
-            agregar_archivo_label.Size = new Size(160, 22);
+            agregar_archivo_label.Size = new Size(442, 22);
             agregar_archivo_label.TabIndex = 5;
             agregar_archivo_label.Text = "Agregar archivo";
             // 
@@ -123,7 +125,7 @@
             arrastrarArchivoComponente1.AutoSize = true;
             arrastrarArchivoComponente1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             arrastrarArchivoComponente1.BorderStyle = BorderStyle.FixedSingle;
-            arrastrarArchivoComponente1.Location = new Point(25, 295);
+            arrastrarArchivoComponente1.Location = new Point(25, 297);
             arrastrarArchivoComponente1.Margin = new Padding(25, 3, 25, 3);
             arrastrarArchivoComponente1.Name = "arrastrarArchivoComponente1";
             arrastrarArchivoComponente1.Padding = new Padding(20);
@@ -151,7 +153,6 @@
             flp.ResumeLayout(false);
             flp.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

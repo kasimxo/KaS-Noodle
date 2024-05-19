@@ -39,7 +39,6 @@
             nombre.AutoSize = true;
             nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             nombre.Location = new Point(3, 0);
-            nombre.MaximumSize = new Size(400, 1000);
             nombre.Name = "nombre";
             nombre.Size = new Size(50, 18);
             nombre.TabIndex = 0;

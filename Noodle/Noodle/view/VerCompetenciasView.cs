@@ -15,6 +15,7 @@ namespace Noodle.view
     public partial class VerCompetenciasView : Form
     {
         public CicloDTO ciclo;
+        public CompetenciaDTO competenciaDetalle;
         public VerCompetenciasView()
         {
             InitializeComponent();
@@ -33,7 +34,9 @@ namespace Noodle.view
             titulo.Text = ciclo.denominacion;
 
             listarCompetencias();
-
+            detalleCompetencia.btn_editar.Click += (sender, e) => {
+                navegarEditarCompetencias();
+            };
 
 
         }
@@ -52,18 +55,21 @@ namespace Noodle.view
             }
         }
 
+        /// <summary>
+        /// Devuelve el color azul a todas las competencias y limpia el detalle de competencia
+        /// </summary>
         private void limpiarCompetencias()
         {
             foreach (CompetenciaComponente comp in flp.Controls.OfType<CompetenciaComponente>())
             {
-                Color white = Color.FromArgb(255, 255, 255, 255);
-                comp.BackColor = white;
+                 comp.BackColor = Color.PaleTurquoise;
             }
             detalleCompetencia.limpiar();
         }
 
         private void VerDetalleCompetencia(Object sender, EventArgs e, CompetenciaDTO com, CompetenciaComponente comp)
         {
+            this.competenciaDetalle = com;
             limpiarCompetencias();
             Color green = Color.FromArgb(255, 195, 250, 185);
             detalleCompetencia.nombreCom = com.nombre;
@@ -72,16 +78,13 @@ namespace Noodle.view
             detalleCompetencia.listarDetalles();
             detalleCompetencia.btn_editar.Visible = true;
             detalleCompetencia.BackColor = green;
-            detalleCompetencia.btn_editar.Click += (sender, e) => {
-                EditarCompetenciaView ecv = new EditarCompetenciaView(this, ciclo, com);
-                ecv.Visible = true;
-                this.Hide();
-            };
+            
             detalleCompetencia.Visible = true;
             comp.BackColor = green;
         }
         private void VerDetalleCompetencia( CompetenciaDTO com, CompetenciaComponente comp)
         {
+            this.competenciaDetalle = com;
             limpiarCompetencias();
             Color green = Color.FromArgb(255, 195, 250, 185);
             detalleCompetencia.nombreCom = com.nombre;
@@ -90,13 +93,14 @@ namespace Noodle.view
             detalleCompetencia.listarDetalles();
             detalleCompetencia.btn_editar.Visible = true;
             detalleCompetencia.BackColor = green;
-            detalleCompetencia.btn_editar.Click += (sender, e) => {
-                EditarCompetenciaView ecv = new EditarCompetenciaView(this, ciclo, com);
-                ecv.Visible = true;
-                this.Hide();
-            };
             detalleCompetencia.Visible = true;
             comp.BackColor = green;
+        }
+
+        private void navegarEditarCompetencias() {
+            EditarCompetenciaView ecv = new EditarCompetenciaView(this, ciclo, competenciaDetalle);
+            ecv.Visible = true;
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
