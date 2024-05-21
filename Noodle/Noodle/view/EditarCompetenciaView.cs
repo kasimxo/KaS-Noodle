@@ -48,12 +48,17 @@ namespace Noodle.view
 
         private async void initViewer()
         {
+            //Comprobamos si el archivo pdf existe o es válido
+            if(ciclo.filePath == null | ciclo.filePath == "" | !File.Exists(ciclo.filePath))
+            {
+                return;
+            }
             await viewer.EnsureCoreWebView2Async(null);
             navigateToPage(com.pag.ToString());
         }
 
         /// <summary>
-        /// Método que carga una página especifica en el visualizador 
+        /// Método que carga una página especifica de un archivo pdf en el visualizador 
         /// </summary>
         /// <param name="pagina"></param>
         public void navigateToPage(string pagina)

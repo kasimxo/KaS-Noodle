@@ -20,6 +20,8 @@ namespace Noodle.view
         {
             InitializeComponent();
             initView();
+            
+            menuComponente1.marcarEstado(2);
         }
         public void initView()
         {
