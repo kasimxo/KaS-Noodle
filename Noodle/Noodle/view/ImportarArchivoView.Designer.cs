@@ -36,8 +36,11 @@
             flp = new FlowLayoutPanel();
             agregar_archivo_label = new Label();
             arrastrarArchivoComponente1 = new components.ArrastrarArchivoComponente();
+            menuComponente1 = new components.MenuComponente();
+            table_background = new TableLayoutPanel();
             container.SuspendLayout();
             flp.SuspendLayout();
+            table_background.SuspendLayout();
             SuspendLayout();
             // 
             // importarPdfComponente
@@ -77,21 +80,22 @@
             // container
             // 
             container.AllowDrop = true;
-            container.Anchor = AnchorStyles.Top;
+            container.AutoSize = true;
             container.ColumnCount = 1;
             container.ColumnStyles.Add(new ColumnStyle());
             container.Controls.Add(flp, 0, 1);
             container.Controls.Add(cargar_archivo_label, 0, 0);
             container.Controls.Add(agregar_archivo_label, 0, 2);
             container.Controls.Add(arrastrarArchivoComponente1, 0, 3);
-            container.Location = new Point(169, 12);
+            container.Location = new Point(250, 3);
+            container.Margin = new Padding(50, 3, 3, 3);
             container.Name = "container";
             container.RowCount = 4;
             container.RowStyles.Add(new RowStyle());
             container.RowStyles.Add(new RowStyle());
             container.RowStyles.Add(new RowStyle());
             container.RowStyles.Add(new RowStyle());
-            container.Size = new Size(452, 478);
+            container.Size = new Size(452, 444);
             container.TabIndex = 4;
             // 
             // flp
@@ -125,7 +129,7 @@
             arrastrarArchivoComponente1.AutoSize = true;
             arrastrarArchivoComponente1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             arrastrarArchivoComponente1.BorderStyle = BorderStyle.FixedSingle;
-            arrastrarArchivoComponente1.Location = new Point(25, 297);
+            arrastrarArchivoComponente1.Location = new Point(25, 282);
             arrastrarArchivoComponente1.Margin = new Padding(25, 3, 25, 3);
             arrastrarArchivoComponente1.Name = "arrastrarArchivoComponente1";
             arrastrarArchivoComponente1.Padding = new Padding(20);
@@ -134,6 +138,32 @@
             arrastrarArchivoComponente1.DragDrop += arrastrarArchivoComponente1_DragDrop;
             arrastrarArchivoComponente1.DragEnter += arrastrarArchivoComponente1_DragEnter;
             arrastrarArchivoComponente1.DragOver += arrastrarArchivoComponente1_DragOver;
+            // 
+            // menuComponente1
+            // 
+            menuComponente1.BackColor = Color.FromArgb(23, 21, 22);
+            menuComponente1.Dock = DockStyle.Fill;
+            menuComponente1.Location = new Point(0, 0);
+            menuComponente1.Margin = new Padding(0);
+            menuComponente1.Name = "menuComponente1";
+            menuComponente1.Size = new Size(200, 450);
+            menuComponente1.TabIndex = 5;
+            // 
+            // table_background
+            // 
+            table_background.ColumnCount = 2;
+            table_background.ColumnStyles.Add(new ColumnStyle());
+            table_background.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            table_background.Controls.Add(menuComponente1, 0, 0);
+            table_background.Controls.Add(container, 1, 0);
+            table_background.Dock = DockStyle.Fill;
+            table_background.Location = new Point(0, 0);
+            table_background.Margin = new Padding(0);
+            table_background.Name = "table_background";
+            table_background.RowCount = 1;
+            table_background.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            table_background.Size = new Size(800, 450);
+            table_background.TabIndex = 6;
             // 
             // ImportarArchivoView
             // 
@@ -144,7 +174,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(240, 240, 220);
             ClientSize = new Size(800, 450);
-            Controls.Add(container);
+            Controls.Add(table_background);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ImportarArchivoView";
             Text = "Noodle";
@@ -152,6 +182,8 @@
             container.PerformLayout();
             flp.ResumeLayout(false);
             flp.PerformLayout();
+            table_background.ResumeLayout(false);
+            table_background.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -163,5 +195,7 @@
         private FlowLayoutPanel flp;
         private Label agregar_archivo_label;
         private components.ArrastrarArchivoComponente arrastrarArchivoComponente1;
+        private components.MenuComponente menuComponente1;
+        private TableLayoutPanel table_background;
     }
 }

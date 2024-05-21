@@ -42,3 +42,4 @@ C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\ref\Noodle.dll
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.ArrastrarArchivoComponente.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.VerCompetenciasView.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.EditarCompetenciaView.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.MenuComponente.resources

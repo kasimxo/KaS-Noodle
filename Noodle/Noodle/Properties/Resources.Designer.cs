@@ -73,9 +73,59 @@ namespace Noodle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap img_biblioteca {
+            get {
+                object obj = ResourceManager.GetObject("img_biblioteca", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img_cargar {
+            get {
+                object obj = ResourceManager.GetObject("img_cargar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap img_csv {
             get {
                 object obj = ResourceManager.GetObject("img_csv", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img_editar {
+            get {
+                object obj = ResourceManager.GetObject("img_editar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img_exportar {
+            get {
+                object obj = ResourceManager.GetObject("img_exportar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img_logotipoNoodleExtendidoInvertido {
+            get {
+                object obj = ResourceManager.GetObject("img_logotipoNoodleExtendidoInvertido", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

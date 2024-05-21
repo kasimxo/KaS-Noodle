@@ -16,10 +16,14 @@ namespace Noodle.view
     {
         public CicloDTO ciclo;
         public CompetenciaDTO competenciaDetalle;
+
+        private Boolean loading;
         public VerCompetenciasView()
         {
+            loading = false;
             InitializeComponent();
             initView();
+
         }
 
         

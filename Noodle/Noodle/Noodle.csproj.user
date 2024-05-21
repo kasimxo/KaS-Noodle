@@ -13,6 +13,9 @@
     <Compile Update="components\ImportarArchivoPdfComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="components\MenuComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="components\ResultadoAprendizajeComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>

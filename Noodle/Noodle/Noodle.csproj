@@ -11,14 +11,24 @@
   <ItemGroup>
     <None Remove="files\Icono Noodle.ico" />
     <None Remove="files\img_aqui.png" />
+    <None Remove="files\img_biblioteca.png" />
+    <None Remove="files\img_cargar.png" />
     <None Remove="files\img_csv.png" />
+    <None Remove="files\img_editar.png" />
+    <None Remove="files\img_exportar.png" />
+    <None Remove="files\img_logotipoNoodleExtendidoInvertido.png" />
     <None Remove="files\img_pdf.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="files\Icono Noodle.ico" />
     <EmbeddedResource Include="files\img_aqui.png" />
+    <EmbeddedResource Include="files\img_biblioteca.png" />
+    <EmbeddedResource Include="files\img_cargar.png" />
     <EmbeddedResource Include="files\img_csv.png" />
+    <EmbeddedResource Include="files\img_editar.png" />
+    <EmbeddedResource Include="files\img_exportar.png" />
+    <EmbeddedResource Include="files\img_logotipoNoodleExtendidoInvertido.png" />
     <EmbeddedResource Include="files\img_pdf.png" />
   </ItemGroup>
 

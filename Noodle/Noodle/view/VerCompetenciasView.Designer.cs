@@ -41,6 +41,7 @@
             // flp
             // 
             flp.AutoScroll = true;
+            flp.AutoScrollOffset = new Point(50, 50);
             flp.AutoSize = true;
             flp.FlowDirection = FlowDirection.TopDown;
             flp.Location = new Point(0, 0);
@@ -60,6 +61,7 @@
             detalleCompetencia.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             detalleCompetencia.BackColor = Color.FromArgb(170, 255, 220);
             detalleCompetencia.competencia = null;
+            detalleCompetencia.editable = false;
             detalleCompetencia.Location = new Point(33, 8);
             detalleCompetencia.Margin = new Padding(8);
             detalleCompetencia.MaximumSize = new Size(0, 300);
@@ -124,23 +126,10 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "VerCompetenciasView";
             Padding = new Padding(25);
-            Text = "Editar";
+            Text = "Noodle";
             WindowState = FormWindowState.Maximized;
             container.ResumeLayout(false);
             container.PerformLayout();
-            ClientSize = Screen.PrimaryScreen.WorkingArea.Size;
-            flp.MaximumSize = new Size(0, this.Height - 175);
-            detalleCompetencia.MaximumSize = new Size(0, this.Height - 175);
-            flp.HorizontalScroll.Visible = false;
-            flp.HorizontalScroll.Minimum = 100000;
-            flp.VerticalScroll.Enabled = true;
-            flp.VerticalScroll.Visible = true;
-            flp.AutoScroll = true;
-            detalleCompetencia.HorizontalScroll.Visible = false;
-            detalleCompetencia.HorizontalScroll.Minimum = 100000;
-            detalleCompetencia.VerticalScroll.Enabled = true;
-            detalleCompetencia.VerticalScroll.Visible = true;
-            detalleCompetencia.AutoScroll = true;
             ResumeLayout(false);
             PerformLayout();
         }

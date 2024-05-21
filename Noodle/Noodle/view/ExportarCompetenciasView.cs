@@ -19,7 +19,6 @@ namespace Noodle.view
         public ExportarCompetenciasView(CicloDTO ciclo)
         {
             InitializeComponent();
-            initView();
             this.ciclo = ciclo;
             listarCompetencias();
         }
@@ -35,15 +34,30 @@ namespace Noodle.view
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<CompetenciaDTO> competenciasExportar = new List<CompetenciaDTO>();
+            //Creamos un ciclo en el que almacenamos únicamente las variables que vamos a exportar
+            CicloDTO competenciasExportar = new CicloDTO();
+
+            //Copiamos las variables que necesitamos del ciclo actual
+            competenciasExportar.nivel = ciclo.nivel;
+            competenciasExportar.siglas = ciclo.siglas;
+            competenciasExportar.denominacion = ciclo.denominacion;
+
             foreach (SeleccionCompetenciaComponente scc in flp.Controls.OfType<SeleccionCompetenciaComponente>())
             {
                 if (scc.cb.Checked)
                 {
-                    competenciasExportar.Add(scc.competencia);
+                    competenciasExportar.competencias.Add(scc.competencia.nombre, scc.competencia);
                 }
             }
 
+            //Comprobamos que se haya seleccionado por lo menos una competencia
+            if (competenciasExportar.competencias.Count < 1)
+            {
+                MessageBox.Show("No se ha seleccionado ninguna competencia");
+                return;
+            }
+
+            //Permitimos al usuario seleccionar el directorio en el que se va a guardar el archivo
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "CSV .csv|*.csv";
             sfd.Title = "Exportar Competencias";
@@ -54,18 +68,9 @@ namespace Noodle.view
                 {
                     //Hardcode de las cabeceras
                     sw.WriteLine("Identificador padre;Identificador;Nombre corto;Descripción;Descripción del formato;Valores de escala;Configuración de escala;Tipo de regla (opcional);Resultado de la regla (opcional);Configuración de regla (opcional);Identificadores de referencias cruzadas de competencias;Identificador de la exportación (opcional);Es marco de competencias;Taxonomía");
-                    sw.WriteLine(ciclo.ToCSV());
+                    sw.WriteLine(competenciasExportar.ToCSV());
                 }
             }
-
-            //hay que abrir el file chooser para poder elegir donde guardar el archivo
-            //hay que generar los métodos competenciaToText que le den el formato correcto
-        }
-
-        public void initView()
-        {
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btn_deseleccionar_Click(object sender, EventArgs e)
