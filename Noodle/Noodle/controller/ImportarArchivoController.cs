@@ -31,7 +31,24 @@ namespace Noodle.controller
 
         private static void procesarArchivoCSV()
         {
-            throw new NotImplementedException();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "CSV *.csv|*.csv";
+            openFileDialog1.FilterIndex = 0;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string selectedFileName = openFileDialog1.FileName;
+
+            MarcoCompetenciasDTO marco = ProcesarArchivoCsvAction.extraerCompetencias(selectedFileName);
+            Program.mW.Hide();
+            VerCompetenciasView ecV = new VerCompetenciasView(marco);
+            ecV.Show();
         }
         private static void procesarArchivoPDF()
         {
@@ -49,18 +66,18 @@ namespace Noodle.controller
 
             string selectedFileName = openFileDialog1.FileName;
 
-            CicloDTO ciclo = ProcesarArchivoPdfAction.extraerCompetencias(selectedFileName);
+            MarcoCompetenciasDTO marco = ProcesarArchivoPdfAction.extraerCompetencias(selectedFileName);
 
             Program.mW.Hide();
-            VerCompetenciasView ecV = new VerCompetenciasView(ciclo);
+            VerCompetenciasView ecV = new VerCompetenciasView(marco);
             ecV.Show();
         }
 
         public static void procesarArchivoGenerico(string filePath)
         {
-            CicloDTO ciclo = ProcesarArchivoAction.procesarArchivoSegunFormato(filePath);
+            MarcoCompetenciasDTO marco = ProcesarArchivoAction.procesarArchivoSegunFormato(filePath);
             Program.mW.Hide();
-            VerCompetenciasView ecV = new VerCompetenciasView(ciclo);
+            VerCompetenciasView ecV = new VerCompetenciasView(marco);
             ecV.Show();
         }
 

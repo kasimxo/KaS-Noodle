@@ -9,7 +9,7 @@ namespace Noodle.model.action
 {
     public class ProcesarArchivoAction
     {
-        public static CicloDTO procesarArchivoSegunFormato(string filePath)
+        public static MarcoCompetenciasDTO procesarArchivoSegunFormato(string filePath)
         {
             try
             {

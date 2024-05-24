@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Noodle.config;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,17 +28,17 @@ namespace Noodle.model.dto
         {
             string idPadre = identificadorPadre;
             string id = generarID(identificadorPadre, cardinalidad);
-            string nombreCorto = generarNombreCorto(numeroPadre, cardinalidad) + ";";
-            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">"+nombre+"</p>\";";
-            string descripcionFormato = "1;"; //Fixed: 1
-            string valoresEscala = ";"; //Solo ciclo
-            string configuracionEscala = ";"; //Solo ciclo
-            string tipoRegla = ";"; //Opcional
-            string resultadoRegla = ";"; //Opcional
-            string configuracionRegla = ";"; //Opcional
-            string idReferenciasCruzadasCompetencias = ";"; //Opcional
-            string idExportacion = ";"; //Opcional
-            string esMarcoCompetencias = ";"; //Solo ciclo
+            string nombreCorto = generarNombreCorto(numeroPadre, cardinalidad) + Configuracion.CARACTER_CSV;
+            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">"+nombre+"</p>\""+ Configuracion.CARACTER_CSV;
+            string descripcionFormato = "1"+ Configuracion.CARACTER_CSV; //Fixed: 1
+            string valoresEscala = Configuracion.CARACTER_CSV; //Solo ciclo
+            string configuracionEscala = Configuracion.CARACTER_CSV; //Solo ciclo
+            string tipoRegla = Configuracion.CARACTER_CSV; //Opcional
+            string resultadoRegla = Configuracion.CARACTER_CSV; //Opcional
+            string configuracionRegla = Configuracion.CARACTER_CSV; //Opcional
+            string idReferenciasCruzadasCompetencias = Configuracion.CARACTER_CSV; //Opcional
+            string idExportacion = Configuracion.CARACTER_CSV; //Opcional
+            string esMarcoCompetencias = Configuracion.CARACTER_CSV; //Solo ciclo
             string taxonomia = ""; //Solo ciclo
 
             string texto = idPadre +
@@ -61,7 +62,7 @@ namespace Noodle.model.dto
         public string generarID(string idPadre, int cardinalidad)
         {
             string abc = "abcdefghijklmnopqrstuvwxyz";
-            return idPadre.Substring(0, idPadre.Length - 1) + "_" + abc[cardinalidad] + ";";
+            return idPadre.Substring(0, idPadre.Length - 1) + "_" + abc[cardinalidad] + Configuracion.CARACTER_CSV;
         }
 
         public string generarNombreCorto(int numeroPadre, int cardinalidad) {

@@ -14,7 +14,7 @@ namespace Noodle.view
 {
     public partial class VerCompetenciasView : Form
     {
-        public CicloDTO ciclo;
+        public MarcoCompetenciasDTO ciclo;
         public CompetenciaDTO competenciaDetalle;
 
         private Boolean loading;
@@ -28,7 +28,7 @@ namespace Noodle.view
 
         
 
-        public VerCompetenciasView(CicloDTO ciclo)
+        public VerCompetenciasView(MarcoCompetenciasDTO ciclo)
         {
             this.ciclo = ciclo;
 

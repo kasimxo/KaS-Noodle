@@ -16,9 +16,9 @@ namespace Noodle.model.action
     {
         public ProcesarArchivoPdfAction(string filename) { }
 
-        public static CicloDTO extraerCompetencias(string filePath)
+        public static MarcoCompetenciasDTO extraerCompetencias(string filePath)
         {
-            CicloDTO ciclo = new CicloDTO();
+            MarcoCompetenciasDTO ciclo = new MarcoCompetenciasDTO();
             ciclo.filePath = filePath;
             Dictionary<string, CompetenciaDTO> competencias = new Dictionary<string, CompetenciaDTO>();
             string modu = "";

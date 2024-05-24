@@ -1,4 +1,5 @@
 ﻿using Noodle.components;
+using Noodle.config;
 using Noodle.model.dto;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace Noodle.view
 {
     public partial class ExportarCompetenciasView : Form
     {
-        public CicloDTO ciclo { get; set; }
+        public MarcoCompetenciasDTO ciclo { get; set; }
         public List<CompetenciaDTO> competencias;
-        public ExportarCompetenciasView(CicloDTO ciclo)
+        public ExportarCompetenciasView(MarcoCompetenciasDTO ciclo)
         {
             InitializeComponent();
             this.ciclo = ciclo;
@@ -35,7 +36,7 @@ namespace Noodle.view
         private void button1_Click(object sender, EventArgs e)
         {
             //Creamos un ciclo en el que almacenamos únicamente las variables que vamos a exportar
-            CicloDTO competenciasExportar = new CicloDTO();
+            MarcoCompetenciasDTO competenciasExportar = new MarcoCompetenciasDTO();
 
             //Copiamos las variables que necesitamos del ciclo actual
             competenciasExportar.nivel = ciclo.nivel;
@@ -67,7 +68,7 @@ namespace Noodle.view
                 using (StreamWriter sw = new StreamWriter(sfd.FileName, true))
                 {
                     //Hardcode de las cabeceras
-                    sw.WriteLine("Identificador padre;Identificador;Nombre corto;Descripción;Descripción del formato;Valores de escala;Configuración de escala;Tipo de regla (opcional);Resultado de la regla (opcional);Configuración de regla (opcional);Identificadores de referencias cruzadas de competencias;Identificador de la exportación (opcional);Es marco de competencias;Taxonomía");
+                    sw.WriteLine(Configuracion.CABECERAS_CSV);
                     sw.WriteLine(competenciasExportar.ToCSV());
                 }
             }

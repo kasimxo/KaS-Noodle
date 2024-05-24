@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Noodle.config;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,27 @@ namespace Noodle.model.dto
         public string siglas { get; set; }
         public string nivel { get; set; } //basico medio superior
 
-        public CompetenciaDTO() { }
+        public string idPadreCSV { get; set; }
+        public string idCSV { get; set; }
+        public string nombreCortoCSV { get; set; }
+        public string descripcionCSV { get; set; }
+        public string descripcionFormatoCSV { get; set; }
+        public string valoresEscalaCSV { get; set; }
+        public string configuracionEscalaCSV { get; set; }
+        public string tipoReglaCSV { get; set; }
+        public string resultadoReglaCSV { get; set; }
+        public string configuracionReglaCSV { get; set; }
+        public string idReferenciasCruzadasCompetenciasCSV { get; set; }
+        public string idExportacionCSV { get; set; }
+        public string esMarcoCompetenciasCSV { get; set; }
+        public string taxonomiaCSV { get; set; }
+
+
+
+        public CompetenciaDTO() 
+        {
+            this.ras = new Dictionary<string, ResultadoAprendizajeDTO>();
+        }
         public CompetenciaDTO(string nombre)
         {
             this.nombre = nombre;
@@ -35,40 +56,27 @@ namespace Noodle.model.dto
 
         public string ToCSV(string identificadorPadre, string identificador, int cardinalidad, string nombreCiclo)
         {
-            //Las competencias no necesitan del id padre, pero lo utilizan para generar su id propio
-            string idPadre = identificadorPadre;
-            string id = generarIdentificador(identificador, cardinalidad) +";";
-            string nombreCorto = NombreCorto(cardinalidad) + ";";
-            string descripcion = "\"<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: "+nombreCiclo+".</p>\";";
-            string descripcionFormato = "1;"; //Fixed: 1
-            string valoresEscala = ";"; //Solo ciclo
-            string configuracionEscala = ";"; //Solo ciclo
-            string tipoRegla = ";"; //Opcional
-            string resultadoRegla = ";"; //Opcional
-            string configuracionRegla = ";"; //Opcional
-            string idReferenciasCruzadasCompetencias = ";"; //Opcional
-            string idExportacion = ";"; //Opcional
-            string esMarcoCompetencias = ";"; //Solo ciclo
-            string taxonomia = ""; //Solo ciclo
-            
-            string texto = idPadre +
-                id +
-                nombreCorto +
-                descripcion +
-                descripcionFormato +
-                valoresEscala +
-                configuracionEscala +
-                tipoRegla +
-                resultadoRegla +
-                configuracionRegla +
-                idReferenciasCruzadasCompetencias +
-                idExportacion +
-                esMarcoCompetencias +
-                taxonomia;
+            iniciarVariablesCSV(identificadorPadre, identificador, cardinalidad, nombreCiclo);
+
+            string texto = "\"" + idPadreCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + idCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + nombreCortoCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + descripcionCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + descripcionFormatoCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + valoresEscalaCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + configuracionEscalaCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + tipoReglaCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + resultadoReglaCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + configuracionReglaCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + idReferenciasCruzadasCompetenciasCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + idExportacionCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + esMarcoCompetenciasCSV + "\"" + Configuracion.CARACTER_CSV +
+                "\"" + taxonomiaCSV + "\"";
+
             int cantidad = 0;
             foreach(ResultadoAprendizajeDTO ra in ras.Values)
             {
-                texto += "\n" + ra.ToCSV(id, cantidad);
+                texto += "\n" + ra.ToCSV(idCSV, cantidad);
                 cantidad++;
             }
             return texto;
@@ -78,6 +86,71 @@ namespace Noodle.model.dto
         {
             string abc = "abcdefghijklmnopqrstuvwxyz";
             return  "CPPS " + abc[cardinalidad] + ") " + nombre;
+        }
+
+
+        public void fromCSV(string[] linea)
+        {
+            //0 Identificador padre
+            idPadreCSV = linea[0];
+            //1 Identificador
+            idCSV = linea[1];
+            //2 Nombre corto
+            nombreCortoCSV = linea[2];
+            nombre = nombreCortoCSV; //Al sacarlo del csv, guardamos el nombre de esta forma
+            //3 Descripción
+            descripcionCSV = linea[3];
+            //4 Descripción del formato
+            descripcionFormatoCSV = linea[4];
+            //5 Valores de escala
+            valoresEscalaCSV = linea[5];
+            //6 Configuración de escala
+            configuracionEscalaCSV = linea[6];
+            //7 Tipo de regla (opcional)
+            tipoReglaCSV = linea[7];
+            //8 Resultado de la regla (opcional)
+            resultadoReglaCSV = linea[8];
+            //9 Configuración de regla (opcional)
+            configuracionReglaCSV = linea[9];
+            //10 Identificadores de referencias cruzadas de competencias
+            idReferenciasCruzadasCompetenciasCSV = linea[10];
+            //11 Identificador de la exportación (opcional)
+            idExportacionCSV = linea[11];
+            //12 Es marco de competencias
+            esMarcoCompetenciasCSV = linea[12];
+            //13 Taxonomía
+            taxonomiaCSV = linea[13];
+        }
+
+
+        /// <summary>
+        /// Inicia las variables para exportar CSV si no estaban iniciadas ya
+        /// </summary>
+        private void iniciarVariablesCSV(string identificadorPadre, string identificador, int cardinalidad, string nombreCiclo)
+        {
+
+            //Las competencias no necesitan del id padre, pero lo utilizan para generar su id propio
+            idPadreCSV ??= identificadorPadre.Replace(",", "");
+            idCSV ??= generarIdentificador(identificador, cardinalidad);
+            nombreCortoCSV ??= NombreCorto(cardinalidad);
+            descripcionCSV ??= "<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: " + nombreCiclo + ".</p>";
+            descripcionFormatoCSV ??= "1"; //Fixed: 1
+            valoresEscalaCSV ??= ""; //Solo ciclo
+            configuracionEscalaCSV ??= ""; //Solo ciclo
+            tipoReglaCSV ??= ""; //Opcional
+            resultadoReglaCSV ??= ""; //Opcional
+            configuracionReglaCSV ??= ""; //Opcional
+            idReferenciasCruzadasCompetenciasCSV ??= ""; //Opcional
+            idExportacionCSV ??= ""; //Opcional
+            esMarcoCompetenciasCSV ??= ""; //Solo ciclo
+            taxonomiaCSV ??= ""; //Solo ciclo
+        }
+
+        internal void addResultadoAprendizajeFromCSV(string[] linea)
+        {
+            ResultadoAprendizajeDTO resultadoAprendizaje = new ResultadoAprendizajeDTO();
+            resultadoAprendizaje.fromCSV(linea);
+            ras.Add(linea[1], resultadoAprendizaje);
         }
     }
 }

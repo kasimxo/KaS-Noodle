@@ -19,7 +19,7 @@ namespace Noodle.view
     public partial class EditarCompetenciaView : Form
     {
         public VerCompetenciasView parent;
-        public CicloDTO ciclo;
+        public MarcoCompetenciasDTO ciclo;
         public CompetenciaDTO com;
         public Boolean hayCambios; //Cuando se hace cualquier cambio se pone true
 
@@ -28,7 +28,7 @@ namespace Noodle.view
             InitializeComponent();
         }
 
-        public EditarCompetenciaView(VerCompetenciasView parent, CicloDTO ciclo, CompetenciaDTO competencia)
+        public EditarCompetenciaView(VerCompetenciasView parent, MarcoCompetenciasDTO ciclo, CompetenciaDTO competencia)
         {
             InitializeComponent();
             this.parent = parent;
