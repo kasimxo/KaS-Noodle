@@ -42,9 +42,6 @@ namespace Noodle.model.action
                         //No se puede distinguir entre RA y CE
                         marco.addResultadoCriterioFromCSV(contenidos);
                     }
-
-
-                    Debug.WriteLine(contenidos);
                 }
             }
             

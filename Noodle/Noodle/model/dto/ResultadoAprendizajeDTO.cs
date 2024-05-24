@@ -99,7 +99,7 @@ namespace Noodle.model.dto
 
         public string generarID(string idPadre, int cardinalidad)
         {
-            return idPadre.Substring(0, idPadre.Length-1) +"_"+cardinalidad.ToString();
+            return idPadre +"_"+cardinalidad.ToString();
         }
 
         public string generarNombreCorto(int cardinalidad) {
@@ -137,6 +137,13 @@ namespace Noodle.model.dto
             esMarcoCompetenciasCSV = linea[12];
             //13 Taxonomía
             taxonomiaCSV = linea[13];
+        }
+
+        public void addCriterioEvaluacionFromCSV(string[] linea)
+        {
+            CriterioEvaluacionDTO ce = new CriterioEvaluacionDTO();
+            ce.fromCSV(linea);
+            criterios.Add(linea[1], ce);
         }
     }
 }

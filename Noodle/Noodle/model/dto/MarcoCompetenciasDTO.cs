@@ -187,7 +187,13 @@ namespace Noodle.model.dto
             }
             else 
             {
-                throw new NotImplementedException();
+                foreach(CompetenciaDTO com in competencias.Values) 
+                {
+                    if (com.ras.ContainsKey(idPadreObjeto))
+                    {
+                        com.ras[idPadreObjeto].addCriterioEvaluacionFromCSV(contenidos);
+                    }
+                }
             }
         }
     }
