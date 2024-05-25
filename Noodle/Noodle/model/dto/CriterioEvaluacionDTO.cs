@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Noodle.model.dto
 {
     public class CriterioEvaluacionDTO
     {
-        public string nombre { get; set; }
+        public string contenido { get; set; }
         public int pag { get; set; }
 
         public string idPadreCSV { get; set; }
@@ -29,12 +30,12 @@ namespace Noodle.model.dto
 
         public CriterioEvaluacionDTO(string nombre)
         {
-            this.nombre = nombre;
+            this.contenido = nombre;
         }
 
         public CriterioEvaluacionDTO(string nombre, int pag)
         {
-            this.nombre = nombre;
+            this.contenido = nombre;
             this.pag = pag;
         }
 
@@ -69,7 +70,7 @@ namespace Noodle.model.dto
             idPadreCSV ??= identificadorPadre.Replace("\"", "").Replace(",", "");
             idCSV ??= generarID(identificadorPadre.Replace("\"", "").Replace(",", ""), cardinalidad);
             nombreCortoCSV ??= generarNombreCorto(numeroPadre, cardinalidad);
-            descripcionCSV ??= "<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">" + nombre + "</p>";
+            descripcionCSV ??= "<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">" + contenido + "</p>";
             descripcionFormatoCSV ??= "1"; //Fixed: 1
             valoresEscalaCSV ??= ""; //Solo ciclo
             configuracionEscalaCSV ??= ""; //Solo ciclo
@@ -100,9 +101,9 @@ namespace Noodle.model.dto
             idCSV = linea[1];
             //2 Nombre corto
             nombreCortoCSV = linea[2];
-            nombre = nombreCortoCSV; //Al sacarlo del csv, guardamos el nombre de esta forma
             //3 Descripción
             descripcionCSV = linea[3];
+            contenido = limpiarDescripcion(linea[3]);
             //4 Descripción del formato
             descripcionFormatoCSV = linea[4];
             //5 Valores de escala
@@ -123,6 +124,11 @@ namespace Noodle.model.dto
             esMarcoCompetenciasCSV = linea[12];
             //13 Taxonomía
             taxonomiaCSV = linea[13];
+        }
+
+        private string limpiarDescripcion(string descripcion)
+        {
+            return Regex.Replace(descripcion, @"<[^>]+>|&nbsp;", "");
         }
     }
 }

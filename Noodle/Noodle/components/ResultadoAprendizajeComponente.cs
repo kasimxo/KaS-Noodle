@@ -56,7 +56,7 @@ namespace Noodle.components
 
                 System.Windows.Forms.Label label = new System.Windows.Forms.Label();
                 label.Margin = new Padding(2);
-                label.Text = ce.nombre;
+                label.Text = ce.contenido;
                 label.AutoSize = true;
                 int rowIndex = tlp.RowCount - 1;
                 label.Click += (o, e) => hacerEditable(o, e, label, rowIndex);
@@ -75,8 +75,8 @@ namespace Noodle.components
         {
             if (texto != null) {
                 try {
-                    if (ra.criterios[editando.Text].nombre != texto.Text) {
-                        ra.criterios[editando.Text].nombre = texto.Text;
+                    if (ra.criterios[editando.Text].contenido != texto.Text) {
+                        ra.criterios[editando.Text].contenido = texto.Text;
                         parent.editarView.hayCambios = true;
                     }
                 } catch (KeyNotFoundException ex) {
@@ -133,9 +133,9 @@ namespace Noodle.components
             {
                 try
                 {
-                    if (ra.criterios[editando.Text].nombre != texto.Text)
+                    if (ra.criterios[editando.Text].contenido != texto.Text)
                     {
-                        ra.criterios[editando.Text].nombre = texto.Text;
+                        ra.criterios[editando.Text].contenido = texto.Text;
                         parent.editarView.hayCambios = true;
                     }
                 }
@@ -167,7 +167,7 @@ namespace Noodle.components
 
                 System.Windows.Forms.Label label = new System.Windows.Forms.Label();
                 label.Margin = new Padding(2);
-                label.Text = ce.nombre;
+                label.Text = ce.contenido;
                 label.AutoSize = true;
 
                 TableLayoutPanel tlp = new TableLayoutPanel();

@@ -123,7 +123,7 @@ namespace Noodle.model.action
                                     {
                                         try
                                         {
-                                            ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.nombre, ce);
+                                            ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.contenido, ce);
                                             ce = null;
                                         }
                                         catch (Exception e) { }
@@ -148,7 +148,7 @@ namespace Noodle.model.action
                                         {
                                             try
                                             {
-                                                ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.nombre, ce);
+                                                ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.contenido, ce);
                                             }
                                             catch (Exception e) { }
                                         }
@@ -161,7 +161,7 @@ namespace Noodle.model.action
                                         Regex regPie = new Regex(".*[a-zA-z]+.*");
                                         if (!regCabecera.IsMatch(linea) && regPie.IsMatch(linea))
                                         {
-                                            ce.nombre += " " + linea;
+                                            ce.contenido += " " + linea;
                                         } 
                                     }
                                 }
