@@ -3,40 +3,24 @@
   "WorkspaceRootPath": "C:\\KaS-Noodle\\Noodle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dto\\resultadoaprendizajedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\resultadoaprendizajedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dal\\marcocompetenciasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dal\\marcocompetenciasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dto\\criterioevaluaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\criterioevaluaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\components\\resultadoaprendizajecomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\components\\resultadoaprendizajecomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\editarcompetenciaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\view\\editarcompetenciaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dto\\marcocompetenciasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\marcocompetenciasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dto\\competenciadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\competenciadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\action\\procesararchivocsvaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\action\\procesararchivocsvaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\config\\configuracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\config\\configuracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\controller\\importararchivocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\controller\\importararchivocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\action\\procesararchivopdfaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\action\\procesararchivopdfaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\action\\procesararchivocsvaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\action\\procesararchivocsvaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|C:\\KaS-Noodle\\Noodle\\noodle\\model\\dto\\marcocompetenciasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\marcocompetenciasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -55,79 +39,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ResultadoAprendizajeComponente.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\components\\ResultadoAprendizajeComponente.cs",
-              "RelativeDocumentMoniker": "Noodle\\components\\ResultadoAprendizajeComponente.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\components\\ResultadoAprendizajeComponente.cs",
-              "RelativeToolTip": "Noodle\\components\\ResultadoAprendizajeComponente.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAswDoAAAApAAAA",
+              "Title": "ImportarArchivoController.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\ImportarArchivoController.cs",
+              "RelativeDocumentMoniker": "Noodle\\controller\\ImportarArchivoController.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\ImportarArchivoController.cs",
+              "RelativeToolTip": "Noodle\\controller\\ImportarArchivoController.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAowDUAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T08:01:04.634Z",
+              "WhenOpened": "2024-05-25T17:52:36.744Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "EditarCompetenciaView.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditarCompetenciaView.cs",
-              "RelativeDocumentMoniker": "Noodle\\view\\EditarCompetenciaView.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditarCompetenciaView.cs",
-              "RelativeToolTip": "Noodle\\view\\EditarCompetenciaView.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAQwCQAAABCAAAA",
+              "Title": "ProcesarArchivoCsvAction.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoCsvAction.cs",
+              "RelativeDocumentMoniker": "Noodle\\model\\action\\ProcesarArchivoCsvAction.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoCsvAction.cs",
+              "RelativeToolTip": "Noodle\\model\\action\\ProcesarArchivoCsvAction.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T07:58:25.011Z",
+              "WhenOpened": "2024-05-25T17:52:22.504Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CriterioEvaluacionDTO.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
-              "RelativeDocumentMoniker": "Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
-              "RelativeToolTip": "Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAUwFwAAABDAAAA",
+              "Title": "Configuracion.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\config\\Configuracion.cs",
+              "RelativeDocumentMoniker": "Noodle\\config\\Configuracion.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\config\\Configuracion.cs",
+              "RelativeToolTip": "Noodle\\config\\Configuracion.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAUwBAAAABxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T21:33:01.993Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CompetenciaDTO.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CompetenciaDTO.cs",
-              "RelativeDocumentMoniker": "Noodle\\model\\dto\\CompetenciaDTO.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CompetenciaDTO.cs",
-              "RelativeToolTip": "Noodle\\model\\dto\\CompetenciaDTO.cs",
-              "ViewState": "AQIAAJAAAAAAAAAAAAAIwJYAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:26:58.485Z",
+              "WhenOpened": "2024-05-25T17:41:40.271Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ResultadoAprendizajeDTO.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\ResultadoAprendizajeDTO.cs",
-              "RelativeDocumentMoniker": "Noodle\\model\\dto\\ResultadoAprendizajeDTO.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\ResultadoAprendizajeDTO.cs",
-              "RelativeToolTip": "Noodle\\model\\dto\\ResultadoAprendizajeDTO.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAIA8wGUAAAAaAAAA",
+              "Title": "MarcoCompetenciasDAL.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dal\\MarcoCompetenciasDAL.cs",
+              "RelativeDocumentMoniker": "Noodle\\model\\dal\\MarcoCompetenciasDAL.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dal\\MarcoCompetenciasDAL.cs*",
+              "RelativeToolTip": "Noodle\\model\\dal\\MarcoCompetenciasDAL.cs*",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAnwBMAAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:26:46.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ProcesarArchivoPdfAction.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoPdfAction.cs",
-              "RelativeDocumentMoniker": "Noodle\\model\\action\\ProcesarArchivoPdfAction.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoPdfAction.cs",
-              "RelativeToolTip": "Noodle\\model\\action\\ProcesarArchivoPdfAction.cs",
-              "ViewState": "AQIAAI8AAAAAAAAAAAAQwB4AAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T18:09:57.763Z",
+              "WhenOpened": "2024-05-25T17:39:15.475Z",
               "EditorCaption": ""
             },
             {
@@ -141,32 +99,6 @@
               "ViewState": "AQIAALoAAAAAAAAAAAAqwMMAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-23T18:23:12.012Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ImportarArchivoController.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\ImportarArchivoController.cs",
-              "RelativeDocumentMoniker": "Noodle\\controller\\ImportarArchivoController.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\ImportarArchivoController.cs",
-              "RelativeToolTip": "Noodle\\controller\\ImportarArchivoController.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAD4vzEAAAA9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T18:08:26.925Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProcesarArchivoCsvAction.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoCsvAction.cs",
-              "RelativeDocumentMoniker": "Noodle\\model\\action\\ProcesarArchivoCsvAction.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoCsvAction.cs",
-              "RelativeToolTip": "Noodle\\model\\action\\ProcesarArchivoCsvAction.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAqwCoAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T17:38:28.89Z",
               "EditorCaption": ""
             }
           ]

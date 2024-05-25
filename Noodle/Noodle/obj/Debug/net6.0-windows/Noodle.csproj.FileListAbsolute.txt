@@ -43,3 +43,10 @@ C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.Arrastrar
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.VerCompetenciasView.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.EditarCompetenciaView.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.MenuComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\KaS-Noodle\Noodle\Noodle\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\KaS-Noodle\Noodle\Noodle\bin\Debug\net6.0-windows\Npgsql.dll
+C:\KaS-Noodle\Noodle\Noodle\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\KaS-Noodle\Noodle\Noodle\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\KaS-Noodle\Noodle\Noodle\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\KaS-Noodle\Noodle\Noodle\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

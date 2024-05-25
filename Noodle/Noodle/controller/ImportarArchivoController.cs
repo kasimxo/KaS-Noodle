@@ -1,4 +1,5 @@
 ﻿using Noodle.model.action;
+using Noodle.model.dal;
 using Noodle.model.dto;
 using Noodle.view;
 using System;
@@ -49,6 +50,8 @@ namespace Noodle.controller
             Program.mW.Hide();
             VerCompetenciasView ecV = new VerCompetenciasView(marco);
             ecV.Show();
+
+            MarcoCompetenciasDAL.guardarMarcoCompetencias(marco);
         }
         private static void procesarArchivoPDF()
         {
