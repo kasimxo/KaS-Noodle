@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Noodle.model.dal
@@ -23,7 +24,7 @@ namespace Noodle.model.dal
         public static async void guardarMarcoCompetencias(MarcoCompetenciasDTO marco)
         {
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
-            await using var connection = await dataSource.OpenConnectionAsync();
+            await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
             var commandMarco = new NpgsqlCommand("insertarmarcocompetencias", connection);
 
             commandMarco.CommandType = System.Data.CommandType.StoredProcedure;
@@ -45,92 +46,66 @@ namespace Noodle.model.dal
             commandMarco.Parameters.AddWithValue("@idGenerado", 0);
 
             //El id del marco que acabamos de insertar
-            var idMarcoGenerado = commandMarco.ExecuteScalar();
+            Int32 idMarcoGenerado = (int) commandMarco.ExecuteScalar();
 
             foreach (CompetenciaDTO com in marco.competencias.Values)
             {
-                var commandCompetencia = new NpgsqlCommand("insertarcompetencia", connection);
-
-                commandCompetencia.CommandType = System.Data.CommandType.StoredProcedure;
-
-                commandCompetencia.Parameters.AddWithValue("@idPadreCSVIn", com.idPadreCSV);
-                commandCompetencia.Parameters.AddWithValue("@idCSVIn", com.idCSV);
-                commandCompetencia.Parameters.AddWithValue("@nombreCortoCSVIn", com.nombreCortoCSV);
-                commandCompetencia.Parameters.AddWithValue("@descripcionCSVIn", com.descripcionCSV);
-                commandCompetencia.Parameters.AddWithValue("@descripcionFormatoCSVIn", com.descripcionFormatoCSV);
-                commandCompetencia.Parameters.AddWithValue("@valoresEscalaCSVIn", com.valoresEscalaCSV);
-                commandCompetencia.Parameters.AddWithValue("@configuracionEscalaCSVIn", com.configuracionEscalaCSV);
-                commandCompetencia.Parameters.AddWithValue("@tipoReglaCSVIn", com.tipoReglaCSV);
-                commandCompetencia.Parameters.AddWithValue("@resultadoReglaCSVIn", com.resultadoReglaCSV);
-                commandCompetencia.Parameters.AddWithValue("@configuracionReglaCSVIn", com.configuracionReglaCSV);
-                commandCompetencia.Parameters.AddWithValue("@idReferenciasCruzadasCompetenciasCSVIn", com.idReferenciasCruzadasCompetenciasCSV);
-                commandCompetencia.Parameters.AddWithValue("@idExportacionCSVIn", com.idExportacionCSV);
-                commandCompetencia.Parameters.AddWithValue("@esMarcoCompetenciasCSVIn", com.esMarcoCompetenciasCSV);
-                commandCompetencia.Parameters.AddWithValue("@taxonomiaCSVIn", com.taxonomiaCSV);
-                commandCompetencia.Parameters.AddWithValue("@idPadreMarcoGenerado", idMarcoGenerado);
-                commandCompetencia.Parameters.AddWithValue("@idGenerado", 0);
-
-                var idCompetenciaGenerado = commandCompetencia.ExecuteScalar();
-
-                foreach (ResultadoAprendizajeDTO ra in com.ras.Values) 
-                {
-                    var commandRa = new NpgsqlCommand("insertarresultadoaprendizaje", connection);
-
-                    commandRa.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    commandRa.Parameters.AddWithValue("@idPadreCSVIn", ra.idPadreCSV);
-                    commandRa.Parameters.AddWithValue("@idCSVIn", ra.idCSV);
-                    commandRa.Parameters.AddWithValue("@nombreCortoCSVIn", ra.nombreCortoCSV);
-                    commandRa.Parameters.AddWithValue("@descripcionCSVIn", ra.descripcionCSV);
-                    commandRa.Parameters.AddWithValue("@descripcionFormatoCSVIn", ra.descripcionFormatoCSV);
-                    commandRa.Parameters.AddWithValue("@valoresEscalaCSVIn", ra.valoresEscalaCSV);
-                    commandRa.Parameters.AddWithValue("@configuracionEscalaCSVIn", ra.configuracionEscalaCSV);
-                    commandRa.Parameters.AddWithValue("@tipoReglaCSVIn", ra.tipoReglaCSV);
-                    commandRa.Parameters.AddWithValue("@resultadoReglaCSVIn", ra.resultadoReglaCSV);
-                    commandRa.Parameters.AddWithValue("@configuracionReglaCSVIn", ra.configuracionReglaCSV);
-                    commandRa.Parameters.AddWithValue("@idReferenciasCruzadasCompetenciasCSVIn", ra.idReferenciasCruzadasCompetenciasCSV);
-                    commandRa.Parameters.AddWithValue("@idExportacionCSVIn", ra.idExportacionCSV);
-                    commandRa.Parameters.AddWithValue("@esMarcoCompetenciasCSVIn", ra.esMarcoCompetenciasCSV);
-                    commandRa.Parameters.AddWithValue("@taxonomiaCSVIn", ra.taxonomiaCSV);
-                    commandRa.Parameters.AddWithValue("@idCompetenciaPadreGenerado", idCompetenciaGenerado);
-                    commandRa.Parameters.AddWithValue("@idGenerado", 0);
-
-                    var idResultadoAprendizajeGenerado = commandRa.ExecuteScalar();
-
-                    foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
-                    {
-                        var commandCe = new NpgsqlCommand("insertarcriterioevaluacion", connection);
-
-                        commandCe.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        commandCe.Parameters.AddWithValue("@idPadreCSVIn", ce.idPadreCSV);
-                        commandCe.Parameters.AddWithValue("@idCSVIn", ce.idCSV);
-                        commandCe.Parameters.AddWithValue("@nombreCortoCSVIn", ce.nombreCortoCSV);
-                        commandCe.Parameters.AddWithValue("@descripcionCSVIn", ce.descripcionCSV);
-                        commandCe.Parameters.AddWithValue("@descripcionFormatoCSVIn", ce.descripcionFormatoCSV);
-                        commandCe.Parameters.AddWithValue("@valoresEscalaCSVIn", ce.valoresEscalaCSV);
-                        commandCe.Parameters.AddWithValue("@configuracionEscalaCSVIn", ce.configuracionEscalaCSV);
-                        commandCe.Parameters.AddWithValue("@tipoReglaCSVIn", ce.tipoReglaCSV);
-                        commandCe.Parameters.AddWithValue("@resultadoReglaCSVIn", ce.resultadoReglaCSV);
-                        commandCe.Parameters.AddWithValue("@configuracionReglaCSVIn", ce.configuracionReglaCSV);
-                        commandCe.Parameters.AddWithValue("@idReferenciasCruzadasCompetenciasCSVIn", ce.idReferenciasCruzadasCompetenciasCSV);
-                        commandCe.Parameters.AddWithValue("@idExportacionCSVIn", ce.idExportacionCSV);
-                        commandCe.Parameters.AddWithValue("@esMarcoCompetenciasCSVIn", ce.esMarcoCompetenciasCSV);
-                        commandCe.Parameters.AddWithValue("@taxonomiaCSVIn", ce.taxonomiaCSV);
-                        commandCe.Parameters.AddWithValue("@idRAPadreGenerado", idResultadoAprendizajeGenerado);
-                        commandCe.Parameters.AddWithValue("@idGenerado", 0);
-
-                        var idCriterioEvaluacionGenerado = commandCe.ExecuteScalar();
-                    }
-                }
-
-
-                Debug.WriteLine("");
+                CompetenciaDAL.guardarCompetencia(com, connection, idMarcoGenerado);
             }
 
             connection.Close();
             return;
             //await using var reader = await command.ExecuteReaderAsync();
+        }
+
+        public static async Task<List<MarcoCompetenciasDTO>> cargarMarcosCompetencias() 
+        {
+            List<MarcoCompetenciasDTO> marcos = new List<MarcoCompetenciasDTO>();
+
+            await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
+            await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
+            var commandMarco = new NpgsqlCommand("SELECT * from public.cargarmarcoscompetencias();", connection);
+
+            var resultSet = await commandMarco.ExecuteReaderAsync();
+
+            while (resultSet.Read()) {
+                MarcoCompetenciasDTO marco = new MarcoCompetenciasDTO();
+
+                //En la posicion 0 el resultset tiene el id del marco en la bbdd
+                //Esto es útil para rescatar despues las campetencias, RA y CE correspondientes
+                String[] partes = {
+                    resultSet.GetString(1),
+                    resultSet.GetString(2),
+                    resultSet.GetString(3),
+                    resultSet.GetString(4),
+                    resultSet.GetString(5),
+                    resultSet.GetString(6),
+                    resultSet.GetString(7),
+                    resultSet.GetString(8),
+                    resultSet.GetString(9),
+                    resultSet.GetString(10),
+                    resultSet.GetString(11),
+                    resultSet.GetString(12),
+                    resultSet.GetString(13),
+                    resultSet.GetString(14)
+                };
+                marco.fromCSV(partes);
+
+                marco.idDB = resultSet.GetInt32(0);
+
+                marcos.Add(marco);
+            }
+
+            connection.Close();
+
+            /*
+            foreach (MarcoCompetenciasDTO marco in marcos) 
+            {
+                marco.competencias = await CompetenciaDAL.cargarCompetencia(marco.idDB);
+            }
+            */
+
+            return marcos;
         }
 
 

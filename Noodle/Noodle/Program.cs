@@ -5,7 +5,7 @@ namespace Noodle
     public static class Program
     {
 
-        public static ImportarArchivoView mW;
+        public static MainWindowView mW;
 
         /// <summary>
         ///  The main entry point for the application.
@@ -20,7 +20,7 @@ namespace Noodle
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            mW = new ImportarArchivoView();
+            mW = new MainWindowView();
 
             Application.Run(mW);
         }

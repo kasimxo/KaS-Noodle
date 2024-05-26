@@ -27,6 +27,7 @@ namespace Noodle.model.dto
         public string idExportacionCSV { get; set; }
         public string esMarcoCompetenciasCSV { get; set; }
         public string taxonomiaCSV { get; set; }
+        public Int32 idDB { get; set; }
 
         public CriterioEvaluacionDTO(string nombre)
         {

@@ -16,6 +16,8 @@ namespace Noodle.model.dto
         public string siglas { get; set; }
         public string nivel { get; set; } //basico medio superior
 
+        public Int32 idDB { get; set; } // id de la competencia en la base de datos
+
         public string idPadreCSV { get; set; }
         public string idCSV { get; set; }
         public string nombreCortoCSV { get; set; }

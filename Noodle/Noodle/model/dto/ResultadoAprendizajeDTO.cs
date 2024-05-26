@@ -29,6 +29,7 @@ namespace Noodle.model.dto
         public string idExportacionCSV { get; set; }
         public string esMarcoCompetenciasCSV { get; set; }
         public string taxonomiaCSV { get; set; }
+        public Int32 idDB { get; set; } //id en la base de datos
 
         public ResultadoAprendizajeDTO() {
             this.criterios = new Dictionary<string, CriterioEvaluacionDTO>();

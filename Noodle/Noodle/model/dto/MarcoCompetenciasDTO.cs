@@ -28,6 +28,9 @@ namespace Noodle.model.dto
         public string esMarcoCompetenciasCSV { get; set; }
         public string taxonomiaCSV { get; set; }
 
+        //Id de este marco en la base de datos, se utiliza para recuperar las competencias, RA y CE
+        public Int32 idDB { get; set; }
+
         public Dictionary<string, CompetenciaDTO> competencias {  get; set; }
         public string filePath { get; set; }
 
