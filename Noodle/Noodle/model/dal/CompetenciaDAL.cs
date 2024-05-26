@@ -89,11 +89,6 @@ namespace Noodle.model.dal
             }
             connection.Close();
 
-            foreach (CompetenciaDTO com in competencias.Values) 
-            {
-                com.ras = await ResultadoAprendizajeDAL.cargarResultadosAprendizaje(com.idDB);
-            }
-
             return competencias;
             
         }

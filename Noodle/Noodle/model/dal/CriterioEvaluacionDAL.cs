@@ -45,7 +45,7 @@ namespace Noodle.model.dal
             //En este caso abrimos y cerramos la conexión aquí mismo porque sino da exception al tener un comando in progress
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
-            var commandCriteriosEvaluacion = new NpgsqlCommand("SELECT * from public.cargarresultadosaprendizaje(" + idResultadoAprendizajeCargado + ");", connection);
+            var commandCriteriosEvaluacion = new NpgsqlCommand("SELECT * from public.cargarcriteriosevaluacion(" + idResultadoAprendizajeCargado + ");", connection);
 
             var resultSet = await commandCriteriosEvaluacion.ExecuteReaderAsync();
 

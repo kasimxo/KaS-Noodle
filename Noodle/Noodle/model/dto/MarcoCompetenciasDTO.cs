@@ -105,6 +105,31 @@ namespace Noodle.model.dto
             esMarcoCompetenciasCSV ??= "1"; //Solo ciclo
             taxonomiaCSV ??= "competency,outcome,indicator,level"; //Solo ciclo
         }
+        /// <summary>
+        /// Metodo que exporta las variables de este marco para poder duplicarlo,
+        /// se usar a la hora de exportar
+        /// </summary>
+        /// <returns></returns>
+        public string[] CopiarVariables() 
+        {
+            string[] variables = {
+                idPadreCSV,
+                idCSV,
+                nombreCortoCSV,
+                descripcionCSV,
+                descripcionFormatoCSV,
+                valoresEscalaCSV,
+                configuracionEscalaCSV,
+                tipoReglaCSV,
+                resultadoReglaCSV,
+                configuracionReglaCSV,
+                idReferenciasCruzadasCompetenciasCSV,
+                idExportacionCSV,
+                esMarcoCompetenciasCSV,
+                taxonomiaCSV
+            };
+            return variables;
+        }
 
         public string ToCSV()
         {

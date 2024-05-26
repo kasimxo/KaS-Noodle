@@ -53,3 +53,7 @@ C:\KaS-Noodle\Noodle\Noodle\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.MainWindowView.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.BibliotecaComponente.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.TituloMarcoCompetenciasComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.VerCompetenciasComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.TituloCompetenciaComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.DetalleCompetenciaComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.ExportarCompetenciasComponente.resources

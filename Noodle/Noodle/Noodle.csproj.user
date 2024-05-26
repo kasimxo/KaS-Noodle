@@ -10,6 +10,12 @@
     <Compile Update="components\CompetenciaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="components\DetalleCompetenciaComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\ExportarCompetenciasComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="components\ImportarArchivoCsvComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -25,7 +31,13 @@
     <Compile Update="components\SeleccionCompetenciaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="components\TituloCompetenciaComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="components\TituloMarcoCompetenciasComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="components\VerCompetenciasComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="view\EditarCompetenciaView.cs">

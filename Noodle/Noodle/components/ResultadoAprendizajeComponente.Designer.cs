@@ -40,18 +40,19 @@
             nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             nombre.Location = new Point(3, 0);
             nombre.Name = "nombre";
-            nombre.Size = new Size(50, 18);
+            nombre.Size = new Size(54, 18);
             nombre.TabIndex = 0;
-            nombre.Text = "label1";
+            nombre.Text = "talabel";
             // 
             // container
             // 
             container.AutoSize = true;
             container.Controls.Add(nombre);
+            container.Dock = DockStyle.Fill;
             container.FlowDirection = FlowDirection.TopDown;
-            container.Location = new Point(3, 3);
+            container.Location = new Point(0, 0);
             container.Name = "container";
-            container.Size = new Size(200, 100);
+            container.Size = new Size(346, 137);
             container.TabIndex = 2;
             // 
             // ResultadoAprendizajeComponente

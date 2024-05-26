@@ -1,4 +1,5 @@
-﻿using Noodle.model.dto;
+﻿using Noodle.model.dal;
+using Noodle.model.dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Net.WebRequestMethods;
 
 namespace Noodle.components
 {
@@ -22,6 +24,34 @@ namespace Noodle.components
         public Boolean editado; //Controla si se ha editado almenos una cosa para mostrar mensaje de confirmación
         public RichTextBox texto;
         public CompetenciaComponente parent;
+
+        public ResultadoAprendizajeComponente(ResultadoAprendizajeDTO ra) 
+        {
+            InitializeComponent();
+            this.ra = ra;
+            this.nombreRa = ra.nombre;
+            nombre.Text = ra.nombreCortoCSV;
+            cargarCriteriosEvaluacionBaseDeDatos();
+        }
+
+        public async void cargarCriteriosEvaluacionBaseDeDatos() 
+        {
+            ra.criterios = await CriterioEvaluacionDAL.cargarCriteriosEvaluacion(ra.idDB);
+
+            
+
+            foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
+            {
+                System.Windows.Forms.Label label = new System.Windows.Forms.Label();
+                label.Margin = new Padding(2);
+                label.Text = ce.nombreCortoCSV;
+                label.AutoSize = true;
+                //Aqui hay que meter un CriterioEvaluacionComponente, para que pueda tener 
+                //Tanto el identificador (nombre corto) como la descripcion
+                container.Controls.Add(label);
+            }
+        }
+        // IGNORA --------------------------
         public ResultadoAprendizajeComponente(ResultadoAprendizajeDTO ra, Boolean editable=false, CompetenciaComponente parent=null)
         {
             InitializeComponent();
@@ -162,6 +192,15 @@ namespace Noodle.components
 
         private void popularNormal() {
             nombre.Text = nombreRa;
+            TableLayoutPanel tlp = new TableLayoutPanel();
+            tlp.RowCount = 1;
+            tlp.ColumnCount = 1;
+            tlp.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            tlp.AutoSize = true;
+            tlp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+
+            container.Controls.Add(tlp);
+
             foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
             {
 
@@ -169,18 +208,12 @@ namespace Noodle.components
                 label.Margin = new Padding(2);
                 label.Text = ce.contenido;
                 label.AutoSize = true;
-
-                TableLayoutPanel tlp = new TableLayoutPanel();
-                tlp.RowCount = 1;
-                tlp.ColumnCount = 1;
-                tlp.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-                tlp.AutoSize = true;
-                tlp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
-                container.Controls.Add(tlp);
+                int rowIndex = tlp.RowCount - 1;
+                label.Click += (o, e) => hacerEditable(o, e, label, rowIndex);
                 tlp.Controls.Add(label, 0, tlp.RowCount - 1);
+                tlp.RowCount++;
             }
         }
-
+        //IGNORA LO DE ARRIBA
     }
 }
