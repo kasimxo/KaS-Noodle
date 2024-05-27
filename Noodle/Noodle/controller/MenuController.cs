@@ -53,7 +53,7 @@ namespace Noodle.controller
             }
 
             VerCompetenciasComponente vcc = new VerCompetenciasComponente(Program.marco);
-
+            vcc.Dock = DockStyle.Fill;
             Program.mW.layout.Controls.Add(vcc, 1, 0);
         }
         public static void navegarEditar() 

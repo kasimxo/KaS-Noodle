@@ -1,6 +1,6 @@
-﻿namespace Noodle.components
+﻿namespace Noodle.componentes.ver
 {
-    partial class ResultadoAprendizajeComponente
+    partial class CriterioEvaluacionComponente
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,60 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            nombre = new Label();
-            flp = new FlowLayoutPanel();
             container = new TableLayoutPanel();
+            nombre = new Label();
+            descripcion = new Label();
             container.SuspendLayout();
             SuspendLayout();
-            // 
-            // nombre
-            // 
-            nombre.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            nombre.AutoEllipsis = true;
-            nombre.AutoSize = true;
-            nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            nombre.Location = new Point(3, 0);
-            nombre.Name = "nombre";
-            nombre.Size = new Size(340, 18);
-            nombre.TabIndex = 0;
-            nombre.Text = "talabel";
-            // 
-            // flp
-            // 
-            flp.AutoSize = true;
-            flp.Dock = DockStyle.Fill;
-            flp.FlowDirection = FlowDirection.TopDown;
-            flp.Location = new Point(3, 21);
-            flp.Name = "flp";
-            flp.Padding = new Padding(5);
-            flp.Size = new Size(340, 113);
-            flp.TabIndex = 2;
-            flp.WrapContents = false;
             // 
             // container
             // 
             container.AutoSize = true;
-            container.ColumnCount = 1;
+            container.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            container.ColumnCount = 2;
+            container.ColumnStyles.Add(new ColumnStyle());
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             container.Controls.Add(nombre, 0, 0);
-            container.Controls.Add(flp, 0, 1);
+            container.Controls.Add(descripcion, 1, 0);
             container.Dock = DockStyle.Fill;
             container.Location = new Point(0, 0);
             container.Name = "container";
-            container.RowCount = 2;
+            container.RowCount = 1;
             container.RowStyles.Add(new RowStyle());
-            container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            container.Size = new Size(346, 137);
-            container.TabIndex = 3;
+            container.Size = new Size(94, 15);
+            container.TabIndex = 0;
             // 
-            // ResultadoAprendizajeComponente
+            // nombre
+            // 
+            nombre.AutoSize = true;
+            nombre.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            nombre.Location = new Point(3, 0);
+            nombre.Name = "nombre";
+            nombre.Size = new Size(41, 15);
+            nombre.TabIndex = 0;
+            nombre.Text = "label1";
+            // 
+            // descripcion
+            // 
+            descripcion.AutoSize = true;
+            descripcion.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            descripcion.Location = new Point(50, 0);
+            descripcion.Name = "descripcion";
+            descripcion.Size = new Size(41, 15);
+            descripcion.TabIndex = 1;
+            descripcion.Text = "label2";
+            // 
+            // CriterioEvaluacionComponente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Controls.Add(container);
-            Name = "ResultadoAprendizajeComponente";
-            Size = new Size(346, 137);
+            Name = "CriterioEvaluacionComponente";
+            Size = new Size(94, 15);
             container.ResumeLayout(false);
             container.PerformLayout();
             ResumeLayout(false);
@@ -90,8 +88,8 @@
 
         #endregion
 
-        public Label nombre;
-        public FlowLayoutPanel flp;
         private TableLayoutPanel container;
+        private Label nombre;
+        private Label descripcion;
     }
 }

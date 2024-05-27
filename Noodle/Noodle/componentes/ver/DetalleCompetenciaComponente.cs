@@ -35,9 +35,11 @@ namespace Noodle.components
             foreach (ResultadoAprendizajeDTO ra in competencia.ras.Values)
             {
                 ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra);
-
+                rac.Dock = DockStyle.Fill;
                 flp.Controls.Add(rac);
             }
+            flp.HorizontalScroll.Minimum = 100000;
+            flp.AutoScroll = true;
         }
 
         private void button1_Click(object sender, EventArgs e)

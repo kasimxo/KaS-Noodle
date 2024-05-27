@@ -46,6 +46,7 @@ namespace Noodle.model.dal
             commandMarco.Parameters.AddWithValue("@idExportacionCSVIn", marco.idExportacionCSV);
             commandMarco.Parameters.AddWithValue("@esMarcoCompetenciasCSVIn", true);
             commandMarco.Parameters.AddWithValue("@taxonomiaCSVIn", marco.taxonomiaCSV);
+            commandMarco.Parameters.AddWithValue("@filePathIn", marco.filePath);
             commandMarco.Parameters.AddWithValue("@idGenerado", 0);
 
             //El id del marco que acabamos de insertar
@@ -93,6 +94,14 @@ namespace Noodle.model.dal
                     resultSet.GetString(14)
                 };
                 marco.fromCSV(partes);
+
+                try {
+
+                    marco.filePath = resultSet.GetString(15);
+                } catch (Exception ex) 
+                {
+                }
+
 
                 marco.idDB = resultSet.GetInt32(0);
 

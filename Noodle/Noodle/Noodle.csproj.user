@@ -22,6 +22,9 @@
     <Compile Update="componentes\editar\ResultadoAprendizajeEditableComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="componentes\ver\CriterioEvaluacionComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="componentes\ver\DetalleCompetenciaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using Noodle.model.dal;
+﻿using Noodle.componentes.ver;
+using Noodle.model.dal;
 using Noodle.model.dto;
 using System;
 using System.Collections.Generic;
@@ -25,11 +26,13 @@ namespace Noodle.components
         public RichTextBox texto;
         public CompetenciaComponente parent;
 
-        public ResultadoAprendizajeComponente(ResultadoAprendizajeDTO ra) 
+        public ResultadoAprendizajeComponente(ResultadoAprendizajeDTO ra)
         {
+            
             InitializeComponent();
             this.ra = ra;
             this.nombreRa = ra.nombre;
+            //nombre.MaximumSize = new Size(container.Width - 5, 0);
             nombre.Text = ra.nombreCortoCSV;
             if (ra.criterios == null || ra.criterios.Count == 0)
             {
@@ -41,21 +44,17 @@ namespace Noodle.components
             }
         }
 
-        public void cargarCriteriosEvaluacion() 
+
+        public void cargarCriteriosEvaluacion()
         {
             foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
             {
-                System.Windows.Forms.Label label = new System.Windows.Forms.Label();
-                label.Margin = new Padding(2);
-                label.Text = ce.nombreCortoCSV;
-                label.AutoSize = true;
-                //Aqui hay que meter un CriterioEvaluacionComponente, para que pueda tener 
-                //Tanto el identificador (nombre corto) como la descripcion
-                container.Controls.Add(label);
+                CriterioEvaluacionComponente cec = new CriterioEvaluacionComponente(ce);
+                flp.Controls.Add(cec);
             }
         }
 
-        public async void cargarCriteriosEvaluacionBaseDeDatos() 
+        public async void cargarCriteriosEvaluacionBaseDeDatos()
         {
             ra.criterios = await CriterioEvaluacionDAL.cargarCriteriosEvaluacion(ra.idDB);
 
@@ -67,29 +66,32 @@ namespace Noodle.components
                 label.AutoSize = true;
                 //Aqui hay que meter un CriterioEvaluacionComponente, para que pueda tener 
                 //Tanto el identificador (nombre corto) como la descripcion
-                container.Controls.Add(label);
+                flp.Controls.Add(label);
             }
         }
         // IGNORA --------------------------
-        public ResultadoAprendizajeComponente(ResultadoAprendizajeDTO ra, Boolean editable=false, CompetenciaComponente parent=null)
+        public ResultadoAprendizajeComponente(ResultadoAprendizajeDTO ra, Boolean editable = false, CompetenciaComponente parent = null)
         {
             InitializeComponent();
             this.ra = ra;
             this.nombreRa = ra.nombre;
             this.editable = editable;
-            if (parent != null) {
+            if (parent != null)
+            {
                 this.parent = parent;
             }
             if (editable)
             {
                 popularEditable();
             }
-            else {
+            else
+            {
                 popularNormal();
             }
         }
 
-        private void popularEditable() {
+        private void popularEditable()
+        {
             nombre.Text = nombreRa;
             nombre.Click += (o, e) => hacerEditable(o, e, nombre);
             TableLayoutPanel tlp = new TableLayoutPanel();
@@ -99,7 +101,7 @@ namespace Noodle.components
             tlp.AutoSize = true;
             tlp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
-            container.Controls.Add(tlp);
+            flp.Controls.Add(tlp);
             foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
             {
 
@@ -120,33 +122,39 @@ namespace Noodle.components
         /// <param name="e"></param>
         /// <param name="label"></param>
         /// <param name="row"></param>
-        private void hacerEditable(Object sender, EventArgs e, System.Windows.Forms.Label label, int row=-1)
+        private void hacerEditable(Object sender, EventArgs e, System.Windows.Forms.Label label, int row = -1)
         {
-            if (texto != null) {
-                try {
-                    if (ra.criterios[editando.Text].contenido != texto.Text) {
+            if (texto != null)
+            {
+                try
+                {
+                    if (ra.criterios[editando.Text].contenido != texto.Text)
+                    {
                         ra.criterios[editando.Text].contenido = texto.Text;
                         parent.editarView.hayCambios = true;
                     }
-                } catch (KeyNotFoundException ex) {
+                }
+                catch (KeyNotFoundException ex)
+                {
                     //Comprobamos si hemos editado el label del título de ra
-                    if (nombreRa == editando.Text) {
+                    if (nombreRa == editando.Text)
+                    {
                         ra.nombre = texto.Text;
                         nombreRa = texto.Text;
                         parent.editarView.hayCambios = true;
                     }
                 }
-                
-                if(editando.Text != texto.Text)
+
+                if (editando.Text != texto.Text)
                 {
                     editando.Text = texto.Text;
                     editando.BackColor = Color.LightYellow;
                     parent.editarView.hayCambios = true;
                 }
-                texto.Dispose(); 
+                texto.Dispose();
             }
             if (editando != null) { editando.Visible = true; }
-            if(parent.enModificacion != null && parent.enModificacion != this)
+            if (parent.enModificacion != null && parent.enModificacion != this)
             {
                 parent.enModificacion.saveChanges();
             }
@@ -162,7 +170,7 @@ namespace Noodle.components
             texto.Size = new Size(this.Width, this.Height);
             if (row >= 0)
             {
-                TableLayoutPanel tlp = container.Controls.OfType<TableLayoutPanel>().FirstOrDefault();
+                TableLayoutPanel tlp = flp.Controls.OfType<TableLayoutPanel>().FirstOrDefault();
                 if (tlp != null)
                 {
                     tlp.Controls.Add(texto, 0, row);
@@ -170,14 +178,15 @@ namespace Noodle.components
             }
             else
             {
-                container.SuspendLayout();
-                container.Controls.Add(texto);
-                container.Controls.SetChildIndex(texto, 0);
-                container.ResumeLayout();
+                flp.SuspendLayout();
+                flp.Controls.Add(texto);
+                flp.Controls.SetChildIndex(texto, 0);
+                flp.ResumeLayout();
             }
         }
 
-        private void saveChanges() {
+        private void saveChanges()
+        {
             if (texto != null)
             {
                 try
@@ -209,7 +218,8 @@ namespace Noodle.components
             if (editando != null) { editando.Visible = true; }
         }
 
-        private void popularNormal() {
+        private void popularNormal()
+        {
             nombre.Text = nombreRa;
             TableLayoutPanel tlp = new TableLayoutPanel();
             tlp.RowCount = 1;
@@ -218,7 +228,7 @@ namespace Noodle.components
             tlp.AutoSize = true;
             tlp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
-            container.Controls.Add(tlp);
+            flp.Controls.Add(tlp);
 
             foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
             {
@@ -233,6 +243,8 @@ namespace Noodle.components
                 tlp.RowCount++;
             }
         }
+
+
         //IGNORA LO DE ARRIBA
     }
 }

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +27,7 @@ namespace Noodle.components
         /// <summary>
         /// Carga todo el contenido de la competencia
         /// </summary>
-        private void inciarCompetencia() 
+        private async void inciarCompetencia() 
         { 
             DetalleCompetenciaEditable dce = new DetalleCompetenciaEditable(this.com);
             dce.Dock = DockStyle.Fill;
@@ -41,7 +42,20 @@ namespace Noodle.components
             else 
             {
                 container.Controls.Add(dce, 1, 0);
+                await viewer.EnsureCoreWebView2Async(null);
+                navigateToPage(com.pag);
             }
+        }
+
+        public void navigateToPage(Int32 pagina)
+        {
+            var ub = new UriBuilder(Program.marco.filePath);
+            var query = new Dictionary<string, string>();
+            //Si la página no es válida, se abrirá en la 1
+            query.Add("page", pagina.ToString());
+            ub.Fragment = String.Join("&", query.Select(kv => kv.Key + "=" + WebUtility.UrlEncode(kv.Value)));
+            var url = ub.Uri;
+            viewer.CoreWebView2.Navigate(ub.Uri.AbsoluteUri);
         }
     }
 }

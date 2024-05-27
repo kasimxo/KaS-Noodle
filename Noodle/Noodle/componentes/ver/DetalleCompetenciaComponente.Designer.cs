@@ -98,6 +98,7 @@
             flp.FlowDirection = FlowDirection.TopDown;
             flp.Location = new Point(3, 38);
             flp.Name = "flp";
+            flp.Padding = new Padding(10, 10, 35, 10);
             flp.Size = new Size(148, 109);
             flp.TabIndex = 2;
             flp.WrapContents = false;
@@ -109,6 +110,7 @@
             AutoSize = true;
             BackColor = Color.FromArgb(255, 255, 192);
             Controls.Add(absolutLayout);
+            Margin = new Padding(10);
             Name = "DetalleCompetenciaComponente";
             Size = new Size(154, 150);
             absolutLayout.ResumeLayout(false);

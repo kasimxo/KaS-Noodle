@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\KaS-Noodle\\Noodle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\resultadoaprendizajecomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\resultadoaprendizajecomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\editar\\editarcompetenciacomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\editar\\editarcompetenciacomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dto\\criterioevaluaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dto\\criterioevaluaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\action\\procesararchivopdfaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\action\\procesararchivopdfaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\editarcompetenciaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\view\\editarcompetenciaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,40 +27,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ResultadoAprendizajeComponente.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\ResultadoAprendizajeComponente.cs",
-              "RelativeDocumentMoniker": "Noodle\\componentes\\ResultadoAprendizajeComponente.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\ResultadoAprendizajeComponente.cs",
-              "RelativeToolTip": "Noodle\\componentes\\ResultadoAprendizajeComponente.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAgwDIAAAAmAAAA",
+              "Title": "EditarCompetenciaComponente.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\editar\\EditarCompetenciaComponente.cs",
+              "RelativeDocumentMoniker": "Noodle\\componentes\\editar\\EditarCompetenciaComponente.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\editar\\EditarCompetenciaComponente.cs",
+              "RelativeToolTip": "Noodle\\componentes\\editar\\EditarCompetenciaComponente.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAmwC0AAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T10:53:05.382Z",
+              "WhenOpened": "2024-05-27T14:48:08.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CriterioEvaluacionDTO.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
-              "RelativeDocumentMoniker": "Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
-              "RelativeToolTip": "Noodle\\model\\dto\\CriterioEvaluacionDTO.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAcwCcAAAAMAAAA",
+              "Title": "EditarCompetenciaView.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditarCompetenciaView.cs",
+              "RelativeDocumentMoniker": "Noodle\\view\\EditarCompetenciaView.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditarCompetenciaView.cs",
+              "RelativeToolTip": "Noodle\\view\\EditarCompetenciaView.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAwwD8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T10:49:21.318Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProcesarArchivoPdfAction.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoPdfAction.cs",
-              "RelativeDocumentMoniker": "Noodle\\model\\action\\ProcesarArchivoPdfAction.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\action\\ProcesarArchivoPdfAction.cs",
-              "RelativeToolTip": "Noodle\\model\\action\\ProcesarArchivoPdfAction.cs",
-              "ViewState": "AQIAAIcAAAAAAAAAAAAowJoAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T10:48:48.789Z",
+              "WhenOpened": "2024-05-27T14:48:34.768Z",
               "EditorCaption": ""
             }
           ]

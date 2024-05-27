@@ -59,8 +59,10 @@
             flp.FlowDirection = FlowDirection.TopDown;
             flp.Location = new Point(3, 3);
             flp.Name = "flp";
-            flp.Size = new Size(1, 1);
+            flp.Padding = new Padding(0, 0, 25, 0);
+            flp.Size = new Size(25, 77);
             flp.TabIndex = 0;
+            flp.WrapContents = false;
             // 
             // absolutLayout
             // 

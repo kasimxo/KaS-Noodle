@@ -42,6 +42,8 @@ namespace Noodle.components
                 TituloCompetenciaComponente tcc = new TituloCompetenciaComponente(com);
                 flp.Controls.Add(tcc);
             }
+            flp.HorizontalScroll.Minimum = 100000;
+            flp.AutoScroll = true;
         }
 
         private void btn_exportar_Click(object sender, EventArgs e)
