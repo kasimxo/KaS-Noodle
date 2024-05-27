@@ -1,4 +1,5 @@
-﻿using Noodle.model.dto;
+﻿using Noodle.controller;
+using Noodle.model.dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,11 @@ namespace Noodle.componentes.editar
                 ResultadoAprendizajeEditableComponente raec = new ResultadoAprendizajeEditableComponente(ra);
                 flp.Controls.Add(raec);
             }
+        }
+
+        private void convertirEditable(object sender, EventArgs e)
+        {
+            EditarCompetenciaController.convertirEditable(sender, e);
         }
     }
 }

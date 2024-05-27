@@ -32,5 +32,22 @@ namespace Noodle.components
         {
             BibliotecaController.verMarco(marco);
         }
+
+        private void eliminarMarco_Click(object sender, EventArgs e)
+        {
+            BibliotecaController.eliminarMarcoCompetencias(marco);
+        }
+
+        private void hoverEffect(object sender, EventArgs e)
+        {
+            Control control = (Control)sender;
+            control.BackColor = SystemColors.ControlLight;
+        }
+
+        private void resetColorEffect(object sender, EventArgs e)
+        {
+            Control control = (Control)sender;
+            control.BackColor = Color.Transparent;
+        }
     }
 }

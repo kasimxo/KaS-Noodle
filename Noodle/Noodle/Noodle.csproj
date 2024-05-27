@@ -15,6 +15,7 @@
     <None Remove="files\img_cargar.png" />
     <None Remove="files\img_csv.png" />
     <None Remove="files\img_editar.png" />
+    <None Remove="files\img_eliminar.png" />
     <None Remove="files\img_exportar.png" />
     <None Remove="files\img_logotipoNoodleExtendidoInvertido.png" />
     <None Remove="files\img_pdf.png" />
@@ -27,6 +28,7 @@
     <EmbeddedResource Include="files\img_cargar.png" />
     <EmbeddedResource Include="files\img_csv.png" />
     <EmbeddedResource Include="files\img_editar.png" />
+    <EmbeddedResource Include="files\img_eliminar.png" />
     <EmbeddedResource Include="files\img_exportar.png" />
     <EmbeddedResource Include="files\img_logotipoNoodleExtendidoInvertido.png" />
     <EmbeddedResource Include="files\img_pdf.png" />

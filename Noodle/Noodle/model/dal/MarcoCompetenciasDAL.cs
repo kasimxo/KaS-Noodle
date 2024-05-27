@@ -120,6 +120,46 @@ namespace Noodle.model.dal
             return marcos;
         }
 
+        /// <summary>
+        /// Elimina de la base de datos (y de la aplicación) un marco de competencias
+        /// Devuelve true si la operación se ha realizado con éxito
+        /// </summary>
+        /// <param name="marco"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static async Task<Boolean> eliminarMarcoCompetencias(MarcoCompetenciasDTO marco)
+        {
+            await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
+            await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
+            var commandMarco = new NpgsqlCommand("borrarmarcocompetencias", connection);
 
+            commandMarco.CommandType = System.Data.CommandType.StoredProcedure;
+
+            commandMarco.Parameters.AddWithValue("@idMarcoIn", marco.idDB);
+
+            var resultado = commandMarco.ExecuteNonQuery();
+
+            if (resultado > 0)
+            {
+                return true;
+            }
+            else
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        internal static async Task<long> numeroMarcosCompetencias()
+        {
+
+            await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
+            await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
+            var commandMarco = new NpgsqlCommand("SELECT * from public.numeromarcoscompetencias();", connection);
+            var numeroMarcos = await commandMarco.ExecuteScalarAsync();
+
+            //var numeroMarcos = resultSet.GetValue(0);
+            return (long)numeroMarcos;
+        }
     }
 }

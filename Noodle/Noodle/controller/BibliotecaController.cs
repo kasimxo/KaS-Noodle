@@ -1,4 +1,5 @@
 ﻿using Noodle.components;
+using Noodle.model.dal;
 using Noodle.model.dto;
 using System;
 using System.Collections.Generic;
@@ -28,5 +29,21 @@ namespace Noodle.controller
             vcc.Dock = DockStyle.Fill;
             Program.mW.layout.Controls.Add(vcc, 1, 0);
         }
+
+        public static async void eliminarMarcoCompetencias(MarcoCompetenciasDTO marco) 
+        {
+            if (MessageBox.Show("Se va a eliminar el marco de competencias " + marco.nombreCortoCSV + ", ¿estás seguro?", "Alerta", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                MarcoCompetenciasDAL.eliminarMarcoCompetencias(marco);
+                MenuController.navegarBiblioteca();
+            }
+            else 
+            {
+                return;
+            }
+
+        }
+
+
     }
 }

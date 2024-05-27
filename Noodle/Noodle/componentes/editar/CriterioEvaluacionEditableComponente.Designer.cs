@@ -41,8 +41,10 @@
             container.ColumnCount = 2;
             container.ColumnStyles.Add(new ColumnStyle());
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            container.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             container.Controls.Add(identificador, 0, 0);
             container.Controls.Add(descripcion, 1, 0);
+            container.Dock = DockStyle.Fill;
             container.Location = new Point(0, 0);
             container.Name = "container";
             container.RowCount = 1;
@@ -59,6 +61,7 @@
             identificador.Size = new Size(41, 15);
             identificador.TabIndex = 0;
             identificador.Text = "label1";
+            identificador.Click += convertirEditable;
             // 
             // descripcion
             // 
@@ -69,6 +72,7 @@
             descripcion.Size = new Size(41, 15);
             descripcion.TabIndex = 1;
             descripcion.Text = "label1";
+            descripcion.Click += convertirEditable;
             // 
             // CriterioEvaluacionEditableComponente
             // 
@@ -78,7 +82,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Controls.Add(container);
             Name = "CriterioEvaluacionEditableComponente";
-            Size = new Size(97, 18);
+            Size = new Size(94, 15);
             container.ResumeLayout(false);
             container.PerformLayout();
             ResumeLayout(false);

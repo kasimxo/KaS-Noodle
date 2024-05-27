@@ -59,6 +59,7 @@
             nombre.Size = new Size(50, 18);
             nombre.TabIndex = 0;
             nombre.Text = "label1";
+            nombre.Click += convertirEditable;
             // 
             // flowLayoutPanel1
             // 

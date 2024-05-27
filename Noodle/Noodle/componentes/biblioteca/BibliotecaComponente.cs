@@ -23,7 +23,8 @@ namespace Noodle.components
 
         public async void popularBibliotecaCompetencias() 
         {
-            if (Program.marcos == null || Program.marcos.Count == 0) 
+            var numeroMarcos = await MarcoCompetenciasDAL.numeroMarcosCompetencias();
+            if (Program.marcos == null || Program.marcos.Count == 0 || Program.marcos.Count != numeroMarcos) 
             {
                 Program.marcos = await MarcoCompetenciasDAL.cargarMarcosCompetencias();
             }

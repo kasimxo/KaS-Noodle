@@ -28,23 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            nombre = new Label();
             flp = new FlowLayoutPanel();
             container = new TableLayoutPanel();
+            nombre = new Label();
             container.SuspendLayout();
             SuspendLayout();
-            // 
-            // nombre
-            // 
-            nombre.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            nombre.AutoEllipsis = true;
-            nombre.AutoSize = true;
-            nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            nombre.Location = new Point(3, 0);
-            nombre.Name = "nombre";
-            nombre.Size = new Size(340, 18);
-            nombre.TabIndex = 0;
-            nombre.Text = "talabel";
             // 
             // flp
             // 
@@ -54,7 +42,7 @@
             flp.Location = new Point(3, 21);
             flp.Name = "flp";
             flp.Padding = new Padding(5);
-            flp.Size = new Size(340, 113);
+            flp.Size = new Size(50, 10);
             flp.TabIndex = 2;
             flp.WrapContents = false;
             // 
@@ -63,25 +51,37 @@
             container.AutoSize = true;
             container.ColumnCount = 1;
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            container.Controls.Add(nombre, 0, 0);
             container.Controls.Add(flp, 0, 1);
+            container.Controls.Add(nombre, 0, 0);
             container.Dock = DockStyle.Fill;
             container.Location = new Point(0, 0);
             container.Name = "container";
             container.RowCount = 2;
             container.RowStyles.Add(new RowStyle());
             container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            container.Size = new Size(346, 137);
+            container.Size = new Size(56, 34);
             container.TabIndex = 3;
+            // 
+            // nombre
+            // 
+            nombre.AutoSize = true;
+            nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            nombre.Location = new Point(3, 0);
+            nombre.MaximumSize = new Size(650, 0);
+            nombre.Name = "nombre";
+            nombre.Size = new Size(50, 18);
+            nombre.TabIndex = 3;
+            nombre.Text = "label1";
             // 
             // ResultadoAprendizajeComponente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Controls.Add(container);
             Name = "ResultadoAprendizajeComponente";
-            Size = new Size(346, 137);
+            Size = new Size(56, 34);
             container.ResumeLayout(false);
             container.PerformLayout();
             ResumeLayout(false);
@@ -89,9 +89,8 @@
         }
 
         #endregion
-
-        public Label nombre;
         public FlowLayoutPanel flp;
         private TableLayoutPanel container;
+        private Label nombre;
     }
 }

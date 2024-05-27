@@ -56,6 +56,7 @@
             nombre.AutoSize = true;
             nombre.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             nombre.Location = new Point(3, 0);
+            nombre.MaximumSize = new Size(100, 0);
             nombre.Name = "nombre";
             nombre.Size = new Size(41, 15);
             nombre.TabIndex = 0;
@@ -66,6 +67,7 @@
             descripcion.AutoSize = true;
             descripcion.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             descripcion.Location = new Point(50, 0);
+            descripcion.MaximumSize = new Size(600, 0);
             descripcion.Name = "descripcion";
             descripcion.Size = new Size(41, 15);
             descripcion.TabIndex = 1;

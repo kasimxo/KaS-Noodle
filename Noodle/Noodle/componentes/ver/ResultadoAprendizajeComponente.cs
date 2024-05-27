@@ -32,8 +32,7 @@ namespace Noodle.components
             InitializeComponent();
             this.ra = ra;
             this.nombreRa = ra.nombre;
-            //nombre.MaximumSize = new Size(container.Width - 5, 0);
-            nombre.Text = ra.nombreCortoCSV;
+            
             if (ra.criterios == null || ra.criterios.Count == 0)
             {
                 cargarCriteriosEvaluacionBaseDeDatos();
@@ -42,6 +41,7 @@ namespace Noodle.components
             {
                 cargarCriteriosEvaluacion();
             }
+            nombre.Text = ra.nombreCortoCSV;
         }
 
 
@@ -92,8 +92,8 @@ namespace Noodle.components
 
         private void popularEditable()
         {
-            nombre.Text = nombreRa;
-            nombre.Click += (o, e) => hacerEditable(o, e, nombre);
+            //nombre.Text = nombreRa;
+           // nombre.Click += (o, e) => hacerEditable(o, e, nombre);
             TableLayoutPanel tlp = new TableLayoutPanel();
             tlp.RowCount = 1;
             tlp.ColumnCount = 1;
@@ -220,7 +220,7 @@ namespace Noodle.components
 
         private void popularNormal()
         {
-            nombre.Text = nombreRa;
+            //nombre.Text = nombreRa;
             TableLayoutPanel tlp = new TableLayoutPanel();
             tlp.RowCount = 1;
             tlp.ColumnCount = 1;

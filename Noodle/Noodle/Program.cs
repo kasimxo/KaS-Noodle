@@ -10,6 +10,9 @@ namespace Noodle
         public static Dictionary<Int32, MarcoCompetenciasDTO> marcos; //El listado total de marcos de competencias
         public static MarcoCompetenciasDTO marco; //El marco de competencias que actualmente está en focus
         public static CompetenciaDTO competencia; //La competencia que tenemos en focus
+        public static Label labelEditando;
+        public static RichTextBox richTextBoxEditando;
+        
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

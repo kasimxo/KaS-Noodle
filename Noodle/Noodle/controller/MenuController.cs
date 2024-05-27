@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Noodle.controller
 {
+    /// <summary>
+    /// Clase que controla la navegación entre ventanas
+    /// </summary>
     public class MenuController
     {
         public static void navegarBiblioteca() 

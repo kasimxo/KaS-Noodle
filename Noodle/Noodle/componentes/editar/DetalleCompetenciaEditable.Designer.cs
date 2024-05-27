@@ -46,6 +46,7 @@
             nombre.Size = new Size(61, 22);
             nombre.TabIndex = 0;
             nombre.Text = "label1";
+            nombre.Click += convertirEditable;
             // 
             // flp
             // 

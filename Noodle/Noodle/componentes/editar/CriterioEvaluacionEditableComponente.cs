@@ -1,4 +1,5 @@
-﻿using Noodle.model.dto;
+﻿using Noodle.controller;
+using Noodle.model.dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,13 @@ namespace Noodle.componentes.editar
             InitializeComponent();
             this.ce = criterioEvaluacion;
             identificador.Text = ce.nombreCortoCSV;
-            descripcion.Text = Regex.Replace(ce.descripcionCSV, @"<[^>]+>|&nbsp;", "") ;
+            descripcion.Text = Regex.Replace(ce.descripcionCSV, @"<[^>]+>|&nbsp;", "");
         }
+
+        private void convertirEditable(object sender, EventArgs e)
+        {
+            EditarCompetenciaController.convertirEditable(sender, e);
+        }
+
     }
 }

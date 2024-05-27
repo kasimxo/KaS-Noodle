@@ -26,6 +26,24 @@ namespace Noodle.controller
             Program.mW.layout.Controls.Add(vcc, 1, 0);
         }
 
+        public static void convertirEditable(object sender, EventArgs e)
+        {
+            if (Program.richTextBoxEditando != null)
+            {
+                Program.labelEditando.Text = Program.richTextBoxEditando.Text;
+                Program.richTextBoxEditando.Dispose();
+                Program.labelEditando.Visible = true;
+            }
+
+            Program.labelEditando = (Label)sender;
+            Program.richTextBoxEditando = new RichTextBox();
+            Program.richTextBoxEditando.Text = Program.labelEditando.Text;
+            Program.labelEditando.Visible = false;
+            //Program.richTextBoxEditando.Leave += guardarCambios;
+            var contenedor = Program.labelEditando.Parent;
+            contenedor.Controls.Add(Program.richTextBoxEditando);
+        }
+
 
     }
 }

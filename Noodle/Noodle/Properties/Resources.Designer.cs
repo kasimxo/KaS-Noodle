@@ -113,6 +113,16 @@ namespace Noodle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap img_eliminar {
+            get {
+                object obj = ResourceManager.GetObject("img_eliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap img_exportar {
             get {
                 object obj = ResourceManager.GetObject("img_exportar", resourceCulture);

@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\KaS-Noodle\\Noodle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\editar\\editarcompetenciacomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\editar\\editarcompetenciacomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\model\\dal\\marcocompetenciasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\model\\dal\\marcocompetenciasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\editarcompetenciaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\view\\editarcompetenciaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\biblioteca\\bibliotecacomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\biblioteca\\bibliotecacomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\controller\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\controller\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\controller\\bibliotecacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\controller\\bibliotecacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\biblioteca\\titulomarcocompetenciascomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\biblioteca\\titulomarcocompetenciascomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\biblioteca\\titulomarcocompetenciascomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\biblioteca\\titulomarcocompetenciascomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,29 +42,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EditarCompetenciaComponente.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\editar\\EditarCompetenciaComponente.cs",
-              "RelativeDocumentMoniker": "Noodle\\componentes\\editar\\EditarCompetenciaComponente.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\editar\\EditarCompetenciaComponente.cs",
-              "RelativeToolTip": "Noodle\\componentes\\editar\\EditarCompetenciaComponente.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAmwC0AAAAlAAAA",
+              "DocumentIndex": 1,
+              "Title": "BibliotecaComponente.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\BibliotecaComponente.cs",
+              "RelativeDocumentMoniker": "Noodle\\componentes\\biblioteca\\BibliotecaComponente.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\BibliotecaComponente.cs",
+              "RelativeToolTip": "Noodle\\componentes\\biblioteca\\BibliotecaComponente.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA3wBkAAABSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T14:48:08.128Z",
+              "WhenOpened": "2024-05-27T17:56:30.64Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EditarCompetenciaView.cs",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditarCompetenciaView.cs",
-              "RelativeDocumentMoniker": "Noodle\\view\\EditarCompetenciaView.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\EditarCompetenciaView.cs",
-              "RelativeToolTip": "Noodle\\view\\EditarCompetenciaView.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAwwD8AAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "MarcoCompetenciasDAL.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dal\\MarcoCompetenciasDAL.cs",
+              "RelativeDocumentMoniker": "Noodle\\model\\dal\\MarcoCompetenciasDAL.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\model\\dal\\MarcoCompetenciasDAL.cs",
+              "RelativeToolTip": "Noodle\\model\\dal\\MarcoCompetenciasDAL.cs",
+              "ViewState": "AQIAAJEAAAAAAAAAAAAAwJ4AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T14:48:34.768Z",
+              "WhenOpened": "2024-05-27T17:41:15.929Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\MenuController.cs",
+              "RelativeDocumentMoniker": "Noodle\\controller\\MenuController.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\MenuController.cs",
+              "RelativeToolTip": "Noodle\\controller\\MenuController.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAYwBkAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T17:35:05.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BibliotecaController.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\BibliotecaController.cs",
+              "RelativeDocumentMoniker": "Noodle\\controller\\BibliotecaController.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\controller\\BibliotecaController.cs",
+              "RelativeToolTip": "Noodle\\controller\\BibliotecaController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAwCUAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T17:34:06.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TituloMarcoCompetenciasComponente.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "RelativeDocumentMoniker": "Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "RelativeToolTip": "Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAowCUAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T17:23:25.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TituloMarcoCompetenciasComponente.cs [Design]",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "RelativeDocumentMoniker": "Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs [Design]",
+              "RelativeToolTip": "Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T17:15:21.586Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
