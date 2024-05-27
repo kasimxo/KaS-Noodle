@@ -14,6 +14,9 @@ namespace Noodle.controller
         //Navega a VerCompetencias del marco clicado
         public static void verMarco(MarcoCompetenciasDTO marco) 
         {
+            //Establecemos el marco como marco en focus
+            Program.marco = marco;
+            Program.competencia = null; //Si huebiera alguna competencia anterior en focus, la quitamos
             MenuComponente menu = (MenuComponente) Program.mW.layout.GetControlFromPosition(0, 0);
             menu.marcarEstado(3);
             if (Program.mW.layout.GetControlFromPosition(1, 0) != null) 
@@ -21,7 +24,7 @@ namespace Noodle.controller
                 Program.mW.layout.GetControlFromPosition(1, 0).Dispose();
             }
             
-            VerCompetenciasComponente vcc = new VerCompetenciasComponente(marco);
+            VerCompetenciasComponente vcc = new VerCompetenciasComponente(Program.marco);
            
             Program.mW.layout.Controls.Add(vcc, 1, 0);
         }

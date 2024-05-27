@@ -62,6 +62,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.Controls.Add(nombreCompetencia, 0, 0);
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -81,12 +82,14 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button1.Location = new Point(70, 3);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
             button1.Text = "Editar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // flp
             // 
@@ -97,12 +100,14 @@
             flp.Name = "flp";
             flp.Size = new Size(148, 109);
             flp.TabIndex = 2;
+            flp.WrapContents = false;
             // 
             // DetalleCompetenciaComponente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            BackColor = Color.FromArgb(255, 255, 192);
             Controls.Add(absolutLayout);
             Name = "DetalleCompetenciaComponente";
             Size = new Size(154, 150);

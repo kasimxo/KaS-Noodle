@@ -32,7 +32,10 @@ namespace Noodle.components
 
         public async void popularCompetencias()
         {
-            marco.competencias = await CompetenciaDAL.cargarCompetencia(marco.idDB);
+            if (marco.competencias == null || marco.competencias.Count == 0) {
+                marco.competencias = await CompetenciaDAL.cargarCompetencia(marco.idDB);
+            }
+
 
             foreach (CompetenciaDTO com in marco.competencias.Values)
             {

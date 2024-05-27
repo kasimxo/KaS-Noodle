@@ -44,11 +44,12 @@
             container.ColumnStyles.Add(new ColumnStyle());
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             container.Controls.Add(flp, 0, 0);
+            container.Dock = DockStyle.Fill;
             container.Location = new Point(3, 35);
             container.Name = "container";
             container.RowCount = 1;
             container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            container.Size = new Size(6, 6);
+            container.Size = new Size(144, 83);
             container.TabIndex = 0;
             // 
             // flp

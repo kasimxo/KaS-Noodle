@@ -1,3 +1,4 @@
+using Noodle.model.dto;
 using Noodle.view;
 
 namespace Noodle
@@ -6,7 +7,9 @@ namespace Noodle
     {
 
         public static MainWindowView mW;
-
+        public static Dictionary<Int32, MarcoCompetenciasDTO> marcos; //El listado total de marcos de competencias
+        public static MarcoCompetenciasDTO marco; //El marco de competencias que actualmente está en focus
+        public static CompetenciaDTO competencia; //La competencia que tenemos en focus
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

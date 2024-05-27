@@ -37,6 +37,7 @@ namespace Noodle.model.dto
         public CriterioEvaluacionDTO(string nombre, int pag)
         {
             this.contenido = nombre;
+            this.descripcionCSV = nombre;
             this.pag = pag;
         }
 
@@ -81,6 +82,7 @@ namespace Noodle.model.dto
             idReferenciasCruzadasCompetenciasCSV ??= ""; //Opcional
             idExportacionCSV ??= ""; //Opcional
             esMarcoCompetenciasCSV ??= ""; //Solo ciclo
+            taxonomiaCSV ??= ""; //Opcional
         }
 
         public string generarID(string idPadre, int cardinalidad)

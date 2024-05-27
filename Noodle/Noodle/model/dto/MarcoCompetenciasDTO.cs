@@ -89,7 +89,7 @@ namespace Noodle.model.dto
         /// <summary>
         /// Inicia las variables para exportar CSV si no estaban iniciadas ya
         /// </summary>
-        private void iniciarVariablesCSV() {
+        public void iniciarVariablesCSV() {
             idPadreCSV ??= "";
             idCSV ??= ID();
             nombreCortoCSV ??= generarNombreCorto();

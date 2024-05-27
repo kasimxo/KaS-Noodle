@@ -23,6 +23,9 @@ namespace Noodle.model.dal
         /// <param name="marco"></param>
         public static async void guardarMarcoCompetencias(MarcoCompetenciasDTO marco)
         {
+            //Por si no tiene las variables iniciadas
+            marco.ToCSV();
+
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
             var commandMarco = new NpgsqlCommand("insertarmarcocompetencias", connection);
@@ -58,9 +61,9 @@ namespace Noodle.model.dal
             //await using var reader = await command.ExecuteReaderAsync();
         }
 
-        public static async Task<List<MarcoCompetenciasDTO>> cargarMarcosCompetencias() 
+        public static async Task<Dictionary<Int32, MarcoCompetenciasDTO>> cargarMarcosCompetencias() 
         {
-            List<MarcoCompetenciasDTO> marcos = new List<MarcoCompetenciasDTO>();
+            Dictionary<Int32, MarcoCompetenciasDTO> marcos = new Dictionary<Int32, MarcoCompetenciasDTO>();
 
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
@@ -93,7 +96,7 @@ namespace Noodle.model.dal
 
                 marco.idDB = resultSet.GetInt32(0);
 
-                marcos.Add(marco);
+                marcos.Add(marco.idDB, marco);
             }
 
             connection.Close();

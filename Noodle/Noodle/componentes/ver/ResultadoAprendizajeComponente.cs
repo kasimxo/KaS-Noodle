@@ -31,14 +31,33 @@ namespace Noodle.components
             this.ra = ra;
             this.nombreRa = ra.nombre;
             nombre.Text = ra.nombreCortoCSV;
-            cargarCriteriosEvaluacionBaseDeDatos();
+            if (ra.criterios == null || ra.criterios.Count == 0)
+            {
+                cargarCriteriosEvaluacionBaseDeDatos();
+            }
+            else
+            {
+                cargarCriteriosEvaluacion();
+            }
+        }
+
+        public void cargarCriteriosEvaluacion() 
+        {
+            foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
+            {
+                System.Windows.Forms.Label label = new System.Windows.Forms.Label();
+                label.Margin = new Padding(2);
+                label.Text = ce.nombreCortoCSV;
+                label.AutoSize = true;
+                //Aqui hay que meter un CriterioEvaluacionComponente, para que pueda tener 
+                //Tanto el identificador (nombre corto) como la descripcion
+                container.Controls.Add(label);
+            }
         }
 
         public async void cargarCriteriosEvaluacionBaseDeDatos() 
         {
             ra.criterios = await CriterioEvaluacionDAL.cargarCriteriosEvaluacion(ra.idDB);
-
-            
 
             foreach (CriterioEvaluacionDTO ce in ra.criterios.Values)
             {

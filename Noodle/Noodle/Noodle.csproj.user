@@ -1,43 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="components\ArrastrarArchivoComponente.cs">
+    <Compile Update="componentes\cargar\ArrastrarArchivoComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\BibliotecaComponente.cs">
+    <Compile Update="componentes\biblioteca\BibliotecaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\CompetenciaComponente.cs">
+    <Compile Update="componentes\cargar\CargarArchivosComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\DetalleCompetenciaComponente.cs">
+    <Compile Update="componentes\CompetenciaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\ExportarCompetenciasComponente.cs">
+    <Compile Update="componentes\editar\CriterioEvaluacionEditableComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\ImportarArchivoCsvComponente.cs">
+    <Compile Update="componentes\editar\DetalleCompetenciaEditable.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\ImportarArchivoPdfComponente.cs">
+    <Compile Update="componentes\editar\ResultadoAprendizajeEditableComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\MenuComponente.cs">
+    <Compile Update="componentes\ver\DetalleCompetenciaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\ResultadoAprendizajeComponente.cs">
+    <Compile Update="componentes\editar\EditarCompetenciaComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\SeleccionCompetenciaComponente.cs">
+    <Compile Update="componentes\exportar\ExportarCompetenciasComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\TituloCompetenciaComponente.cs">
+    <Compile Update="componentes\cargar\ImportarArchivoCsvComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\TituloMarcoCompetenciasComponente.cs">
+    <Compile Update="componentes\cargar\ImportarArchivoPdfComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="components\VerCompetenciasComponente.cs">
+    <Compile Update="componentes\menu\MenuComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="componentes\ver\ResultadoAprendizajeComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="componentes\exportar\SeleccionCompetenciaComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="componentes\ver\TituloCompetenciaComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="componentes\biblioteca\TituloMarcoCompetenciasComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="componentes\ver\VerCompetenciasComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="view\EditarCompetenciaView.cs">

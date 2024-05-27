@@ -1,4 +1,5 @@
-﻿using Noodle.model.dal;
+﻿using Noodle.controller;
+using Noodle.model.dal;
 using Noodle.model.dto;
 using System;
 using System.Collections.Generic;
@@ -24,15 +25,24 @@ namespace Noodle.components
             popularResultadosAprendizaje();
         }
 
-        public async void popularResultadosAprendizaje() 
+        public async void popularResultadosAprendizaje()
         {
-            competencia.ras = await ResultadoAprendizajeDAL.cargarResultadosAprendizaje(competencia.idDB);
+            if (competencia.ras == null || competencia.ras.Count == 0)
+            {
+                competencia.ras = await ResultadoAprendizajeDAL.cargarResultadosAprendizaje(competencia.idDB);
+
+            }
             foreach (ResultadoAprendizajeDTO ra in competencia.ras.Values)
             {
                 ResultadoAprendizajeComponente rac = new ResultadoAprendizajeComponente(ra);
-                
+
                 flp.Controls.Add(rac);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EditarCompetenciaController.navegarEditarCompetencia(competencia);
         }
     }
 }

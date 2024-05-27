@@ -57,3 +57,8 @@ C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.VerCompet
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.TituloCompetenciaComponente.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.DetalleCompetenciaComponente.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.ExportarCompetenciasComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.components.EditarCompetenciaComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.componentes.cargar.CargarArchivosComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.componentes.editar.DetalleCompetenciaEditable.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.componentes.editar.ResultadoAprendizajeEditableComponente.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.componentes.editar.CriterioEvaluacionEditableComponente.resources

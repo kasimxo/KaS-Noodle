@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Noodle.controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,14 +22,16 @@ namespace Noodle.components
         /// Indica en color verde en qué pantalla estamos
         /// </summary>
         /// <param name="estado">1 biblioteca<br>2 cargar<br>3 editar<br>4 exportar</param>
-        public void marcarEstado(int estado) {
+        public void marcarEstado(int estado)
+        {
             Color green = Color.FromArgb(105, 195, 250, 185);
             Color black = Color.FromArgb(255, 23, 21, 22);
-            switch (estado) {
+            switch (estado)
+            {
                 case 1:
                     img_biblioteca.BackColor = green;
                     img_cargar.BackColor = black;
-                    img_editar.BackColor = black; 
+                    img_editar.BackColor = black;
                     img_exportar.BackColor = black;
                     break;
                 case 2:
@@ -57,5 +60,14 @@ namespace Noodle.components
                     break;
             }
         }
+
+        private void btn_biblioteca(object sender, EventArgs e) { MenuController.navegarBiblioteca(); }
+
+        private void btn_cargar(object sender, EventArgs e) { MenuController.navegarCargar(); }
+
+        private void btn_ver(object sender, EventArgs e) { MenuController.navegarVer(); }
+        private void btn_editar(object sender, EventArgs e) { MenuController.navegarEditar(); }
+        private void btn_exportar(object sender, EventArgs e) { MenuController.navegarExportar(); }
+
     }
 }

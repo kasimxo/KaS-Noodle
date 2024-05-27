@@ -44,22 +44,24 @@
             // nombre
             // 
             nombre.AutoSize = true;
+            nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             nombre.Location = new Point(24, 3);
             nombre.Name = "nombre";
-            nombre.Size = new Size(38, 15);
+            nombre.Size = new Size(50, 18);
             nombre.TabIndex = 1;
             nombre.Text = "label1";
             // 
-            // SelecciónCompetenciaComponente
+            // SeleccionCompetenciaComponente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackColor = Color.FromArgb(192, 192, 255);
             Controls.Add(nombre);
             Controls.Add(cb);
-            Name = "SelecciónCompetenciaComponente";
-            Size = new Size(65, 20);
+            Name = "SeleccionCompetenciaComponente";
+            Size = new Size(77, 21);
             ResumeLayout(false);
             PerformLayout();
         }

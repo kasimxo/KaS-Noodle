@@ -65,6 +65,7 @@
             lbl_cargar.TabIndex = 1;
             lbl_cargar.Text = "Cargar";
             lbl_cargar.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_cargar.Click += btn_cargar;
             // 
             // lbl_editar
             // 
@@ -76,6 +77,7 @@
             lbl_editar.TabIndex = 2;
             lbl_editar.Text = "Editar";
             lbl_editar.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_editar.Click += btn_ver;
             // 
             // lbl_exportar
             // 
@@ -87,6 +89,7 @@
             lbl_exportar.TabIndex = 3;
             lbl_exportar.Text = "Exportar";
             lbl_exportar.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_exportar.Click += btn_exportar;
             // 
             // lbl_biblioteca
             // 
@@ -98,6 +101,7 @@
             lbl_biblioteca.TabIndex = 4;
             lbl_biblioteca.Text = "Biblioteca";
             lbl_biblioteca.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_biblioteca.Click += btn_biblioteca;
             // 
             // img_biblioteca
             // 
@@ -109,6 +113,7 @@
             img_biblioteca.Size = new Size(32, 32);
             img_biblioteca.TabIndex = 5;
             img_biblioteca.TabStop = false;
+            img_biblioteca.Click += btn_biblioteca;
             // 
             // img_cargar
             // 
@@ -120,6 +125,7 @@
             img_cargar.Size = new Size(32, 32);
             img_cargar.TabIndex = 6;
             img_cargar.TabStop = false;
+            img_cargar.Click += btn_cargar;
             // 
             // img_editar
             // 
@@ -131,17 +137,19 @@
             img_editar.Size = new Size(32, 32);
             img_editar.TabIndex = 7;
             img_editar.TabStop = false;
+            img_editar.Click += btn_ver;
             // 
             // img_exportar
             // 
             img_exportar.BackColor = Color.FromArgb(23, 21, 22);
             img_exportar.BackgroundImage = Properties.Resources.img_exportar;
             img_exportar.BackgroundImageLayout = ImageLayout.Zoom;
-            img_exportar.Location = new Point(29, 340);
+            img_exportar.Location = new Point(33, 340);
             img_exportar.Name = "img_exportar";
             img_exportar.Size = new Size(32, 32);
             img_exportar.TabIndex = 8;
             img_exportar.TabStop = false;
+            img_exportar.Click += btn_exportar;
             // 
             // MenuComponente
             // 

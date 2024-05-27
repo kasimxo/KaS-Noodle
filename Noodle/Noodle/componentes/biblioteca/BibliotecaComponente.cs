@@ -23,9 +23,12 @@ namespace Noodle.components
 
         public async void popularBibliotecaCompetencias() 
         {
-            List<MarcoCompetenciasDTO> marcos = await MarcoCompetenciasDAL.cargarMarcosCompetencias();
-            
-            foreach (MarcoCompetenciasDTO marco in marcos) 
+            if (Program.marcos == null || Program.marcos.Count == 0) 
+            {
+                Program.marcos = await MarcoCompetenciasDAL.cargarMarcosCompetencias();
+            }
+
+            foreach (MarcoCompetenciasDTO marco in Program.marcos.Values) 
             {
                 TituloMarcoCompetenciasComponente tmcc = new TituloMarcoCompetenciasComponente(marco);
                 flp.Controls.Add(tmcc);

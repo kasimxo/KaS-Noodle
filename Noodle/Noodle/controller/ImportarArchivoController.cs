@@ -47,11 +47,9 @@ namespace Noodle.controller
             string selectedFileName = openFileDialog1.FileName;
 
             MarcoCompetenciasDTO marco = ProcesarArchivoCsvAction.extraerCompetencias(selectedFileName);
-            Program.mW.Hide();
-            VerCompetenciasView ecV = new VerCompetenciasView(marco);
-            ecV.Show();
-
             MarcoCompetenciasDAL.guardarMarcoCompetencias(marco);
+            BibliotecaController.verMarco(marco);
+
         }
         private static void procesarArchivoPDF()
         {
@@ -70,19 +68,15 @@ namespace Noodle.controller
             string selectedFileName = openFileDialog1.FileName;
 
             MarcoCompetenciasDTO marco = ProcesarArchivoPdfAction.extraerCompetencias(selectedFileName);
-
-            Program.mW.Hide();
-            VerCompetenciasView ecV = new VerCompetenciasView(marco);
-            ecV.Show();
+            MarcoCompetenciasDAL.guardarMarcoCompetencias(marco);
+            BibliotecaController.verMarco(marco);
         }
 
         public static void procesarArchivoGenerico(string filePath)
         {
             MarcoCompetenciasDTO marco = ProcesarArchivoAction.procesarArchivoSegunFormato(filePath);
-            Program.mW.Hide();
-            VerCompetenciasView ecV = new VerCompetenciasView(marco);
-            ecV.Show();
+            MarcoCompetenciasDAL.guardarMarcoCompetencias(marco);
+            BibliotecaController.verMarco(marco);
         }
-
     }
 }
