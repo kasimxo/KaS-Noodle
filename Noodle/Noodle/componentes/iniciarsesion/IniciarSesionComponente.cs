@@ -30,7 +30,7 @@ namespace Noodle.componentes.iniciarsesion
 
         private void abrirFormRegistrarUsuario(object sender, EventArgs e)
         {
-            Program.isW.iniciarSesionComponente1.Dispose();
+            this.Dispose();
             RegistrarUsuarioComponente ruc = new RegistrarUsuarioComponente();
             Program.isW.container.Controls.Add(ruc, 0 , 1);
         }

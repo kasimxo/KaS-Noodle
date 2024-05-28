@@ -31,10 +31,10 @@
             container = new TableLayoutPanel();
             label1 = new Label();
             tb_username = new TextBox();
-            tb_password = new TextBox();
-            btn_entrar = new Button();
-            btn_entrarInvitado = new Button();
-            btn_registrarusuario = new Button();
+            tb_password2 = new TextBox();
+            btn_crearUsuario = new Button();
+            btn_volverInicioSesion = new Button();
+            tb_password1 = new TextBox();
             container.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,10 +45,10 @@
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             container.Controls.Add(label1, 0, 0);
             container.Controls.Add(tb_username, 0, 1);
-            container.Controls.Add(tb_password, 0, 2);
-            container.Controls.Add(btn_entrar, 0, 3);
-            container.Controls.Add(btn_entrarInvitado, 0, 5);
-            container.Controls.Add(btn_registrarusuario, 0, 4);
+            container.Controls.Add(tb_password2, 0, 3);
+            container.Controls.Add(btn_crearUsuario, 0, 4);
+            container.Controls.Add(btn_volverInicioSesion, 0, 5);
+            container.Controls.Add(tb_password1, 0, 2);
             container.Dock = DockStyle.Fill;
             container.Location = new Point(0, 0);
             container.Name = "container";
@@ -83,53 +83,51 @@
             tb_username.Size = new Size(354, 23);
             tb_username.TabIndex = 1;
             // 
-            // tb_password
+            // tb_password2
             // 
-            tb_password.Dock = DockStyle.Fill;
-            tb_password.Location = new Point(23, 115);
-            tb_password.Name = "tb_password";
-            tb_password.PlaceholderText = "Contraseña";
-            tb_password.Size = new Size(354, 23);
-            tb_password.TabIndex = 3;
+            tb_password2.Dock = DockStyle.Fill;
+            tb_password2.Location = new Point(23, 160);
+            tb_password2.Name = "tb_password2";
+            tb_password2.PlaceholderText = "Confirmar contraseña";
+            tb_password2.Size = new Size(354, 23);
+            tb_password2.TabIndex = 3;
             // 
-            // btn_entrar
+            // btn_crearUsuario
             // 
-            btn_entrar.BackColor = Color.RoyalBlue;
-            btn_entrar.Dock = DockStyle.Fill;
-            btn_entrar.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_entrar.ForeColor = Color.WhiteSmoke;
-            btn_entrar.Location = new Point(23, 160);
-            btn_entrar.Name = "btn_entrar";
-            btn_entrar.Size = new Size(354, 39);
-            btn_entrar.TabIndex = 4;
-            btn_entrar.Text = "Entrar";
-            btn_entrar.UseVisualStyleBackColor = false;
+            btn_crearUsuario.BackColor = Color.RoyalBlue;
+            btn_crearUsuario.Dock = DockStyle.Fill;
+            btn_crearUsuario.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_crearUsuario.ForeColor = Color.WhiteSmoke;
+            btn_crearUsuario.Location = new Point(23, 205);
+            btn_crearUsuario.Name = "btn_crearUsuario";
+            btn_crearUsuario.Size = new Size(354, 39);
+            btn_crearUsuario.TabIndex = 4;
+            btn_crearUsuario.Text = "Crear usuario";
+            btn_crearUsuario.UseVisualStyleBackColor = false;
+            btn_crearUsuario.Click += crearUsuario_Click;
             // 
-            // btn_entrarInvitado
+            // btn_volverInicioSesion
             // 
-            btn_entrarInvitado.BackColor = Color.Gray;
-            btn_entrarInvitado.Dock = DockStyle.Fill;
-            btn_entrarInvitado.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_entrarInvitado.ForeColor = Color.WhiteSmoke;
-            btn_entrarInvitado.Location = new Point(23, 250);
-            btn_entrarInvitado.Name = "btn_entrarInvitado";
-            btn_entrarInvitado.Size = new Size(354, 39);
-            btn_entrarInvitado.TabIndex = 5;
-            btn_entrarInvitado.Text = "Entrar como invitado";
-            btn_entrarInvitado.UseVisualStyleBackColor = false;
+            btn_volverInicioSesion.BackColor = Color.Gray;
+            btn_volverInicioSesion.Dock = DockStyle.Fill;
+            btn_volverInicioSesion.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_volverInicioSesion.ForeColor = Color.WhiteSmoke;
+            btn_volverInicioSesion.Location = new Point(23, 250);
+            btn_volverInicioSesion.Name = "btn_volverInicioSesion";
+            btn_volverInicioSesion.Size = new Size(354, 39);
+            btn_volverInicioSesion.TabIndex = 5;
+            btn_volverInicioSesion.Text = "¿Tienes una cuenta? Inicia sesión";
+            btn_volverInicioSesion.UseVisualStyleBackColor = false;
+            btn_volverInicioSesion.Click += mostrarIniciaSesion;
             // 
-            // btn_registrarusuario
+            // tb_password1
             // 
-            btn_registrarusuario.BackColor = Color.SlateGray;
-            btn_registrarusuario.Dock = DockStyle.Fill;
-            btn_registrarusuario.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_registrarusuario.ForeColor = Color.WhiteSmoke;
-            btn_registrarusuario.Location = new Point(23, 205);
-            btn_registrarusuario.Name = "btn_registrarusuario";
-            btn_registrarusuario.Size = new Size(354, 39);
-            btn_registrarusuario.TabIndex = 6;
-            btn_registrarusuario.Text = "Registrar nuevo usuario";
-            btn_registrarusuario.UseVisualStyleBackColor = false;
+            tb_password1.Dock = DockStyle.Fill;
+            tb_password1.Location = new Point(23, 115);
+            tb_password1.Name = "tb_password1";
+            tb_password1.PlaceholderText = "Contraseña";
+            tb_password1.Size = new Size(354, 23);
+            tb_password1.TabIndex = 6;
             // 
             // RegistrarUsuarioComponente
             // 
@@ -151,9 +149,9 @@
         public TableLayoutPanel container;
         private Label label1;
         public TextBox tb_username;
-        public TextBox tb_password;
-        private Button btn_entrar;
-        private Button btn_entrarInvitado;
-        private Button btn_registrarusuario;
+        public TextBox tb_password2;
+        private Button btn_crearUsuario;
+        private Button btn_volverInicioSesion;
+        public TextBox tb_password1;
     }
 }

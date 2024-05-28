@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Noodle.controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace Noodle.componentes.iniciarsesion
         public RegistrarUsuarioComponente()
         {
             InitializeComponent();
+        }
+
+        private void mostrarIniciaSesion(object sender, EventArgs e)
+        {
+            this.Dispose();
+            IniciarSesionComponente isc = new IniciarSesionComponente();
+            Program.isW.container.Controls.Add(isc, 0, 1);
+        }
+
+        private void crearUsuario_Click(object sender, EventArgs e)
+        {
+            SesionController.registrarUsuario();
         }
     }
 }
