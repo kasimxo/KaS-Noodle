@@ -127,22 +127,25 @@
   <data name="img_cargar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\files\img_cargar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="img_logotipoNoodleExtendidoInvertido" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\files\img_logotipoNoodleExtendidoInvertido.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="img_editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\files\img_editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="img_exportar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\files\img_exportar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="img_biblioteca" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\files\img_biblioteca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="img_pdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\files\img_pdf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="img_logotipoNoodleExtendidoInvertido" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\files\img_logotipoNoodleExtendidoInvertido.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="img_eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\files\img_eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="img_biblioteca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\files\img_biblioteca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="img_compartir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\files\img_compartir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -49,5 +49,10 @@ namespace Noodle.components
             Control control = (Control)sender;
             control.BackColor = Color.Transparent;
         }
+
+        private void compartirMarco_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

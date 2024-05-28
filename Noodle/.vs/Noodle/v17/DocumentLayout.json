@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\KaS-Noodle\\Noodle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|C:\\KaS-Noodle\\Noodle\\noodle\\componentes\\iniciarsesion\\registrarusuariocomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\iniciarsesion\\registrarusuariocomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\ver\\resultadoaprendizajecomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\ver\\resultadoaprendizajecomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\iniciarsesion\\iniciarsesioncomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\iniciarsesion\\iniciarsesioncomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\biblioteca\\titulomarcocompetenciascomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\biblioteca\\titulomarcocompetenciascomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\view\\iniciarsesionview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\view\\iniciarsesionview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|c:\\kas-noodle\\noodle\\noodle\\componentes\\biblioteca\\titulomarcocompetenciascomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A86EA566-95C6-424E-BCBA-00764874A74B}|Noodle\\Noodle.csproj|solutionrelative:noodle\\componentes\\biblioteca\\titulomarcocompetenciascomponente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,38 +30,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IniciarSesionView.cs [Design]",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\IniciarSesionView.cs",
-              "RelativeDocumentMoniker": "Noodle\\view\\IniciarSesionView.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\view\\IniciarSesionView.cs [Design]",
-              "RelativeToolTip": "Noodle\\view\\IniciarSesionView.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "ResultadoAprendizajeComponente.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\ver\\ResultadoAprendizajeComponente.cs",
+              "RelativeDocumentMoniker": "Noodle\\componentes\\ver\\ResultadoAprendizajeComponente.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\ver\\ResultadoAprendizajeComponente.cs*",
+              "RelativeToolTip": "Noodle\\componentes\\ver\\ResultadoAprendizajeComponente.cs*",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:34:59.244Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-05-28T17:01:25.751Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IniciarSesionComponente.cs [Design]",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\iniciarsesion\\IniciarSesionComponente.cs",
-              "RelativeDocumentMoniker": "Noodle\\componentes\\iniciarsesion\\IniciarSesionComponente.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\iniciarsesion\\IniciarSesionComponente.cs [Design]",
-              "RelativeToolTip": "Noodle\\componentes\\iniciarsesion\\IniciarSesionComponente.cs [Design]",
+              "Title": "TituloMarcoCompetenciasComponente.cs",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "RelativeDocumentMoniker": "Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "RelativeToolTip": "Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAswDYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:30:20.181Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-05-28T16:56:09.46Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RegistrarUsuarioComponente.cs [Design]",
-              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\iniciarsesion\\RegistrarUsuarioComponente.cs",
-              "RelativeDocumentMoniker": "Noodle\\componentes\\iniciarsesion\\RegistrarUsuarioComponente.cs",
-              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\iniciarsesion\\RegistrarUsuarioComponente.cs [Design]",
-              "RelativeToolTip": "Noodle\\componentes\\iniciarsesion\\RegistrarUsuarioComponente.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "TituloMarcoCompetenciasComponente.cs [Design]",
+              "DocumentMoniker": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "RelativeDocumentMoniker": "Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs",
+              "ToolTip": "C:\\KaS-Noodle\\Noodle\\Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs [Design]",
+              "RelativeToolTip": "Noodle\\componentes\\biblioteca\\TituloMarcoCompetenciasComponente.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T12:02:00.062Z",
+              "WhenOpened": "2024-05-28T16:47:27.164Z",
               "EditorCaption": " [Design]"
             }
           ]

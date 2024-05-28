@@ -30,9 +30,11 @@
         {
             titulo = new Label();
             container = new TableLayoutPanel();
-            pictureBox1 = new PictureBox();
+            pb_eliminar = new PictureBox();
+            pb_compartir = new PictureBox();
             container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pb_eliminar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pb_compartir).BeginInit();
             SuspendLayout();
             // 
             // titulo
@@ -54,32 +56,45 @@
             // 
             container.AutoSize = true;
             container.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            container.ColumnCount = 2;
+            container.ColumnCount = 3;
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             container.ColumnStyles.Add(new ColumnStyle());
+            container.ColumnStyles.Add(new ColumnStyle());
             container.Controls.Add(titulo, 0, 0);
-            container.Controls.Add(pictureBox1, 1, 0);
+            container.Controls.Add(pb_eliminar, 2, 0);
+            container.Controls.Add(pb_compartir, 1, 0);
             container.Dock = DockStyle.Fill;
             container.Location = new Point(10, 10);
             container.Name = "container";
             container.RowCount = 1;
             container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            container.Size = new Size(147, 56);
+            container.Size = new Size(203, 56);
             container.TabIndex = 1;
             // 
-            // pictureBox1
+            // pb_eliminar
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.img_eliminar;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(94, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(50, 50);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += eliminarMarco_Click;
-            pictureBox1.MouseEnter += hoverEffect;
-            pictureBox1.MouseLeave += resetColorEffect;
-            pictureBox1.MouseHover += hoverEffect;
+            pb_eliminar.BackgroundImage = Properties.Resources.img_eliminar;
+            pb_eliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            pb_eliminar.Location = new Point(150, 3);
+            pb_eliminar.Name = "pb_eliminar";
+            pb_eliminar.Size = new Size(50, 50);
+            pb_eliminar.TabIndex = 1;
+            pb_eliminar.TabStop = false;
+            pb_eliminar.Click += eliminarMarco_Click;
+            pb_eliminar.MouseEnter += hoverEffect;
+            pb_eliminar.MouseLeave += resetColorEffect;
+            pb_eliminar.MouseHover += hoverEffect;
+            // 
+            // pb_compartir
+            // 
+            pb_compartir.BackgroundImage = Properties.Resources.img_compartir;
+            pb_compartir.BackgroundImageLayout = ImageLayout.Zoom;
+            pb_compartir.Location = new Point(94, 3);
+            pb_compartir.Name = "pb_compartir";
+            pb_compartir.Size = new Size(50, 50);
+            pb_compartir.TabIndex = 2;
+            pb_compartir.TabStop = false;
+            pb_compartir.Click += compartirMarco_Click;
             // 
             // TituloMarcoCompetenciasComponente
             // 
@@ -92,11 +107,12 @@
             Margin = new Padding(25);
             Name = "TituloMarcoCompetenciasComponente";
             Padding = new Padding(10);
-            Size = new Size(167, 76);
+            Size = new Size(223, 76);
             Click += titulo_Click;
             container.ResumeLayout(false);
             container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pb_eliminar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pb_compartir).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -105,6 +121,7 @@
 
         private Label titulo;
         private TableLayoutPanel container;
-        private PictureBox pictureBox1;
+        private PictureBox pb_eliminar;
+        private PictureBox pb_compartir;
     }
 }

@@ -10,9 +10,6 @@
     <Compile Update="componentes\cargar\CargarArchivosComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="componentes\CompetenciaComponente.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="componentes\editar\CriterioEvaluacionEditableComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,25 +61,10 @@
     <Compile Update="componentes\ver\VerCompetenciasComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="view\EditarCompetenciaView.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="view\MainWindowView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="view\VerCompetenciasView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="view\ExportarCompetenciasView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="view\ImportarArchivoView.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="view\IniciarSesionView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="view\RegistrarUsuarioView.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
