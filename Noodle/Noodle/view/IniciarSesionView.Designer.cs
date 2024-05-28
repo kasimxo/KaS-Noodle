@@ -45,7 +45,8 @@
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             container.Controls.Add(logo, 0, 0);
             container.Controls.Add(iniciarSesionComponente1, 0, 1);
-            container.Location = new Point(197, 29);
+            container.Location = new Point(197, 0);
+            container.Margin = new Padding(0);
             container.Name = "container";
             container.RowCount = 2;
             container.RowStyles.Add(new RowStyle());
