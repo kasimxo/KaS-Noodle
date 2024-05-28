@@ -61,13 +61,13 @@ namespace Noodle.components
             }
         }
 
-        private void btn_biblioteca(object sender, EventArgs e) { MenuController.navegarBiblioteca(); }
+        private void btn_biblioteca(object sender, EventArgs e) { NavegacionController.navegarBiblioteca(); }
 
-        private void btn_cargar(object sender, EventArgs e) { MenuController.navegarCargar(); }
+        private void btn_cargar(object sender, EventArgs e) { NavegacionController.navegarCargar(); }
 
-        private void btn_ver(object sender, EventArgs e) { MenuController.navegarVer(); }
-        private void btn_editar(object sender, EventArgs e) { MenuController.navegarEditar(); }
-        private void btn_exportar(object sender, EventArgs e) { MenuController.navegarExportar(); }
+        private void btn_ver(object sender, EventArgs e) { NavegacionController.navegarVer(); }
+        private void btn_editar(object sender, EventArgs e) { NavegacionController.navegarEditar(); }
+        private void btn_exportar(object sender, EventArgs e) { NavegacionController.navegarExportar(); }
 
     }
 }

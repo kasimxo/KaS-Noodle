@@ -11,7 +11,7 @@ namespace Noodle.controller
     /// <summary>
     /// Clase que controla la navegación entre ventanas
     /// </summary>
-    public class MenuController
+    public class NavegacionController
     {
         public static void navegarBiblioteca() 
         {

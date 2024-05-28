@@ -1,3 +1,4 @@
+using Noodle.controller;
 using Noodle.model.dto;
 using Noodle.view;
 
@@ -5,13 +6,35 @@ namespace Noodle
 {
     public static class Program
     {
-
+        /// <summary>
+        /// La vista que contiene todo de la aplicación
+        /// Ie: los marcos, los menús, componentes, etc.
+        /// </summary>
         public static MainWindowView mW;
-        public static Dictionary<Int32, MarcoCompetenciasDTO> marcos; //El listado total de marcos de competencias
-        public static MarcoCompetenciasDTO marco; //El marco de competencias que actualmente está en focus
-        public static CompetenciaDTO competencia; //La competencia que tenemos en focus
+        /// <summary>
+        /// Iniciar sesión Window
+        /// La vista que gestiona el inicio de sesión y que mantiene la aplicación
+        /// </summary>
+        public static IniciarSesionView isW;
+        /// <summary>
+        /// El listado total de marcos de competencias
+        /// </summary>
+        public static Dictionary<Int32, MarcoCompetenciasDTO> marcos; 
+        /// <summary>
+        /// El marco de competencias que actualmente está en focus
+        /// </summary>
+        public static MarcoCompetenciasDTO marco; 
+        /// <summary>
+        /// La competencia que tenemos en focus
+        /// </summary>
+        public static CompetenciaDTO competencia; 
         public static Label labelEditando;
         public static RichTextBox richTextBoxEditando;
+        /// <summary>
+        /// Id del usuario. 1 para el usuario invitado
+        /// 0 Nada mas entrar a la aplicación
+        /// </summary>
+        public static int idUsuario; 
         
         /// <summary>
         ///  The main entry point for the application.
@@ -26,9 +49,11 @@ namespace Noodle
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            isW = new IniciarSesionView();
             mW = new MainWindowView();
 
-            Application.Run(mW);
+            //vamo a íniciar la aplicaicón con el iniciarsesionview
+            Application.Run(isW);
         }
     }
 }

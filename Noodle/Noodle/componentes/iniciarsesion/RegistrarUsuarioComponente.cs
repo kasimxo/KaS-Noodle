@@ -8,16 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Noodle.view
+namespace Noodle.componentes.iniciarsesion
 {
-    public partial class IniciarSesionView : Form
+    public partial class RegistrarUsuarioComponente : UserControl
     {
-        public IniciarSesionView()
+        public RegistrarUsuarioComponente()
         {
             InitializeComponent();
-            
         }
-
-
     }
 }

@@ -35,7 +35,7 @@ namespace Noodle.controller
             if (MessageBox.Show("Se va a eliminar el marco de competencias " + marco.nombreCortoCSV + ", ¿estás seguro?", "Alerta", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 MarcoCompetenciasDAL.eliminarMarcoCompetencias(marco);
-                MenuController.navegarBiblioteca();
+                NavegacionController.navegarBiblioteca();
             }
             else 
             {

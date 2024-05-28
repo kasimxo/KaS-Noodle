@@ -80,6 +80,7 @@
             Name = "MainWindowView";
             Text = "Noodle";
             WindowState = FormWindowState.Maximized;
+            FormClosing += hideForm;
             layout.ResumeLayout(false);
             layout.PerformLayout();
             ResumeLayout(false);

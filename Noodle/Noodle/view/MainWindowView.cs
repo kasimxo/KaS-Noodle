@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Noodle.controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,16 @@ namespace Noodle.view
             menu.marcarEstado(1);
         }
 
+        private void hideForm(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                this.Hide();
+                Program.idUsuario = 0;
+                Program.isW.Show();
+            }
 
+        }
     }
 }
