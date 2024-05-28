@@ -81,5 +81,21 @@ namespace Noodle.model.dal
             var id = await commandIniciarSesion.ExecuteScalarAsync();
             return (int) id;
         }
+
+        public static async Task<Int32> seleccionarIdUsuario(byte[] nombreEncriptado)
+        {
+            await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
+            await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
+            var commandMarco = new NpgsqlCommand("seleccionaridusuario", connection);
+
+            commandMarco.CommandType = System.Data.CommandType.StoredProcedure;
+
+            commandMarco.Parameters.AddWithValue("@nombreUsuarioIn", nombreEncriptado);
+            commandMarco.Parameters.AddWithValue("@idUsuarioOut", 0);
+            var resultado = commandMarco.ExecuteScalar();
+
+            connection.Close();
+            return (int) resultado;
+        }
     }
 }

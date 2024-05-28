@@ -60,7 +60,6 @@ namespace Noodle.model.dal
 
             connection.Close();
             return;
-            //await using var reader = await command.ExecuteReaderAsync();
         }
 
         public static async Task<Dictionary<Int32, MarcoCompetenciasDTO>> cargarMarcosCompetencias() 
@@ -111,13 +110,6 @@ namespace Noodle.model.dal
 
             connection.Close();
 
-            /*
-            foreach (MarcoCompetenciasDTO marco in marcos) 
-            {
-                marco.competencias = await CompetenciaDAL.cargarCompetencia(marco.idDB);
-            }
-            */
-
             return marcos;
         }
 
@@ -142,6 +134,7 @@ namespace Noodle.model.dal
 
             if (resultado > 0)
             {
+                connection.Close();
                 return true;
             }
             else
@@ -151,16 +144,41 @@ namespace Noodle.model.dal
             }
         }
 
-        internal static async Task<long> numeroMarcosCompetencias()
+        public static async Task<long> numeroMarcosCompetencias()
         {
 
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
             var commandMarco = new NpgsqlCommand("SELECT * from public.numeromarcoscompetencias("+Program.idUsuario+");", connection);
             var numeroMarcos = await commandMarco.ExecuteScalarAsync();
-
-            //var numeroMarcos = resultSet.GetValue(0);
+            connection.Close();
             return (long)numeroMarcos;
         }
+
+        /// <summary>
+        /// Método que crea una 'instancia' de marco compartido
+        /// Es decir, inserta en la tabla de compartidos de la base de datos
+        /// un nuevo registro
+        /// </summary>
+        /// <param name="idMarco"></param>
+        /// <param name="idUsuarioCompartido"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public static async void compartirMarcoCompetencias(Int32 idMarco, Int32 idUsuarioCompartido)
+        {
+            await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
+            await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
+            var commandMarco = new NpgsqlCommand("insertarinstanciacompartido", connection);
+
+            commandMarco.CommandType = System.Data.CommandType.StoredProcedure;
+
+            commandMarco.Parameters.AddWithValue("@idMarcoIn", idMarco);
+            commandMarco.Parameters.AddWithValue("@idUsuarioPropietarioIn", Program.idUsuario);
+            commandMarco.Parameters.AddWithValue("@idUsuarioCompartidoIn", idUsuarioCompartido);
+            var resultado = commandMarco.ExecuteNonQuery();
+            connection.Close();
+            return;
+        }
+
+
     }
 }

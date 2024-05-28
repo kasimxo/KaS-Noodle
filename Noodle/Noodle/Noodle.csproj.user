@@ -61,6 +61,9 @@
     <Compile Update="componentes\ver\VerCompetenciasComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="view\CompartirMarcoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="view\MainWindowView.cs">
       <SubType>Form</SubType>
     </Compile>

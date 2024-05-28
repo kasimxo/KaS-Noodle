@@ -1,4 +1,5 @@
 ﻿using Noodle.controller;
+using Noodle.model.action;
 using Noodle.model.dto;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,7 @@ namespace Noodle.components
 
         private void compartirMarco_Click(object sender, EventArgs e)
         {
-
+            CompartirMarcoAction.compartirMarcoForm(marco);
         }
     }
 }

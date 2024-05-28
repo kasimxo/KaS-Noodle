@@ -95,6 +95,8 @@
             pb_compartir.TabIndex = 2;
             pb_compartir.TabStop = false;
             pb_compartir.Click += compartirMarco_Click;
+            pb_compartir.MouseEnter += hoverEffect;
+            pb_compartir.MouseLeave += resetColorEffect;
             // 
             // TituloMarcoCompetenciasComponente
             // 
