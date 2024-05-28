@@ -46,13 +46,15 @@ namespace Noodle.model.dal
         {
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
-            var commandRegistro = new NpgsqlCommand("registrarusuario", connection);
-            commandRegistro.CommandType = System.Data.CommandType.StoredProcedure;
+            var commandComprobarUsuario = new NpgsqlCommand("comprobarusuario", connection);
+            commandComprobarUsuario.CommandType = System.Data.CommandType.StoredProcedure;
 
-            commandRegistro.Parameters.AddWithValue("@nombreUsuarioIn", nombreUsuario);
-            commandRegistro.Parameters.AddWithValue("@idUsuarioOut", 0);
+            commandComprobarUsuario.Parameters.AddWithValue("@nombreUsuarioIn", nombreUsuario);
+            commandComprobarUsuario.Parameters.AddWithValue("@existe", false);
 
-            var resultado = await commandRegistro.ExecuteScalarAsync();
+
+            var resultado = await commandComprobarUsuario.ExecuteScalarAsync();
+
 
             connection.Close();
             return (Boolean) resultado;
@@ -65,10 +67,19 @@ namespace Noodle.model.dal
         /// <param name="nombreUsuario"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static async Task<Int32> iniciarSesion(string nombreUsuario, string password) 
+        public static async Task<Int32> iniciarSesion(byte[] nombreUsuario, byte[] password) 
         {
-            
-            return 0;
+            await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
+            await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
+            var commandIniciarSesion = new NpgsqlCommand("iniciarsesion", connection);
+            commandIniciarSesion.CommandType = System.Data.CommandType.StoredProcedure;
+
+            commandIniciarSesion.Parameters.AddWithValue("@nombreUsuarioIn", nombreUsuario);
+            commandIniciarSesion.Parameters.AddWithValue("@passwordIn", password);
+            commandIniciarSesion.Parameters.AddWithValue("@idUsuarioOut", 0);
+
+            var id = await commandIniciarSesion.ExecuteScalarAsync();
+            return (int) id;
         }
     }
 }

@@ -47,6 +47,7 @@ namespace Noodle.model.dal
             commandMarco.Parameters.AddWithValue("@esMarcoCompetenciasCSVIn", true);
             commandMarco.Parameters.AddWithValue("@taxonomiaCSVIn", marco.taxonomiaCSV);
             commandMarco.Parameters.AddWithValue("@filePathIn", marco.filePath);
+            commandMarco.Parameters.AddWithValue("@idUsuarioIn", Program.idUsuario);
             commandMarco.Parameters.AddWithValue("@idGenerado", 0);
 
             //El id del marco que acabamos de insertar
@@ -68,7 +69,7 @@ namespace Noodle.model.dal
 
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
-            var commandMarco = new NpgsqlCommand("SELECT * from public.cargarmarcoscompetencias();", connection);
+            var commandMarco = new NpgsqlCommand("SELECT * from public.cargarmarcoscompetencias("+Program.idUsuario+");", connection);
 
             var resultSet = await commandMarco.ExecuteReaderAsync();
 
@@ -136,7 +137,7 @@ namespace Noodle.model.dal
             commandMarco.CommandType = System.Data.CommandType.StoredProcedure;
 
             commandMarco.Parameters.AddWithValue("@idMarcoIn", marco.idDB);
-
+            commandMarco.Parameters.AddWithValue("@idUsuarioIn", Program.idUsuario);
             var resultado = commandMarco.ExecuteNonQuery();
 
             if (resultado > 0)
@@ -155,7 +156,7 @@ namespace Noodle.model.dal
 
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
-            var commandMarco = new NpgsqlCommand("SELECT * from public.numeromarcoscompetencias();", connection);
+            var commandMarco = new NpgsqlCommand("SELECT * from public.numeromarcoscompetencias("+Program.idUsuario+");", connection);
             var numeroMarcos = await commandMarco.ExecuteScalarAsync();
 
             //var numeroMarcos = resultSet.GetValue(0);

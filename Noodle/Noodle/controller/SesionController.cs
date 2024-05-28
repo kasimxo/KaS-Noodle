@@ -18,20 +18,29 @@ namespace Noodle.controller
     /// </summary>
     public class SesionController
     {
-        public static void iniciarSesion() 
+        public static async void iniciarSesion() 
         {
             var nombreUsuario = Program.isW.iniciarSesionComponente1.tb_username.Text;
             var pass = Program.isW.iniciarSesionComponente1.tb_password.Text;
             if (nombreUsuario != null && pass != null && nombreUsuario.Length > 0 && pass.Length > 0)
             {
+                var nombreEncriptado = AESCrypt.Encrypt(nombreUsuario);
+                var passEncriptada = AESCrypt.Encrypt(pass);
+
+                var id = await SesionDAL.iniciarSesion(nombreEncriptado, passEncriptada);
+                //Con esto ya hemos iniciado sesión
+                Program.idUsuario = id;
+                Program.mW.Show();
+                Program.isW.Hide();
             }
             else 
             {
+                MessageBox.Show("Debe introducir el nombre de usuario y contraseña para poder iniciar sesión", "Aviso");
                 return;
             }
         }
 
-        public static void registrarUsuario() 
+        public static async void registrarUsuario() 
         {
             RegistrarUsuarioComponente registrarUsuarioForm = (RegistrarUsuarioComponente) Program.isW.container.GetControlFromPosition(0, 1);
             
@@ -54,7 +63,21 @@ namespace Noodle.controller
             var usuarioEncriptado = AESCrypt.Encrypt(nombreUsuarioText);
             var passEncriptada = AESCrypt.Encrypt(pass1);
 
-            var id = SesionDAL.registrarUsuario(usuarioEncriptado, passEncriptada);
+            //Primero comprobamos si ya existe un usuario con ese nombre
+            Boolean existe = await SesionDAL.comprobarUsuarioDuplicado(usuarioEncriptado);
+            if ( existe ) 
+            {
+                MessageBox.Show("Ya existe un usuario registrado con ese nombre", "Aviso");
+                return;
+            }
+
+            //Registramos el usuario en la base de datos y nos devuelve su nueva id
+            var id = await SesionDAL.registrarUsuario(usuarioEncriptado, passEncriptada);
+            
+            //Con esto ya hemos iniciado sesión
+            Program.idUsuario = id;
+            Program.mW.Show();
+            Program.isW.Hide();
         }
 
         public static void iniciarSesionInvitado()
