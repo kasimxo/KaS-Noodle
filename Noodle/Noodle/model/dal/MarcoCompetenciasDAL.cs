@@ -144,6 +144,11 @@ namespace Noodle.model.dal
             }
         }
 
+        /// <summary>
+        /// Devuelve el número de marcos de competencias (propios) que tiene un usuario
+        /// en la base de datos
+        /// </summary>
+        /// <returns></returns>
         public static async Task<long> numeroMarcosCompetencias()
         {
 
@@ -155,29 +160,7 @@ namespace Noodle.model.dal
             return (long)numeroMarcos;
         }
 
-        /// <summary>
-        /// Método que crea una 'instancia' de marco compartido
-        /// Es decir, inserta en la tabla de compartidos de la base de datos
-        /// un nuevo registro
-        /// </summary>
-        /// <param name="idMarco"></param>
-        /// <param name="idUsuarioCompartido"></param>
-        /// <exception cref="NotImplementedException"></exception>
-        public static async void compartirMarcoCompetencias(Int32 idMarco, Int32 idUsuarioCompartido)
-        {
-            await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
-            await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
-            var commandMarco = new NpgsqlCommand("insertarinstanciacompartido", connection);
 
-            commandMarco.CommandType = System.Data.CommandType.StoredProcedure;
-
-            commandMarco.Parameters.AddWithValue("@idMarcoIn", idMarco);
-            commandMarco.Parameters.AddWithValue("@idUsuarioPropietarioIn", Program.idUsuario);
-            commandMarco.Parameters.AddWithValue("@idUsuarioCompartidoIn", idUsuarioCompartido);
-            var resultado = commandMarco.ExecuteNonQuery();
-            connection.Close();
-            return;
-        }
 
 
     }

@@ -28,8 +28,16 @@ namespace Noodle.controller
                 var passEncriptada = AESCrypt.Encrypt(pass);
 
                 var id = await SesionDAL.iniciarSesion(nombreEncriptado, passEncriptada);
+
+                if (id == 0) 
+                {
+                    //Ha surgido un problema y no se ha podido iniciar sesión
+                    return;
+                }
+                
                 //Con esto ya hemos iniciado sesión
                 Program.idUsuario = id;
+                NavegacionController.navegarBiblioteca();
                 Program.mW.Show();
                 Program.isW.Hide();
             }
@@ -72,7 +80,7 @@ namespace Noodle.controller
             }
 
             //Registramos el usuario en la base de datos y nos devuelve su nueva id
-            var id = await SesionDAL.registrarUsuario(usuarioEncriptado, passEncriptada);
+            var id = await SesionDAL.registrarUsuario(usuarioEncriptado, nombreUsuarioText, passEncriptada);
             
             //Con esto ya hemos iniciado sesión
             Program.idUsuario = id;

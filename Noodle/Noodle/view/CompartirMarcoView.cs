@@ -19,6 +19,8 @@ namespace Noodle.view
         {
             InitializeComponent();
             this.marco = m;
+            titulo.Text += ": " +marco.nombreCortoCSV;
+
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -29,6 +31,7 @@ namespace Noodle.view
         private void btn_compartir_Click(object sender, EventArgs e)
         {
             CompartirController.compartirMarco(marco, tb_username.Text);
+            CompartirController.actualizarListaCompartidos(this);
         }
     }
 }

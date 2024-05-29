@@ -60,3 +60,4 @@ C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.componentes.ver.Crit
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.componentes.iniciarsesion.IniciarSesionComponente.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.componentes.iniciarsesion.RegistrarUsuarioComponente.resources
 C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.view.CompartirMarcoView.resources
+C:\KaS-Noodle\Noodle\Noodle\obj\Debug\net6.0-windows\Noodle.componentes.compartir.UsuarioCompartidoComponente.resources

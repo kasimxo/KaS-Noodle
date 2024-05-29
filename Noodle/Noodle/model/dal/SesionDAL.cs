@@ -18,14 +18,15 @@ namespace Noodle.model.dal
         /// <param name="nombreUsuario"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static async Task<Int32> registrarUsuario(byte[] nombreUsuario, byte[] password) 
+        public static async Task<Int32> registrarUsuario(byte[] nombreUsuarioByte, string nombreUsuarioText, byte[] password) 
         {
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
             var commandRegistro = new NpgsqlCommand("registrarusuario", connection);
             commandRegistro.CommandType = System.Data.CommandType.StoredProcedure;
 
-            commandRegistro.Parameters.AddWithValue("@nombreUsuarioIn", nombreUsuario);
+            commandRegistro.Parameters.AddWithValue("@nombreUsuarioByteIn", nombreUsuarioByte);
+            commandRegistro.Parameters.AddWithValue("@nombreUsuarioTextIn", nombreUsuarioText);
             commandRegistro.Parameters.AddWithValue("@passwordIn", password);
             commandRegistro.Parameters.AddWithValue("@idUsuarioOut", 0);
 
@@ -79,6 +80,13 @@ namespace Noodle.model.dal
             commandIniciarSesion.Parameters.AddWithValue("@idUsuarioOut", 0);
 
             var id = await commandIniciarSesion.ExecuteScalarAsync();
+
+            if (id == null) 
+            {
+                MessageBox.Show("No se ha podido iniciar sesión", "Aviso");
+                return 0;
+            }
+
             return (int) id;
         }
 

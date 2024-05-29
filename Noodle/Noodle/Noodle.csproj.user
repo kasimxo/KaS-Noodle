@@ -10,6 +10,9 @@
     <Compile Update="componentes\cargar\CargarArchivosComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="componentes\compartir\UsuarioCompartidoComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="componentes\editar\CriterioEvaluacionEditableComponente.cs">
       <SubType>UserControl</SubType>
     </Compile>

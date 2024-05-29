@@ -1,4 +1,5 @@
-﻿using Noodle.model.dto;
+﻿using Noodle.controller;
+using Noodle.model.dto;
 using Noodle.view;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Noodle.model.action
         public static void compartirMarcoForm(MarcoCompetenciasDTO marco) 
         {
             CompartirMarcoView cmv = new CompartirMarcoView(marco);
+            CompartirController.actualizarListaCompartidos(cmv);
             cmv.Show();
             return;
         }
