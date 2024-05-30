@@ -19,7 +19,11 @@ namespace Noodle
         /// <summary>
         /// El listado total de marcos de competencias
         /// </summary>
-        public static Dictionary<Int32, MarcoCompetenciasDTO> marcos; 
+        public static Dictionary<Int32, MarcoCompetenciasDTO> marcos;
+        /// <summary>
+        /// Los marcos que han compartido contigo
+        /// </summary>
+        public static Dictionary<Int32, MarcoCompetenciasDTO> marcosCompartidos;
         /// <summary>
         /// El marco de competencias que actualmente está en focus
         /// </summary>

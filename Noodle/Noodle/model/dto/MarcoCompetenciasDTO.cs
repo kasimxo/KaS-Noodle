@@ -12,7 +12,11 @@ namespace Noodle.model.dto
         public string denominacion {  get; set; } //Desarrollo de Aplicaciones Multiplataforma
         public string siglas { get; set; } //DAM
         public string nivel {  get; set; } // B M S (Básico, Medio, Superior) 
-
+        /// <summary>
+        /// Identifica si este marco ha sido compartido contigo o lo has creado tu
+        /// Default: false
+        /// </summary>
+        public Boolean esCompartido { get; set; }
         public string idPadreCSV { get; set; }
         public string idCSV { get; set; }
         public string nombreCortoCSV { get; set; }
@@ -38,6 +42,7 @@ namespace Noodle.model.dto
         public MarcoCompetenciasDTO()
         {
             this.competencias = new Dictionary<string, CompetenciaDTO>();
+            this.esCompartido = false;
         }
 
         public string denominacionToSiglas(string denominacion)

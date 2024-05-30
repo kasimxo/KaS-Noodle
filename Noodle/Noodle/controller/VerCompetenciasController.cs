@@ -12,7 +12,7 @@ namespace Noodle.controller
 {
     public static class VerCompetenciasController
     {
-        public static void abrirDetalleCompetencia(CompetenciaDTO com) 
+        public static void abrirDetalleCompetencia() 
         {
             //Primero limpia por si hubiera una ya abierta
             VerCompetenciasComponente vcc = (VerCompetenciasComponente) Program.mW.layout.GetControlFromPosition(1, 0);
@@ -22,7 +22,7 @@ namespace Noodle.controller
             }
             
 
-            DetalleCompetenciaComponente dcc = new DetalleCompetenciaComponente(com);
+            DetalleCompetenciaComponente dcc = new DetalleCompetenciaComponente(Program.competencia);
             dcc.Dock = DockStyle.Fill;
             vcc.container.Controls.Add(dcc, 1, 0);
         }

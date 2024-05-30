@@ -53,12 +53,16 @@ namespace Noodle.model.dal
             commandComprobarUsuario.Parameters.AddWithValue("@nombreUsuarioIn", nombreUsuario);
             commandComprobarUsuario.Parameters.AddWithValue("@existe", false);
 
+            try {
+                var resultado = await commandComprobarUsuario.ExecuteScalarAsync();
 
-            var resultado = await commandComprobarUsuario.ExecuteScalarAsync();
+                connection.Close();
+                return (Boolean)resultado;
+            } catch (Exception ex) {
+                connection.Close();
+                return true;
+            }
 
-
-            connection.Close();
-            return (Boolean) resultado;
         }
 
         /// <summary>
@@ -79,15 +83,28 @@ namespace Noodle.model.dal
             commandIniciarSesion.Parameters.AddWithValue("@passwordIn", password);
             commandIniciarSesion.Parameters.AddWithValue("@idUsuarioOut", 0);
 
-            var id = await commandIniciarSesion.ExecuteScalarAsync();
+            try
+            {
+                var id = await commandIniciarSesion.ExecuteScalarAsync();
 
-            if (id == null) 
+                if (id == null)
+                {
+                    connection.Close();
+                    MessageBox.Show("No se ha podido iniciar sesión", "Aviso");
+                    return 0;
+                }
+                connection.Close();
+                return (int)id;
+            }
+            catch (Exception e) 
             {
                 MessageBox.Show("No se ha podido iniciar sesión", "Aviso");
+
+                connection.Close();
                 return 0;
             }
 
-            return (int) id;
+            
         }
 
         public static async Task<Int32> seleccionarIdUsuario(byte[] nombreEncriptado)

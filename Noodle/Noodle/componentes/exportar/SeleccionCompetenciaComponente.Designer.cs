@@ -35,7 +35,7 @@
             // cb
             // 
             cb.AutoSize = true;
-            cb.Location = new Point(3, 3);
+            cb.Location = new Point(8, 8);
             cb.Name = "cb";
             cb.Size = new Size(15, 14);
             cb.TabIndex = 0;
@@ -45,7 +45,8 @@
             // 
             nombre.AutoSize = true;
             nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            nombre.Location = new Point(24, 3);
+            nombre.Location = new Point(29, 8);
+            nombre.MaximumSize = new Size(375, 0);
             nombre.Name = "nombre";
             nombre.Size = new Size(50, 18);
             nombre.TabIndex = 1;
@@ -60,8 +61,12 @@
             BackColor = Color.FromArgb(192, 192, 255);
             Controls.Add(nombre);
             Controls.Add(cb);
+            Margin = new Padding(25, 3, 0, 3);
+            MaximumSize = new Size(400, 0);
+            MinimumSize = new Size(400, 0);
             Name = "SeleccionCompetenciaComponente";
-            Size = new Size(77, 21);
+            Padding = new Padding(5);
+            Size = new Size(400, 31);
             ResumeLayout(false);
             PerformLayout();
         }

@@ -24,7 +24,10 @@ namespace Noodle.components
 
         private void abrirDetalleCompetencia_Click(object sender, EventArgs e)
         {
-            VerCompetenciasController.abrirDetalleCompetencia(competencia);
+            Program.competencia = competencia;
+            MenuComponente menu = (MenuComponente)Program.mW.layout.GetControlFromPosition(0, 0);
+            menu.actualizarPermisos();
+            VerCompetenciasController.abrirDetalleCompetencia();
         }
     }
 }

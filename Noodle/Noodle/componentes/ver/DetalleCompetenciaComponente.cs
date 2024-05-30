@@ -20,6 +20,9 @@ namespace Noodle.components
         public DetalleCompetenciaComponente(CompetenciaDTO com)
         {
             InitializeComponent();
+            if (Program.marco.esCompartido) {
+                button1.Enabled = false;
+            }
             this.competencia = com;
             nombreCompetencia.Text = competencia.nombreCortoCSV;
             popularResultadosAprendizaje();

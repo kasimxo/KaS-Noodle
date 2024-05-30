@@ -37,6 +37,8 @@ namespace Noodle.controller
 
             Program.labelEditando = (Label)sender;
             Program.richTextBoxEditando = new RichTextBox();
+            Program.richTextBoxEditando.Dock = DockStyle.Fill;
+            Program.richTextBoxEditando.Size = new Size(400, 100);
             Program.richTextBoxEditando.Text = Program.labelEditando.Text;
             Program.labelEditando.Visible = false;
             //Program.richTextBoxEditando.Leave += guardarCambios;

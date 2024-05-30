@@ -41,8 +41,8 @@
             // 
             titulo.AutoSize = true;
             titulo.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            titulo.Location = new Point(15, 15);
-            titulo.Margin = new Padding(15);
+            titulo.Location = new Point(10, 10);
+            titulo.Margin = new Padding(10);
             titulo.Name = "titulo";
             titulo.Size = new Size(61, 22);
             titulo.TabIndex = 0;
@@ -64,20 +64,21 @@
             container.Controls.Add(pb_eliminar, 2, 0);
             container.Controls.Add(pb_compartir, 1, 0);
             container.Dock = DockStyle.Fill;
-            container.Location = new Point(10, 10);
+            container.Location = new Point(5, 5);
             container.Name = "container";
             container.RowCount = 1;
             container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            container.Size = new Size(203, 56);
+            container.Size = new Size(157, 42);
             container.TabIndex = 1;
             // 
             // pb_eliminar
             // 
+            pb_eliminar.Anchor = AnchorStyles.None;
             pb_eliminar.BackgroundImage = Properties.Resources.img_eliminar;
             pb_eliminar.BackgroundImageLayout = ImageLayout.Zoom;
-            pb_eliminar.Location = new Point(150, 3);
+            pb_eliminar.Location = new Point(122, 5);
             pb_eliminar.Name = "pb_eliminar";
-            pb_eliminar.Size = new Size(50, 50);
+            pb_eliminar.Size = new Size(32, 32);
             pb_eliminar.TabIndex = 1;
             pb_eliminar.TabStop = false;
             pb_eliminar.Click += eliminarMarco_Click;
@@ -87,11 +88,12 @@
             // 
             // pb_compartir
             // 
+            pb_compartir.Anchor = AnchorStyles.None;
             pb_compartir.BackgroundImage = Properties.Resources.img_compartir;
             pb_compartir.BackgroundImageLayout = ImageLayout.Zoom;
-            pb_compartir.Location = new Point(94, 3);
+            pb_compartir.Location = new Point(84, 5);
             pb_compartir.Name = "pb_compartir";
-            pb_compartir.Size = new Size(50, 50);
+            pb_compartir.Size = new Size(32, 32);
             pb_compartir.TabIndex = 2;
             pb_compartir.TabStop = false;
             pb_compartir.Click += compartirMarco_Click;
@@ -108,8 +110,8 @@
             Controls.Add(container);
             Margin = new Padding(25);
             Name = "TituloMarcoCompetenciasComponente";
-            Padding = new Padding(10);
-            Size = new Size(223, 76);
+            Padding = new Padding(5);
+            Size = new Size(167, 52);
             Click += titulo_Click;
             container.ResumeLayout(false);
             container.PerformLayout();

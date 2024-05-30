@@ -68,11 +68,12 @@ namespace Noodle.model.dal
 
             await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
-            var commandMarco = new NpgsqlCommand("SELECT * from public.cargarmarcoscompetencias("+Program.idUsuario+");", connection);
+            var commandMarco = new NpgsqlCommand("SELECT * from public.cargarmarcoscompetencias(" + Program.idUsuario + ");", connection);
 
             var resultSet = await commandMarco.ExecuteReaderAsync();
 
-            while (resultSet.Read()) {
+            while (resultSet.Read())
+            {
                 MarcoCompetenciasDTO marco = new MarcoCompetenciasDTO();
 
                 //En la posicion 0 el resultset tiene el id del marco en la bbdd
@@ -95,10 +96,12 @@ namespace Noodle.model.dal
                 };
                 marco.fromCSV(partes);
 
-                try {
+                try
+                {
 
                     marco.filePath = resultSet.GetString(15);
-                } catch (Exception ex) 
+                }
+                catch (Exception ex)
                 {
                 }
 
@@ -160,8 +163,58 @@ namespace Noodle.model.dal
             return (long)numeroMarcos;
         }
 
+        public static async Task<Dictionary<int, MarcoCompetenciasDTO>> cargarMarcosCompetenciasCompartido()
+        {
+            Dictionary<Int32, MarcoCompetenciasDTO> marcos = new Dictionary<Int32, MarcoCompetenciasDTO>();
 
+            await using var dataSource = NpgsqlDataSource.Create(Configuracion.CONNECTION_STRING);
+            await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
+            var commandMarco = new NpgsqlCommand("SELECT * from public.cargarmarcoscompetenciascompartidos(" + Program.idUsuario + ");", connection);
 
+            var resultSet = await commandMarco.ExecuteReaderAsync();
 
+            while (resultSet.Read())
+            {
+                MarcoCompetenciasDTO marco = new MarcoCompetenciasDTO();
+
+                //En la posicion 0 el resultset tiene el id del marco en la bbdd
+                //Esto es útil para rescatar despues las campetencias, RA y CE correspondientes
+                String[] partes = {
+                    resultSet.GetString(1),
+                    resultSet.GetString(2),
+                    resultSet.GetString(3),
+                    resultSet.GetString(4),
+                    resultSet.GetString(5),
+                    resultSet.GetString(6),
+                    resultSet.GetString(7),
+                    resultSet.GetString(8),
+                    resultSet.GetString(9),
+                    resultSet.GetString(10),
+                    resultSet.GetString(11),
+                    resultSet.GetString(12),
+                    resultSet.GetString(13),
+                    resultSet.GetString(14)
+                };
+                marco.fromCSV(partes);
+
+                try
+                {
+
+                    marco.filePath = resultSet.GetString(15);
+                }
+                catch (Exception ex)
+                {
+                }
+                //Lo marcamos como marco compartido
+                marco.esCompartido = true;
+                marco.idDB = resultSet.GetInt32(0);
+
+                marcos.Add(marco.idDB, marco);
+            }
+
+            connection.Close();
+
+            return marcos;
+        }
     }
 }

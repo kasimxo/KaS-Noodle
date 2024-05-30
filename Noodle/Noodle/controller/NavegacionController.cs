@@ -26,6 +26,7 @@ namespace Noodle.controller
             BibliotecaComponente bc = new BibliotecaComponente();
             bc.Dock = DockStyle.Fill;
             Program.mW.layout.Controls.Add(bc, 1, 0);
+            menu.actualizarPermisos();
         }
         public static void navegarCargar() 
         {
@@ -40,6 +41,7 @@ namespace Noodle.controller
             CargarArchivosComponente cac = new CargarArchivosComponente();
 
             Program.mW.layout.Controls.Add(cac, 1, 0);
+            menu.actualizarPermisos();
         }
         public static void navegarVer() 
         {
@@ -58,28 +60,11 @@ namespace Noodle.controller
             VerCompetenciasComponente vcc = new VerCompetenciasComponente(Program.marco);
             vcc.Dock = DockStyle.Fill;
             Program.mW.layout.Controls.Add(vcc, 1, 0);
+            menu.actualizarPermisos();
         }
         public static void navegarEditar() 
         {
             if (Program.competencia == null) {
-                return;
-            }
-            MenuComponente menu = (MenuComponente)Program.mW.layout.GetControlFromPosition(0, 0);
-            menu.marcarEstado(3);
-
-            if (Program.mW.layout.GetControlFromPosition(1, 0) != null)
-            {
-                Program.mW.layout.GetControlFromPosition(1, 0).Dispose();
-            }
-
-            EditarCompetenciaComponente vcc = new EditarCompetenciaComponente(Program.competencia);
-
-            Program.mW.layout.Controls.Add(vcc, 1, 0);
-        }
-        public static void navegarExportar() 
-        {
-            if (Program.marco == null) 
-            {
                 return;
             }
             MenuComponente menu = (MenuComponente)Program.mW.layout.GetControlFromPosition(0, 0);
@@ -90,8 +75,28 @@ namespace Noodle.controller
                 Program.mW.layout.GetControlFromPosition(1, 0).Dispose();
             }
 
+            EditarCompetenciaComponente vcc = new EditarCompetenciaComponente(Program.competencia);
+            vcc.Dock = DockStyle.Fill;
+            Program.mW.layout.Controls.Add(vcc, 1, 0);
+            menu.actualizarPermisos();
+        }
+        public static void navegarExportar() 
+        {
+            if (Program.marco == null) 
+            {
+                return;
+            }
+            MenuComponente menu = (MenuComponente)Program.mW.layout.GetControlFromPosition(0, 0);
+            menu.marcarEstado(5);
+
+            if (Program.mW.layout.GetControlFromPosition(1, 0) != null)
+            {
+                Program.mW.layout.GetControlFromPosition(1, 0).Dispose();
+            }
+
             ExportarCompetenciasComponente ecc = new ExportarCompetenciasComponente(Program.marco);
             Program.mW.layout.Controls.Add(ecc, 1, 0);
+            menu.actualizarPermisos();
         }
     }
 }

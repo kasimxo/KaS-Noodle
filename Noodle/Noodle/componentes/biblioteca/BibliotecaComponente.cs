@@ -1,4 +1,5 @@
-﻿using Noodle.model.dal;
+﻿using Noodle.componentes.biblioteca;
+using Noodle.model.dal;
 using Noodle.model.dto;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,16 @@ namespace Noodle.components
             foreach (MarcoCompetenciasDTO marco in Program.marcos.Values) 
             {
                 TituloMarcoCompetenciasComponente tmcc = new TituloMarcoCompetenciasComponente(marco);
-                flp.Controls.Add(tmcc);
+                flp_marcospropios.Controls.Add(tmcc);
             }
-            
+
+            //Los marcos compartidos los recargamos siempre
+            Program.marcosCompartidos = await MarcoCompetenciasDAL.cargarMarcosCompetenciasCompartido();
+            foreach (MarcoCompetenciasDTO marco in Program.marcosCompartidos.Values)
+            {
+                MarcoCompartido tmcc = new MarcoCompartido(marco);
+                flp_marcoscompartidos.Controls.Add(tmcc);
+            }
         }
     }
 }
