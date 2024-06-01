@@ -14,8 +14,6 @@ namespace Noodle.model.action
 {
     public class ProcesarArchivoPdfAction
     {
-        public ProcesarArchivoPdfAction(string filename) { }
-
         public static MarcoCompetenciasDTO extraerCompetencias(string filePath)
         {
             MarcoCompetenciasDTO ciclo = new MarcoCompetenciasDTO();
@@ -24,6 +22,7 @@ namespace Noodle.model.action
             string modu = "";
             string ultimora = "";
             CriterioEvaluacionDTO ce = null;
+            ResultadoAprendizajeDTO ra = null;
             Boolean modulo = false;
             Boolean resultadoAprendizaje = false;
             Boolean criteriosEvaluacion = false;
@@ -129,15 +128,22 @@ namespace Noodle.model.action
                                         catch (Exception e) { }
                                     }
 
-                                    //Aquí hacemos match de RA
-                                    ciclo.competencias[modu].ras.Add(linea, new ResultadoAprendizajeDTO(linea, i));
-                                    ultimora = linea;
+                                    ra = new ResultadoAprendizajeDTO(linea, i);
+
                                     frase = "";
+                                }
+                                else if (!criteriosEvaluacion && linea.CompareTo("") != 0 && ra != null && !linea.Trim().ToLower().StartsWith("criterios de evaluaci")) 
+                                {
+                                    ra.nombre += " " +linea;
                                 }
                                 else if (linea.Trim().ToLower().StartsWith("criterios de evaluaci"))
                                 {
+                                    //como vamos a empezar a meter los criterios de evaluación, el ra ya se ha formado
+
+                                    ciclo.competencias[modu].ras.Add(ra.nombre, ra);
+                                    ultimora = ra.nombre;
                                     criteriosEvaluacion = true;
-                                } 
+                                }
                                 else if (criteriosEvaluacion)
                                 {
                                     Regex reg = new Regex("^[a-z]\\).*");
@@ -148,21 +154,23 @@ namespace Noodle.model.action
                                         {
                                             try
                                             {
-                                                ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.contenido, ce);
+                                                ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.descripcionCSV, ce);
                                             }
                                             catch (Exception e) { }
                                         }
-                                         ce = new CriterioEvaluacionDTO(linea, i);
+                                        ce = new CriterioEvaluacionDTO(linea, i);
                                     }
-                                    else if (!linea.Trim().ToLower().StartsWith("contenidos") 
-                                        && ce != null) {
+                                    else if (!linea.Trim().ToLower().StartsWith("contenidos")
+                                        && ce != null)
+                                    {
 
                                         Regex regCabecera = new Regex(".*\\/.*\\/.*");
                                         Regex regPie = new Regex(".*[a-zA-z]+.*");
                                         if (!regCabecera.IsMatch(linea) && regPie.IsMatch(linea))
                                         {
                                             ce.contenido += " " + linea;
-                                        } 
+                                            ce.descripcionCSV += " " + linea;
+                                        }
                                     }
                                 }
 
@@ -174,6 +182,8 @@ namespace Noodle.model.action
                             modulo = false;
                             resultadoAprendizaje = false;
                             criteriosEvaluacion = false;
+                            ra = null;
+                            ce = null;
                             ultimora = "";
                             modu = "";
 

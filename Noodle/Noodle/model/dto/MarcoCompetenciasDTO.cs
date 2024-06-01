@@ -88,7 +88,13 @@ namespace Noodle.model.dto
 
         public string ID()
         {
-            return "mc_" + categoria().ToLower() + "_" + siglas.ToLower();
+            if (categoria != null && siglas != null) {
+                return "mc_" + categoria().ToLower() + "_" + siglas.ToLower();
+            } 
+            else
+            {
+                return "";
+            }
         }
 
         /// <summary>

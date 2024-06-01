@@ -33,6 +33,7 @@ namespace Noodle.model.dal
             commandCe.Parameters.AddWithValue("@esMarcoCompetenciasCSVIn", ce.esMarcoCompetenciasCSV);
             commandCe.Parameters.AddWithValue("@taxonomiaCSVIn", ce.taxonomiaCSV);
             commandCe.Parameters.AddWithValue("@idRAPadreGenerado", idResultadoAprendizajeGenerado);
+            commandCe.Parameters.AddWithValue("@paginaIn", ce.pag);
             commandCe.Parameters.AddWithValue("@idGenerado", 0);
 
             var idCriterioEvaluacionGenerado = commandCe.ExecuteScalar();
@@ -47,13 +48,15 @@ namespace Noodle.model.dal
             await using NpgsqlConnection connection = await dataSource.OpenConnectionAsync();
             var commandCriteriosEvaluacion = new NpgsqlCommand("SELECT * from public.cargarcriteriosevaluacion(" + idResultadoAprendizajeCargado + ");", connection);
 
-            var resultSet = await commandCriteriosEvaluacion.ExecuteReaderAsync();
-
-            while (resultSet.Read())
+            try
             {
-                CriterioEvaluacionDTO ce = new CriterioEvaluacionDTO();
+                var resultSet = await commandCriteriosEvaluacion.ExecuteReaderAsync();
 
-                String[] partes = {
+                while (resultSet.Read())
+                {
+                    CriterioEvaluacionDTO ce = new CriterioEvaluacionDTO();
+
+                    String[] partes = {
                     resultSet.GetString(1),
                     resultSet.GetString(2),
                     resultSet.GetString(3),
@@ -69,15 +72,24 @@ namespace Noodle.model.dal
                     resultSet.GetString(13),
                     resultSet.GetString(14)
                 };
-                ce.fromCSV(partes);
+                    ce.fromCSV(partes);
 
-                ce.idDB = resultSet.GetInt32(0);
+                    ce.idDB = resultSet.GetInt32(0);
+                    ce.pag = resultSet.GetInt32(15);
 
-                ces.Add(ce.nombreCortoCSV, ce);
+                    ces.Add(ce.nombreCortoCSV, ce);
+                }
+                connection.Close();
+
+                return ces;
             }
-            connection.Close();
+            catch (Exception ex) 
+            {
+                connection.Close();
+                return ces;
+            }
 
-            return ces;
+            
         }
     }
 }

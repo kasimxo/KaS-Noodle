@@ -33,6 +33,7 @@ namespace Noodle.model.dal
             commandCompetencia.Parameters.AddWithValue("@esMarcoCompetenciasCSVIn", com.esMarcoCompetenciasCSV);
             commandCompetencia.Parameters.AddWithValue("@taxonomiaCSVIn", com.taxonomiaCSV);
             commandCompetencia.Parameters.AddWithValue("@idPadreMarcoGenerado", idMarcoGenerado);
+            commandCompetencia.Parameters.AddWithValue("@paginaIn", com.pag);
             commandCompetencia.Parameters.AddWithValue("@idGenerado", 0);
 
             Int32 idCompetenciaGenerado = (int) commandCompetencia.ExecuteScalar();
@@ -84,6 +85,7 @@ namespace Noodle.model.dal
                 competencia.fromCSV(partes);
 
                 competencia.idDB = resultSet.GetInt32(0);
+                competencia.pag = resultSet.GetInt32(15);
 
                 competencias.Add(competencia.nombreCortoCSV, competencia);
             }
