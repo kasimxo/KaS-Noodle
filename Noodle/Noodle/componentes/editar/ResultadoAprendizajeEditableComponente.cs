@@ -19,7 +19,7 @@ namespace Noodle.componentes.editar
         {
             InitializeComponent();
             this.ra = resultadoaprendizaje;
-            nombre.Text = ra.nombreCortoCSV;
+            nombre.Text = ra.descripcionCSV;
             popularCriteriosEvaluacion();
         }
 
@@ -35,6 +35,7 @@ namespace Noodle.componentes.editar
         private void convertirEditable(object sender, EventArgs e)
         {
             EditarCompetenciaController.convertirEditable(sender, e);
+            Program.ra = ra;
         }
     }
 }

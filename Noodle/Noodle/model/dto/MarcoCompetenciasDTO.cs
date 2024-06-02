@@ -161,7 +161,8 @@ namespace Noodle.model.dto
                 "\"" + esMarcoCompetenciasCSV + "\"" + Configuracion.CARACTER_CSV +
                 "\"" + taxonomiaCSV + "\"";
 
-            int cant = 0;
+            //Empezamos el contador en uno para que se asemeje mas al lenguaje natural
+            int cant = 1;
 
             foreach(CompetenciaDTO com in competencias.Values)
             {

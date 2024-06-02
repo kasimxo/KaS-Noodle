@@ -16,8 +16,8 @@ namespace Noodle.model.action
     {
         public static MarcoCompetenciasDTO extraerCompetencias(string filePath)
         {
-            MarcoCompetenciasDTO ciclo = new MarcoCompetenciasDTO();
-            ciclo.filePath = filePath;
+            MarcoCompetenciasDTO marco = new MarcoCompetenciasDTO();
+            marco.filePath = filePath;
             Dictionary<string, CompetenciaDTO> competencias = new Dictionary<string, CompetenciaDTO>();
             string modu = "";
             string ultimora = "";
@@ -26,6 +26,9 @@ namespace Noodle.model.action
             Boolean modulo = false;
             Boolean resultadoAprendizaje = false;
             Boolean criteriosEvaluacion = false;
+            Regex regCabecera = new Regex(".*\\/.*\\/.*");
+            //Comprueba que la línea contenga algo de texto
+            Regex regPie = new Regex(".*[a-zA-z]+.*");
 
             using (var document = PdfDocument.Open(filePath))
             {
@@ -63,25 +66,27 @@ namespace Noodle.model.action
                         }
                         frase += linea;
 
-                        //Identifica la denominación del ciclo
+                        //Identifica la denominación del marco
                         if ((linea.Trim().ToLower().StartsWith("denominación") || linea.Trim().ToLower().StartsWith("denominacion")) && linea.ToLower().Contains(":"))
                         {
-                            ciclo.denominacion = limpiar(linea.Substring(linea.IndexOf(":") + 1));
-                            ciclo.siglas = ciclo.denominacionToSiglas(ciclo.denominacion);
+                            marco.denominacion = limpiar(linea.Substring(linea.IndexOf(":") + 1));
+                            marco.siglas = marco.denominacionToSiglas(marco.denominacion);
+                            marco.nombreCortoCSV = marco.generarNombreCorto();
+                            marco.descripcionCSV = "Marco de competencias del ciclo de formación profesional: " + marco.denominacion + ".";
                         }
 
                         if (linea.Trim().ToLower().StartsWith("nivel") && linea.ToLower().Contains(":"))
                         {
                             if (linea.ToLower().Contains("superior"))
                             {
-                                ciclo.nivel = "S";
+                                marco.nivel = "S";
                             } else if (linea.ToLower().Contains("medio"))
                             {
-                                ciclo.nivel = "M";
+                                marco.nivel = "M";
                             }
                             else if (linea.ToLower().Contains("basico") || linea.ToLower().Contains("básico"))
                             {
-                                ciclo.nivel = "B";
+                                marco.nivel = "B";
                             }
                         }
 
@@ -93,9 +98,9 @@ namespace Noodle.model.action
                             mod = limpiar(mod);
 
                             //Comprueba si están en el mapa y si no es así los mete
-                            if (!ciclo.competencias.ContainsKey(mod))
+                            if (!marco.competencias.ContainsKey(mod))
                             {
-                                ciclo.competencias.Add(mod, new CompetenciaDTO(mod, i));
+                                marco.competencias.Add(mod, new CompetenciaDTO(mod, i));
                                 modu = mod;
                             }
                             //modulos.add(new Modulo(mod));
@@ -122,25 +127,37 @@ namespace Noodle.model.action
                                     {
                                         try
                                         {
-                                            ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.contenido, ce);
+                                            marco.competencias[modu].ras[ultimora].criterios.Add(ce.contenido, ce);
                                             ce = null;
                                         }
                                         catch (Exception e) { }
                                     }
 
-                                    ra = new ResultadoAprendizajeDTO(linea, i);
+                                    //Al crear un nuevo resultado de aprendizaje, limpiamos la numeración que lleve al principio
+                                    Regex limpiarRA = new Regex("^[1-9]\\.\\s");
+                                    string cleanRA = limpiarRA.Replace(linea, "");
+                                    ra = new ResultadoAprendizajeDTO(cleanRA, i) ;
+
+                                    //Marcamos los criterios de evaluación como false
+                                    //hasta que lleguemos a los ces de este ra
+                                    criteriosEvaluacion = false;
 
                                     frase = "";
                                 }
-                                else if (!criteriosEvaluacion && linea.CompareTo("") != 0 && ra != null && !linea.Trim().ToLower().StartsWith("criterios de evaluaci")) 
+                                else if (!criteriosEvaluacion 
+                                    && linea.CompareTo("") != 0 && ra != null && !linea.Trim().ToLower().StartsWith("criterios de evaluaci")
+                                    && !regCabecera.IsMatch(linea) 
+                                    && regPie.IsMatch(linea)) 
                                 {
                                     ra.nombre += " " +linea;
+                                    //ra.nombreCortoCSV += " " + linea;
+                                    ra.descripcionCSV += " " + linea;
                                 }
                                 else if (linea.Trim().ToLower().StartsWith("criterios de evaluaci"))
                                 {
                                     //como vamos a empezar a meter los criterios de evaluación, el ra ya se ha formado
 
-                                    ciclo.competencias[modu].ras.Add(ra.nombre, ra);
+                                    marco.competencias[modu].ras.Add(ra.nombre, ra);
                                     ultimora = ra.nombre;
                                     criteriosEvaluacion = true;
                                 }
@@ -154,18 +171,21 @@ namespace Noodle.model.action
                                         {
                                             try
                                             {
-                                                ciclo.competencias[modu].ras[ultimora].criterios.Add(ce.descripcionCSV, ce);
+                                                marco.competencias[modu].ras[ultimora].criterios.Add(ce.descripcionCSV, ce);
                                             }
                                             catch (Exception e) { }
                                         }
-                                        ce = new CriterioEvaluacionDTO(linea, i);
+
+                                        //Al crear un CE primero lo limpiamos
+                                        Regex limpiarCE = new Regex("^[a-z]\\)\\s");
+                                        string cleanRA = limpiarCE.Replace(linea, "");
+                                        ce = new CriterioEvaluacionDTO(cleanRA, i);
                                     }
                                     else if (!linea.Trim().ToLower().StartsWith("contenidos")
                                         && ce != null)
                                     {
 
-                                        Regex regCabecera = new Regex(".*\\/.*\\/.*");
-                                        Regex regPie = new Regex(".*[a-zA-z]+.*");
+
                                         if (!regCabecera.IsMatch(linea) && regPie.IsMatch(linea))
                                         {
                                             ce.contenido += " " + linea;
@@ -173,7 +193,6 @@ namespace Noodle.model.action
                                         }
                                     }
                                 }
-
                             }
                         }
 
@@ -191,7 +210,7 @@ namespace Noodle.model.action
                     }
                 }
             }
-            return ciclo;
+            return marco;
         }
         private static List<CompetenciaDTO> diccionarioToList(Dictionary<string, CompetenciaDTO> competencias)
         {

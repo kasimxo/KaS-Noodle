@@ -40,7 +40,7 @@ namespace Noodle.components
             {
                 cargarCriteriosEvaluacion();
             }
-            nombre.Text = ra.nombreCortoCSV;
+            nombre.Text = ra.descripcionCSV;
         }
 
 

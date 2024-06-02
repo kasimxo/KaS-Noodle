@@ -39,16 +39,13 @@ namespace Noodle.model.dto
         {
             this.ras = new Dictionary<string, ResultadoAprendizajeDTO>();
         }
-        public CompetenciaDTO(string nombre)
-        {
-            this.nombre = nombre;
-            this.ras = new Dictionary<string, ResultadoAprendizajeDTO>();
-        }
+
         public CompetenciaDTO(string nombre, int pag)
         {
             this.nombre = nombre;
             this.pag = pag;
             this.ras = new Dictionary<string, ResultadoAprendizajeDTO>();
+            this.nombreCortoCSV = nombre;
         }
 
         public string generarIdentificador(string idPadre, int cardinalidad) {
@@ -135,7 +132,8 @@ namespace Noodle.model.dto
             idPadreCSV ??= identificadorPadre.Replace(",", "");
             idCSV ??= generarIdentificador(identificador, cardinalidad);
             nombreCortoCSV ??= NombreCorto(cardinalidad);
-            descripcionCSV ??= "<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: " + nombreCiclo + ".</p>";
+            //La descripción en las competencias se deja vacía
+            descripcionCSV ??= "<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">"+"</p>";
             descripcionFormatoCSV ??= "1"; //Fixed: 1
             valoresEscalaCSV ??= ""; //Solo ciclo
             configuracionEscalaCSV ??= ""; //Solo ciclo

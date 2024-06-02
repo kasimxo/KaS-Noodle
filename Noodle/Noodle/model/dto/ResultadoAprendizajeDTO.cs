@@ -35,20 +35,13 @@ namespace Noodle.model.dto
             this.criterios = new Dictionary<string, CriterioEvaluacionDTO>();
         }
 
-        public ResultadoAprendizajeDTO(string nombre) {
-            this.nombre = nombre;
-            this.criterios = new Dictionary<string, CriterioEvaluacionDTO>();
-        }
         public ResultadoAprendizajeDTO(string nombre, int pag)
         {
             this.nombre = nombre;
+            //this.nombreCortoCSV = nombre;
+            this.descripcionCSV = nombre;
             this.pag = pag;
             this.criterios = new Dictionary<string, CriterioEvaluacionDTO>();
-        }
-
-        public ResultadoAprendizajeDTO(Dictionary<string, CriterioEvaluacionDTO> criterios)
-        {
-            this.criterios = criterios;
         }
 
         public string ToCSV(string identificadorPadre, int cardinalidad)
@@ -85,7 +78,7 @@ namespace Noodle.model.dto
             idPadreCSV ??= identificadorPadre.Replace("\"", "").Replace(",", "");
             idCSV ??= generarID(identificadorPadre.Replace("\"", "").Replace(",", ""), cardinalidad);
             nombreCortoCSV ??= generarNombreCorto(cardinalidad);
-            descripcionCSV ??= "<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">Marco de competencias del ciclo de formación profesional: " + generarNombreCorto(cardinalidad) + ".</p>";
+            descripcionCSV ??= "<p dir=\"\"ltr\"\" style=\"\"text-align:left;\"\">" + nombre + ".</p>";
             descripcionFormatoCSV ??= "1"; //Fixed: 1
             valoresEscalaCSV ??= ""; //Solo ciclo
             configuracionEscalaCSV ??= ""; //Solo ciclo
@@ -104,7 +97,7 @@ namespace Noodle.model.dto
         }
 
         public string generarNombreCorto(int cardinalidad) {
-            return "RA " + cardinalidad.ToString()+": "+nombre;
+            return "RA " + cardinalidad.ToString();
         }
 
         public void fromCSV(string[] linea)

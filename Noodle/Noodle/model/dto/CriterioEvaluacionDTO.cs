@@ -29,11 +29,6 @@ namespace Noodle.model.dto
         public string taxonomiaCSV { get; set; }
         public Int32 idDB { get; set; }
 
-        public CriterioEvaluacionDTO(string nombre)
-        {
-            this.contenido = nombre;
-        }
-
         public CriterioEvaluacionDTO(string nombre, int pag)
         {
             this.contenido = nombre;

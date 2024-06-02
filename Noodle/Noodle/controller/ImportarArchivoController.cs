@@ -68,7 +68,12 @@ namespace Noodle.controller
             string selectedFileName = openFileDialog1.FileName;
 
             MarcoCompetenciasDTO marco = ProcesarArchivoPdfAction.extraerCompetencias(selectedFileName);
-            MarcoCompetenciasDAL.guardarMarcoCompetencias(marco);
+
+            //Comprobamos que no se trate de un usuario invitado o haya surgido un problema con el usuario
+            if (Program.idUsuario != 0 && Program.idUsuario != 1) 
+            {
+                MarcoCompetenciasDAL.guardarMarcoCompetencias(marco);
+            }
             BibliotecaController.verMarco(marco);
         }
 

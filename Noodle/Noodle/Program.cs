@@ -31,9 +31,16 @@ namespace Noodle
         /// <summary>
         /// La competencia que tenemos en focus
         /// </summary>
-        public static CompetenciaDTO competencia; 
+        public static CompetenciaDTO competencia;
+        public static ResultadoAprendizajeDTO ra;
+        public static CriterioEvaluacionDTO ce;
         public static Label labelEditando;
         public static RichTextBox richTextBoxEditando;
+        /// <summary>
+        /// Almacena el RAEditableComponente o CEEditableComponente
+        /// o CompetenciaEditableComponente
+        /// </summary>
+        public static Object objetoEditando;
         /// <summary>
         /// Id del usuario. 1 para el usuario invitado
         /// 0 Nada mas entrar a la aplicación

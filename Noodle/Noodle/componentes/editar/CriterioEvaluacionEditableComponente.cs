@@ -27,6 +27,7 @@ namespace Noodle.componentes.editar
         private void convertirEditable(object sender, EventArgs e)
         {
             EditarCompetenciaController.convertirEditable(sender, e);
+            Program.ce = ce;
         }
 
     }
