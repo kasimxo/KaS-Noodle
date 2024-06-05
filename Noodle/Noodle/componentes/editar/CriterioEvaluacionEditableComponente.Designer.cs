@@ -68,6 +68,7 @@
             descripcion.AutoSize = true;
             descripcion.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             descripcion.Location = new Point(50, 0);
+            descripcion.MaximumSize = new Size(475, 0);
             descripcion.Name = "descripcion";
             descripcion.Size = new Size(41, 15);
             descripcion.TabIndex = 1;

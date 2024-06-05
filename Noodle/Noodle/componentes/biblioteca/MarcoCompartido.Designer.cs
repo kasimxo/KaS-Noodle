@@ -69,6 +69,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(255, 192, 255);
             Controls.Add(container);
+            Margin = new Padding(10);
             Name = "MarcoCompartido";
             Padding = new Padding(5);
             Size = new Size(91, 52);

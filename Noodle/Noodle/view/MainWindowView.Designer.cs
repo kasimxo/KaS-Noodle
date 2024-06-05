@@ -63,11 +63,12 @@
             // 
             // bibliotecaComponente1
             // 
-            bibliotecaComponente1.Anchor = AnchorStyles.None;
             bibliotecaComponente1.AutoSize = true;
-            bibliotecaComponente1.Location = new Point(500, 225);
+            bibliotecaComponente1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            bibliotecaComponente1.Dock = DockStyle.Fill;
+            bibliotecaComponente1.Location = new Point(203, 3);
             bibliotecaComponente1.Name = "bibliotecaComponente1";
-            bibliotecaComponente1.Size = new Size(0, 0);
+            bibliotecaComponente1.Size = new Size(594, 444);
             bibliotecaComponente1.TabIndex = 1;
             // 
             // MainWindowView

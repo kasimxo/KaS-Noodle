@@ -35,8 +35,10 @@
             cargar_archivo_label = new Label();
             agregar_archivo_label = new Label();
             arrastrarArchivoComponente1 = new components.ArrastrarArchivoComponente();
+            tableLayoutPanel1 = new TableLayoutPanel();
             container.SuspendLayout();
             flp.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // container
@@ -50,27 +52,28 @@
             container.Controls.Add(agregar_archivo_label, 0, 2);
             container.Controls.Add(arrastrarArchivoComponente1, 0, 3);
             container.Dock = DockStyle.Fill;
-            container.Location = new Point(0, 0);
-            container.Margin = new Padding(50, 3, 3, 3);
+            container.Location = new Point(11, 50);
+            container.Margin = new Padding(3, 50, 3, 3);
             container.Name = "container";
             container.RowCount = 4;
             container.RowStyles.Add(new RowStyle());
+            container.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             container.RowStyles.Add(new RowStyle());
-            container.RowStyles.Add(new RowStyle());
-            container.RowStyles.Add(new RowStyle());
-            container.Size = new Size(452, 448);
+            container.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            container.Size = new Size(477, 494);
             container.TabIndex = 5;
             // 
             // flp
             // 
-            flp.Anchor = AnchorStyles.None;
             flp.AutoSize = true;
             flp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flp.Controls.Add(importarPdfComponente);
             flp.Controls.Add(importarCsvComponente);
-            flp.Location = new Point(30, 35);
+            flp.Dock = DockStyle.Fill;
+            flp.Location = new Point(25, 35);
+            flp.Margin = new Padding(25, 3, 3, 3);
             flp.Name = "flp";
-            flp.Size = new Size(392, 209);
+            flp.Size = new Size(449, 209);
             flp.TabIndex = 4;
             // 
             // importarPdfComponente
@@ -103,7 +106,7 @@
             cargar_archivo_label.Location = new Point(5, 5);
             cargar_archivo_label.Margin = new Padding(5);
             cargar_archivo_label.Name = "cargar_archivo_label";
-            cargar_archivo_label.Size = new Size(442, 22);
+            cargar_archivo_label.Size = new Size(467, 22);
             cargar_archivo_label.TabIndex = 3;
             cargar_archivo_label.Text = "Cargar archivo";
             // 
@@ -115,36 +118,54 @@
             agregar_archivo_label.Location = new Point(5, 252);
             agregar_archivo_label.Margin = new Padding(5);
             agregar_archivo_label.Name = "agregar_archivo_label";
-            agregar_archivo_label.Size = new Size(442, 22);
+            agregar_archivo_label.Size = new Size(467, 22);
             agregar_archivo_label.TabIndex = 5;
             agregar_archivo_label.Text = "Agregar archivo";
             // 
             // arrastrarArchivoComponente1
             // 
             arrastrarArchivoComponente1.AllowDrop = true;
-            arrastrarArchivoComponente1.Anchor = AnchorStyles.None;
             arrastrarArchivoComponente1.AutoSize = true;
             arrastrarArchivoComponente1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             arrastrarArchivoComponente1.BorderStyle = BorderStyle.FixedSingle;
-            arrastrarArchivoComponente1.Location = new Point(25, 282);
-            arrastrarArchivoComponente1.Margin = new Padding(25, 3, 25, 3);
+            arrastrarArchivoComponente1.Location = new Point(50, 304);
+            arrastrarArchivoComponente1.Margin = new Padding(50, 25, 25, 3);
             arrastrarArchivoComponente1.Name = "arrastrarArchivoComponente1";
             arrastrarArchivoComponente1.Padding = new Padding(20);
             arrastrarArchivoComponente1.Size = new Size(402, 163);
             arrastrarArchivoComponente1.TabIndex = 6;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            tableLayoutPanel1.Controls.Add(container, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(505, 547);
+            tableLayoutPanel1.TabIndex = 6;
             // 
             // CargarArchivosComponente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            Controls.Add(container);
+            Controls.Add(tableLayoutPanel1);
             Name = "CargarArchivosComponente";
-            Size = new Size(452, 448);
+            Size = new Size(505, 547);
             container.ResumeLayout(false);
             container.PerformLayout();
             flp.ResumeLayout(false);
             flp.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,5 +179,6 @@
         private Label cargar_archivo_label;
         private Label agregar_archivo_label;
         private components.ArrastrarArchivoComponente arrastrarArchivoComponente1;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

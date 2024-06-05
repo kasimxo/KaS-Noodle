@@ -37,6 +37,7 @@
             // container
             // 
             container.AutoSize = true;
+            container.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             container.ColumnCount = 1;
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             container.Controls.Add(nombre, 0, 0);
@@ -46,7 +47,7 @@
             container.Name = "container";
             container.RowCount = 2;
             container.RowStyles.Add(new RowStyle());
-            container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            container.RowStyles.Add(new RowStyle());
             container.Size = new Size(150, 150);
             container.TabIndex = 0;
             // 
@@ -55,6 +56,7 @@
             nombre.AutoSize = true;
             nombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             nombre.Location = new Point(3, 0);
+            nombre.MaximumSize = new Size(525, 0);
             nombre.Name = "nombre";
             nombre.Size = new Size(50, 18);
             nombre.TabIndex = 0;
@@ -63,6 +65,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(3, 21);

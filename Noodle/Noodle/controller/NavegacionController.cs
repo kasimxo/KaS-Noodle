@@ -39,7 +39,7 @@ namespace Noodle.controller
             }
 
             CargarArchivosComponente cac = new CargarArchivosComponente();
-
+            cac.Dock = DockStyle.Fill;
             Program.mW.layout.Controls.Add(cac, 1, 0);
             menu.actualizarPermisos();
         }
